@@ -28,6 +28,7 @@ void afficherTableau(int tableau[10][20], PERSONNAGE* perso, BALLE* balle){
 
 int main() {
     time_t start,end;
+    int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
     struct timeval stop, startT;
     double dif, difPrec = 0;
     gettimeofday(&startT, NULL);
@@ -65,7 +66,8 @@ int main() {
         time (&end);
         gettimeofday(&stop, NULL);
         dif = difftime(end,start);
-        if(difPrec != dif){
+        if(difMillis >= difPrecMillisBalle+250){
+            difPrecMillisBalle = difMillis;
             checkDeplacementBalle(&balle, tableau);
             afficherTableau(tableau, &perso, &balle);
         }
@@ -75,8 +77,9 @@ int main() {
 
         if (_kbhit()) {
             a = (char) getch();
-            if(/*dif>(difPrec + 0.1)*/1) {
+            if(difMillis >= difPrecMillis+100) {
                 difPrec = dif;
+                difPrecMillis = difMillis;
                 switch (a) {
                     case 'd' :
                         perso.co.Y++;
@@ -103,10 +106,9 @@ int main() {
 
         gotoligcol(21, 21);
         printf("Temps : %.2f\n", dif);
+        difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec)/1000;
         gotoligcol(22, 21);
-        printf("took %lu us\n", (stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec);
-        gotoligcol(23,21);
-        printf("temps en millis : %lu", ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec)/1000);
+        printf("Temps : %d\n", difMillis);
     }while(1);
     Fin :
     return 0;
