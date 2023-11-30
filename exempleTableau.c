@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include "personnage.h"
-#include <sys/time.h>
-#include "consoleDebug/consoleDebug.h"
-
-#include <conio.h>
+#include "partie.h"
 
 int main() {
     FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a");
