@@ -6,13 +6,15 @@
 #include "consoleDebug/consoleDebug.h"
 #include <conio.h>
 
+#define TEMPSLIM 180
+
 
 typedef struct niveau{
     PERSONNAGE perso;
     BALLE balle[5];
     int tempsMillis;
 
-};
+}NIVEAU;
 
 
 #endif
