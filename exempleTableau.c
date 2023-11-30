@@ -1,17 +1,21 @@
 #include <stdio.h>
 #include "personnage.h"
 #include <sys/time.h>
+#include "consoleDebug/consoleDebug.h"
+
 #include <conio.h>
 
 int main() {
+    FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a");
+    int finJeu = 0;
     time_t start,end;
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
     struct timeval stop, startT;
-    double dif, difPrec = 0;
+    double dif;
     gettimeofday(&startT, NULL);
     time (&start);
+
     time (&end);
-    dif = difftime (end,start);
     PERSONNAGE perso;
     initPersonnage(&perso, 1, 3);
     BALLE balle;
@@ -31,14 +35,13 @@ int main() {
         printf("O");
         gotoligcol(balle.co.X, balle.co.Y);
         printf("%c", 207);
-        difPrec = dif;
 
-        int a;
+        char a = 0;
         gotoligcol(0, 0);
+
         if (_kbhit()) {
-            a = getch();
+            a = (char) getch();
             if(difMillis >= difPrecMillis+100) {
-                difPrec = dif;
                 difPrecMillis = difMillis;
                 afficherCase(&perso, &balle);
                 switch (a) {
@@ -83,7 +86,11 @@ int main() {
                         }
                         break;
                     case 'x' :
-                        goto Fin;
+                       finJeu = 1;
+                       break;
+                    case 't' :
+                        consoleDebug(fichierLogs, &perso, &balle);
+                        break;
                     default :
                         break;
                 }
@@ -99,7 +106,7 @@ int main() {
         difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec)/1000;
         gotoligcol(22, 21);
         printf("Temps : %d\n", difMillis);
-    }while(1);
-    Fin :
+    }while(!finJeu);
+    debugFinJeu(fichierLogs, &perso, &balle);
     return 0;
 }

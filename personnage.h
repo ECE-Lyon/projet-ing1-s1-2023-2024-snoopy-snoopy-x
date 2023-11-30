@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <conio.h>
 #include <time.h>
-#include <stdbool.h>
 
 
 typedef struct PERSONNAGE{
@@ -22,11 +21,15 @@ typedef struct OISEAUX{
     short int recup;
 }OISEAUX;
 
+typedef struct PARTIE{
+    BALLE balle;
+    PERSONNAGE perso;
+}PARTIE;
+
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
 void initBalle(BALLE *balle, int X, int Y);
 void afficherCase(PERSONNAGE* perso, BALLE* balle);
 void checkDeplacementBalle(BALLE *balle, int X, int Y);
-void gotoligcol(int lig, int col);
 void initOiseaux(OISEAUX *oiseaux);
 
 #endif
