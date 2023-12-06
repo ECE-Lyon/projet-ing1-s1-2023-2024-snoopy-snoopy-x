@@ -36,7 +36,7 @@ int main() {
 
         if (_kbhit()) {
             a = (char) getch();
-            if(difMillis >= difPrecMillis+100) {
+            if(difMillis >= difPrecMillis+300) {
                 difPrecMillis = difMillis;
                 afficherCase(&perso, &balle);
                 switch (a) {

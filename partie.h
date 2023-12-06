@@ -4,9 +4,10 @@
 #include "plateau.h"
 #include <sys/time.h>
 #include "consoleDebug/consoleDebug.h"
+#include "balle.h"
 #include <conio.h>
 
-#define TEMPSLIM 180
+#define TEMPSLIM 120
 
 
 typedef struct niveau{
