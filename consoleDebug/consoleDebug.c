@@ -1,7 +1,3 @@
-//
-// Created by symph on 30/11/2023.
-//
-
 #include "consoleDebug.h"
 
 
@@ -17,10 +13,10 @@ void printDateDansLogs(FILE* fichierLogs){
 void consoleDebug(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
     fprintf(fichierLogs, "\n");
     printDateDansLogs(fichierLogs);
-    gotoligcol(20, 3);
+    gotoligcol(21, 3);
     char phrase[20];
     scanf("%s", phrase);
-    gotoligcol(20, 3);
+    gotoligcol(21, 3);
     for(int i = 0; i < 50; i++){
         printf(" ");
     }
@@ -29,6 +25,7 @@ void consoleDebug(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
     if(!strcmp(phrase, commandeFermerConsole)){
         fprintf(fichierLogs, "Commande : fermerConsole\n");
         clearConsole();
+        fflush(fichierLogs);
         return;
     }
 
@@ -36,11 +33,13 @@ void consoleDebug(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
     if(!strcmp(phrase, commandePause)){
         fprintf(fichierLogs, "Commande : pause\n");
         consoleDebug(fichierLogs, perso, balle);
+        fflush(fichierLogs);
     }
 
     char commandeDonnerCo[9] = {"donnerCo"};
     if(!strcmp(phrase, commandeDonnerCo)){
         fprintf(fichierLogs, "Commande : donnerCo -> val : X = %d, Y = %d", perso->co.X, perso->co.Y);
+        fflush(fichierLogs);
         return;
     }
 
@@ -53,12 +52,14 @@ void consoleDebug(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
         fprintf(fichierLogs, "Cleared on : ");
         printDateDansLogs(fichierLogs);
         printf("\n\n");
+        fflush(fichierLogs);
         return;
     }
 
     char commandeSiu[4] = {"siu"};
     if(!strcmp(phrase, commandeSiu)){
         fprintf(fichierLogs, "Commande : SIUUUUUUUU\n");
+        clearConsole();
         gotoligcol(0, 0);
         printf("\n"
                "\n"
@@ -80,6 +81,7 @@ void consoleDebug(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
                "                                                               \n"
                "");
         consoleDebug(fichierLogs, perso, balle);
+        fflush(fichierLogs);
         return;
     }
 
@@ -87,8 +89,10 @@ void consoleDebug(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
     if(!strcmp(phrase, commandeKill)){
         fprintf(fichierLogs, "Commande : kill\n");
         debugFinJeu(fichierLogs, perso, balle);
+        fflush(fichierLogs);
         assert(0);
     }
+    clearConsole();
 }
 
 

@@ -1,7 +1,7 @@
 #include "partie.h"
 
 int main() {
-    FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a");
+    FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a+");
     int finJeu = 0;
     time_t start,end;
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
@@ -36,49 +36,25 @@ int main() {
 
         if (_kbhit()) {
             a = (char) getch();
+            switch(a) {
+                case 'x' :
+                case 'X' :
+                    finJeu = 1;break;
+                case 't' :
+                case 'T' :
+                    consoleDebug(fichierLogs, &perso, &balle); break;
+                default :
+                    deplacementPerso(&perso, a); break;
+            }
             if(difMillis >= difPrecMillis+100) {
                 difPrecMillis = difMillis;
                 afficherCase(&perso, &balle);
-                switch (a) {
-                    case 'd' :
-                    case 'D' :
-                        if (perso.co.Y < MAXY) {
-                            perso.co.Y += 4;
-                        }
-                        break;
-                    case 'q' :
-                    case 'Q' :
-                        if (perso.co.Y > MINY) {
-                            perso.co.Y -= 4;
-                        }
-                        break;
-                    case 's' :
-                    case 'S' :
-                        if (perso.co.X < MAXX) {
-                            perso.co.X += 2;
-                        }
-                        break;
-                    case 'z' :
-                    case 'Z' :
-                        if (perso.co.X > MINX) {
-                            perso.co.X -= 2;
-                        }
-                        break;
-                    case 'x' :
-                    case 'X' :
-                        finJeu = 1;
-                        break;
-                    case 't' :
-                    case 'T' :
-                        consoleDebug(fichierLogs, &perso, &balle);
-                        break;
-                    default :
-                        break;
-                }
                 gotoligcol(perso.co.X, perso.co.Y);
                 printf("O");
                 gotoligcol(balle.co.X, balle.co.Y);
                 printf("%c", 207);
+                gotoligcol(23, 21);
+                printf("PV : %d", perso.vies);
             }
         }
 
@@ -89,8 +65,6 @@ int main() {
         printf("Temps : %d\n", difMillis);
         gotoligcol(24,21);
         printf("%d, %d", perso.co.X, perso.co.Y);
-        gotoligcol(25,21);
-        printf("%d", perso.vies);
     }while(!finJeu);
     debugFinJeu(fichierLogs, &perso, &balle);
     return 0;

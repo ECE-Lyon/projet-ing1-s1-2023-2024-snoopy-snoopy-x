@@ -1,6 +1,5 @@
 #ifndef PROJET_PLATEAU_H
 #define PROJET_PLATEAU_H
-#include "personnage.h"
 #include "balle.h"
 
 #define DOUBLEVERTICAL 186

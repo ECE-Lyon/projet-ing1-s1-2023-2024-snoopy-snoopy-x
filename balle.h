@@ -1,7 +1,7 @@
 #ifndef PROJET_BALLE_H
 #define PROJET_BALLE_H
-#include <windows.h>
 #include "personnage.h"
+#include <windows.h>
 #include "ecranConsole.h"
 
 typedef struct BALLE{

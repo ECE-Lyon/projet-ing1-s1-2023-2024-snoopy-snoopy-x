@@ -70,8 +70,8 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, int X, int Y){     /
         }
     }
     if(balle->co.Y == perso->co.Y && balle->co.X == perso->co.X){
-        gotoligcol(23,21);
-        printf("PERDU");
         perso->vies--;
+        gotoligcol(23, 21);
+        printf("PV : %d", perso->vies);
     }
 }
