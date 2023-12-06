@@ -7,3 +7,86 @@ Balle :
 	- Co X : 16, co Y : 16
 	- Direction : 0
 
+
+11/30/23 13:51:39
+Input : siu
+Commande : SIUUUUUUUU
+
+11/30/23 13:51:48
+Input : clear
+
+11/30/23 13:51:56
+Input : kill
+Commande : kill
+
+Fin du jeu : 11/30/23 13:52:25
+Personnage : 
+	- co X : 1, co Y : 3
+	- Pv : 3
+Balle : 
+	- Co X : 2, co Y : 2
+	- Direction : 1
+
+
+12/01/23 13:49:43
+Input : siuu
+
+12/01/23 13:49:46
+Input : siu
+Commande : SIUUUUUUUU
+
+12/01/23 13:49:47
+Input : shut
+Commande : fermerConsole
+
+12/01/23 13:50:18
+Input : kill
+Commande : kill
+
+Fin du jeu : 12/01/23 13:50:19
+Personnage : 
+	- co X : 15, co Y : 15
+	- Pv : 3
+Balle : 
+	- Co X : 12, co Y : 12
+	- Direction : 2
+
+
+12/01/23 13:57:37
+Input : siu
+Commande : SIUUUUUUUU
+
+12/01/23 13:57:39
+Input : shut
+Commande : fermerConsole
+
+12/01/23 13:57:47
+Input : kill
+Commande : kill
+
+Fin du jeu : 12/01/23 13:57:48
+Personnage : 
+	- co X : 1, co Y : 3
+	- Pv : 3
+Balle : 
+	- Co X : 11, co Y : 11
+	- Direction : 0
+
+
+Fin du jeu : 12/04/23 11:09:35
+Personnage : 
+	- co X : 11, co Y : 15
+	- Pv : 3
+Balle : 
+	- Co X : 11, co Y : 11
+	- Direction : 0
+
+
+Fin du jeu : 12/06/23 10:56:37
+Personnage : 
+	- co X : 13, co Y : 97
+	- Pv : 2
+Balle : 
+	- Co X : 20, co Y : 20
+	- Direction : 2
+

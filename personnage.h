@@ -1,11 +1,14 @@
 #ifndef PROJET_PERSONNAGE_H
 #define PROJET_PERSONNAGE_H
+#define MAXX 200
+#define MAXY 200
+#define MINX 0
+#define MINY 0
 
 #include <windows.h>
 #include <conio.h>
 #include <time.h>
 #include <stdio.h>
-#include "balle.h"
 
 
 typedef struct PERSONNAGE{

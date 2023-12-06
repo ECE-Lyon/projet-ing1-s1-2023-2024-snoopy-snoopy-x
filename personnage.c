@@ -1,6 +1,4 @@
 #include "personnage.h"
-#include <stdio.h>
-
 
 void initPersonnage(PERSONNAGE *perso, int X, int Y){
     perso->vies = 3;
