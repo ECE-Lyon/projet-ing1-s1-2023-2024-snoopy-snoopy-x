@@ -2,7 +2,9 @@
 #define PROJET_BALLE_H
 #include "personnage.h"
 #include <windows.h>
-#include "ecranConsole.h"
+#include "../ecranConsole.h"
+#define LINK 197
+
 
 typedef struct BALLE{
     COORD co;

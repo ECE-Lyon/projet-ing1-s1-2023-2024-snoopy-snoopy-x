@@ -1,369 +1,144 @@
-Cleared on : 12/02/23 23:04:13
+Cleared on : 12/06/23 11:47:13
 
-Fin du jeu : 12/02/23 23:04:17
+Fin du jeu : 12/06/23 11:47:22
 Personnage : 
-	- co X : 1, co Y : 3
+	- co X : 19, co Y : 81
 	- Pv : 3
 Balle : 
-	- Co X : 3, co Y : 3
+	- Co X : 23, co Y : 23
 	- Direction : 2
 
 
-12/03/23 11:56:02
-Input : siu
-Commande : SIUUUUUUUU
-
-12/03/23 11:56:03
-Input : shut
-Commande : fermerConsole
-
-Fin du jeu : 12/03/23 11:56:07
+Fin du jeu : 12/06/23 11:49:10
 Personnage : 
-	- co X : 1, co Y : 3
-	- Pv : 3
-Balle : 
-	- Co X : 19, co Y : 19
-	- Direction : 3
-
-
-12/03/23 11:57:19
-Input : siu
-Commande : SIUUUUUUUU
-
-12/03/23 11:57:21
-Input : shut
-Commande : fermerConsole
-
-Fin du jeu : 12/03/23 11:57:25
-Personnage : 
-	- co X : 1, co Y : 7
-	- Pv : 3
-Balle : 
-	- Co X : 16, co Y : 16
-	- Direction : 0
-
-
-12/03/23 11:57:35
-Input : siu
-Commande : SIUUUUUUUU
-
-12/03/23 11:57:36
-Input : shut
-Commande : fermerConsole
-
-12/03/23 11:57:40
-Input : pause
-Commande : pause
-
-12/03/23 11:57:41
-Input : shut
-Commande : fermerConsole
-
-Fin du jeu : 12/03/23 11:57:45
-Personnage : 
-	- co X : 13, co Y : 15
-	- Pv : 3
-Balle : 
-	- Co X : 3, co Y : 3
-	- Direction : 1
-
-
-12/03/23 11:58:02
-Input : pause
-Commande : pause
-
-12/03/23 11:58:03
-Input : pause
-Commande : pause
-
-12/03/23 11:58:06
-Input : shut
-Commande : fermerConsole
-
-12/03/23 11:58:10
-Input : shut
-Commande : fermerConsole
-
-Fin du jeu : 12/03/23 11:58:13
-Personnage : 
-	- co X : 1, co Y : 3
-	- Pv : 3
-Balle : 
-	- Co X : 17, co Y : 17
-	- Direction : 0
-
-
-12/03/23 11:59:11
-Input : siu
-Commande : SIUUUUUUUU
-
-12/03/23 11:59:12
-Input : shut
-Commande : fermerConsole
-
-12/03/23 11:59:16
-Input : pause
-Commande : pause
-
-12/03/23 11:59:17
-Input : unpause
-
-Fin du jeu : 12/03/23 11:59:41
-Personnage : 
-	- co X : 11, co Y : 15
+	- co X : 7, co Y : 73
 	- Pv : 3
 Balle : 
 	- Co X : 8, co Y : 8
 	- Direction : 0
 
 
-Fin du jeu : 12/03/23 12:00:29
+Fin du jeu : 12/06/23 11:55:37
 Personnage : 
-	- co X : 11, co Y : 3
+	- co X : 13, co Y : 81
 	- Pv : 3
-Balle : 
-	- Co X : 11, co Y : 11
-	- Direction : 0
-
-
-Fin du jeu : 12/05/23 11:31:23
-Personnage : 
-	- co X : 9, co Y : 11
-	- Pv : 3
-Balle : 
-	- Co X : 13, co Y : 13
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 10:58:30
-Personnage : 
-	- co X : 7, co Y : 11
-	- Pv : 3
-Balle : 
-	- Co X : 6, co Y : 6
-	- Direction : 0
-
-
-11/30/23 13:51:39
-Input : siu
-Commande : SIUUUUUUUU
-
-11/30/23 13:51:48
-Input : clear
-
-11/30/23 13:51:56
-Input : kill
-Commande : kill
-
-Fin du jeu : 11/30/23 13:52:25
-Personnage : 
-	- co X : 1, co Y : 3
-	- Pv : 3
-Balle : 
-	- Co X : 2, co Y : 2
-	- Direction : 1
-
-
-12/01/23 13:49:43
-Input : siuu
-
-12/01/23 13:49:46
-Input : siu
-Commande : SIUUUUUUUU
-
-12/01/23 13:49:47
-Input : shut
-Commande : fermerConsole
-
-12/01/23 13:50:18
-Input : kill
-Commande : kill
-
-Fin du jeu : 12/01/23 13:50:19
-Personnage : 
-	- co X : 15, co Y : 15
-	- Pv : 3
-Balle : 
-	- Co X : 12, co Y : 12
-	- Direction : 2
-
-
-12/01/23 13:57:37
-Input : siu
-Commande : SIUUUUUUUU
-
-12/01/23 13:57:39
-Input : shut
-Commande : fermerConsole
-
-12/01/23 13:57:47
-Input : kill
-Commande : kill
-
-Fin du jeu : 12/01/23 13:57:48
-Personnage : 
-	- co X : 1, co Y : 3
-	- Pv : 3
-Balle : 
-	- Co X : 11, co Y : 11
-	- Direction : 0
-
-
-Fin du jeu : 12/04/23 11:09:35
-Personnage : 
-	- co X : 11, co Y : 15
-	- Pv : 3
-Balle : 
-	- Co X : 11, co Y : 11
-	- Direction : 0
-
-
-Fin du jeu : 12/06/23 10:56:37
-Personnage : 
-	- co X : 13, co Y : 97
-	- Pv : 2
-Balle : 
-	- Co X : 20, co Y : 20
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 11:02:55
-Personnage : 
-	- co X : 9, co Y : 97
-	- Pv : 2
-Balle : 
-	- Co X : 23, co Y : 23
-	- Direction : 1
-
-
-Fin du jeu : 12/06/23 11:03:47
-Personnage : 
-	- co X : 9, co Y : 61
-	- Pv : 2
 Balle : 
 	- Co X : 21, co Y : 21
 	- Direction : 1
 
 
-12/06/23 11:03:51
-Input : siu
-Commande : SIUUUUUUUU
-
-12/06/23 11:03:52
-Input : clearConsole
-
-Fin du jeu : 12/06/23 11:03:58
+Fin du jeu : 12/06/23 22:18:26
 Personnage : 
-	- co X : 7, co Y : 73
-	- Pv : 3
-Balle : 
-	- Co X : 25, co Y : 25
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 11:28:40
-Personnage : 
-	- co X : 15, co Y : 81
-	- Pv : 3
-Balle : 
-	- Co X : 15, co Y : 15
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 11:29:22
-Personnage : 
-	- co X : 11, co Y : 73
-	- Pv : 3
-Balle : 
-	- Co X : 15, co Y : 15
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 11:30:53
-Personnage : 
-	- co X : 9, co Y : 77
-	- Pv : 3
-Balle : 
-	- Co X : 25, co Y : 25
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 11:31:35
-Personnage : 
-	- co X : 9, co Y : 89
+	- co X : 19, co Y : 89
 	- Pv : 2
+Balle : 
+	- Co X : 13, co Y : 13
+	- Direction : 3
+
+
+Fin du jeu : 12/06/23 22:29:12
+Personnage : 
+	- co X : 17, co Y : 81
+	- Pv : 3
+Balle : 
+	- Co X : 15, co Y : 15
+	- Direction : 2
+
+
+Fin du jeu : 12/06/23 22:29:45
+Personnage : 
+	- co X : 17, co Y : 85
+	- Pv : 3
+Balle : 
+	- Co X : 11, co Y : 11
+	- Direction : 3
+
+
+Fin du jeu : 12/06/23 22:30:07
+Personnage : 
+	- co X : 13, co Y : 77
+	- Pv : 3
+Balle : 
+	- Co X : 22, co Y : 22
+	- Direction : 1
+
+
+Fin du jeu : 12/06/23 22:30:41
+Personnage : 
+	- co X : 11, co Y : 81
+	- Pv : 3
+Balle : 
+	- Co X : 13, co Y : 13
+	- Direction : 0
+
+
+Fin du jeu : 12/06/23 22:33:40
+Personnage : 
+	- co X : 19, co Y : 81
+	- Pv : 3
+Balle : 
+	- Co X : 11, co Y : 11
+	- Direction : 3
+
+
+Fin du jeu : 12/06/23 22:39:01
+Personnage : 
+	- co X : 23, co Y : 93
+	- Pv : 65534
+Balle : 
+	- Co X : 10, co Y : 10
+	- Direction : 0
+
+
+Fin du jeu : 12/06/23 22:43:14
+Personnage : 
+	- co X : 11, co Y : 77
+	- Pv : 0
+Balle : 
+	- Co X : 24, co Y : 24
+	- Direction : 2
+
+
+Fin du jeu : 12/06/23 22:43:57
+Personnage : 
+	- co X : 17, co Y : 89
+	- Pv : 65533
 Balle : 
 	- Co X : 12, co Y : 12
 	- Direction : 0
 
 
-Fin du jeu : 12/06/23 11:32:30
+Fin du jeu : 12/06/23 22:44:03
 Personnage : 
-	- co X : 25, co Y : 109
+	- co X : 17, co Y : 93
+	- Pv : 3
+Balle : 
+	- Co X : 8, co Y : 8
+	- Direction : 3
+
+
+Fin du jeu : 12/06/23 22:44:33
+Personnage : 
+	- co X : 15, co Y : 97
+	- Pv : 2
+Balle : 
+	- Co X : 7, co Y : 7
+	- Direction : 0
+
+
+Fin du jeu : 12/06/23 23:06:14
+Personnage : 
+	- co X : 15, co Y : 93
 	- Pv : 3
 Balle : 
 	- Co X : 14, co Y : 14
-	- Direction : 0
-
-
-Fin du jeu : 12/06/23 11:34:09
-Personnage : 
-	- co X : 21, co Y : 93
-	- Pv : 3
-Balle : 
-	- Co X : 22, co Y : 22
 	- Direction : 2
 
 
-Fin du jeu : 12/06/23 11:36:16
+Fin du jeu : 12/06/23 23:39:39
 Personnage : 
-	- co X : 25, co Y : 109
-	- Pv : 3
-Balle : 
-	- Co X : 10, co Y : 10
-	- Direction : 0
-
-
-Fin du jeu : 12/06/23 11:37:10
-Personnage : 
-	- co X : 17, co Y : 45
-	- Pv : 3
-Balle : 
-	- Co X : 19, co Y : 19
-	- Direction : 1
-
-
-Fin du jeu : 12/06/23 11:37:41
-Personnage : 
-	- co X : 21, co Y : 77
-	- Pv : 3
-Balle : 
-	- Co X : 20, co Y : 20
-	- Direction : 2
-
-
-Fin du jeu : 12/06/23 11:42:20
-Personnage : 
-	- co X : 19, co Y : 101
-	- Pv : 0
-Balle : 
-	- Co X : 11, co Y : 11
-	- Direction : 0
-
-
-Fin du jeu : 12/06/23 11:44:09
-Personnage : 
-	- co X : 15, co Y : 101
-	- Pv : 0
-Balle : 
-	- Co X : 10, co Y : 10
-	- Direction : 0
-
-
-Fin du jeu : 12/06/23 11:45:22
-Personnage : 
-	- co X : 15, co Y : 101
-	- Pv : -1
+	- co X : 25, co Y : 105
+	- Pv : 65534
 Balle : 
 	- Co X : 22, co Y : 22
 	- Direction : 1

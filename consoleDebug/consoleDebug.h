@@ -1,6 +1,6 @@
 #ifndef PROJET_CONSOLEDEBUG_H
 #define PROJET_CONSOLEDEBUG_H
-#include "../balle.h"
+#include "../entitees/balle.h"
 #include <assert.h>
 #include "../ecranConsole.h"
 

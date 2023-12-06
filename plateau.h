@@ -1,6 +1,6 @@
 #ifndef PROJET_PLATEAU_H
 #define PROJET_PLATEAU_H
-#include "balle.h"
+#include "entitees/balle.h"
 
 #define DOUBLEVERTICAL 186
 #define DOUBLEHORIZONTAL 205
@@ -13,7 +13,7 @@
 #define LINK 197
 
 
-void afficherCase(PERSONNAGE *perso, BALLE *balle);
+void afficherCase();
 
 
 #endif

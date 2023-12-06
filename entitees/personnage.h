@@ -24,11 +24,12 @@ typedef struct OISEAUX{
     short int recup;
 }OISEAUX;
 
-
+void gotoligcol(int lig, int col);
 
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
 void initOiseaux(OISEAUX *oiseaux);
 
 void deplacementPerso(PERSONNAGE *perso, char input);
+void cacherCharPerso(PERSONNAGE *perso);
 
 #endif

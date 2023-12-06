@@ -1,5 +1,6 @@
 #include "partie.h"
 
+
 int main() {
     FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a+");
     int finJeu = 0;
@@ -15,22 +16,22 @@ int main() {
     initPersonnage(&perso, 7, 73);
     BALLE balle;
     initBalle(&balle, 19, 85);
+    afficherCase(&perso, &balle);
+
+    gotoligcol(perso.co.X, perso.co.Y);
+    printf("O");
+    gotoligcol(balle.co.X, balle.co.Y);
+    printf("%c", 207);
 
     do {
         time (&end);
         gettimeofday(&stop, NULL);
         dif = difftime(end,start);
         gotoligcol(0, 0);
-        if(difMillis >= difPrecMillisBalle+250){
+        if(difMillis >= difPrecMillisBalle+125){
             difPrecMillisBalle = difMillis;
             checkDeplacementBalle(&balle, &perso, balle.co.X, balle.co.Y);
-            afficherCase(&perso, &balle);
-
         }
-        gotoligcol(perso.co.X, perso.co.Y);
-        printf("O");
-        gotoligcol(balle.co.X, balle.co.Y);
-        printf("%c", 207);
         char a;
         gotoligcol(0, 0);
 
@@ -48,7 +49,6 @@ int main() {
             }
             if(difMillis >= difPrecMillis+100) {
                 difPrecMillis = difMillis;
-                afficherCase(&perso, &balle);
                 gotoligcol(perso.co.X, perso.co.Y);
                 printf("O");
                 gotoligcol(balle.co.X, balle.co.Y);
@@ -68,4 +68,5 @@ int main() {
     }while(!finJeu);
     debugFinJeu(fichierLogs, &perso, &balle);
     return 0;
+
 }
