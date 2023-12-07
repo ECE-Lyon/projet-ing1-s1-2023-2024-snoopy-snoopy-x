@@ -1,25 +1,27 @@
 #include "plateau.h"
 #include "ecranConsole.h"
 
-
+#define ANSI_blanc "\x1b[37m"
+#define ANSI_RED "\x1b[32m"
 
 void afficherCase() {
+
     int TableauminX = 6;
     int TableauminY = 70;
     gotoligcol(TableauminX, TableauminY);
-    printf("%c", DOUBLEANGLEHAUTGAUCHE);
+    printf("%s%c",ANSI_RED, DOUBLEANGLEHAUTGAUCHE);
     for (int m = 0; m < 41; ++m) {
-        printf("%c", DOUBLEHORIZONTAL);
+        printf("%s%c",ANSI_RED, DOUBLEHORIZONTAL);
     }
-    printf("%c", DOUBLEANGLEHAUTDROIT);
+    printf("%s%c",ANSI_RED, DOUBLEANGLEHAUTDROIT);
     gotoligcol(TableauminX += 1, TableauminY);
 
     for (int k = 0; k < 9; ++k) {
-        printf("%c ", DOUBLEVERTICAL);
+        printf("%s%c ",ANSI_RED, DOUBLEVERTICAL);
         for (int l = 0; l < 9; ++l) {
-            printf("   %c", VERTICAL);
+            printf("   %s%c",ANSI_RED,VERTICAL);
         }
-        printf("    %c", DOUBLEVERTICAL);
+        printf("    %s%c",ANSI_RED, DOUBLEVERTICAL);
         gotoligcol(TableauminX += 1, TableauminY);
         printf("%c ", DOUBLEVERTICAL);
         for (int j = 0; j < 9; ++j) {
