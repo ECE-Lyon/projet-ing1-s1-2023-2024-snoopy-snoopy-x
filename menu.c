@@ -2,7 +2,15 @@
 #include "partie.h"
 #include <stdio.h>
 #include <conio.h>
-
+#define ANSI_RESET "\x1b[0m"
+#define ANSI_BLACK "\x1b[30m"
+#define ANSI_RED "\x1b[31m"
+#define ANSI_GREEN "\x1b[32m"
+#define ANSI_YELLOW "\x1b[33m"
+#define ANSI_BLUE "\x1b[34m"
+#define ANSI_MAGENTA "\x1b[35m"
+#define ANSI_CYAN "\x1b[36m"
+#define ANSI_WHITE "\x1b[37m"
 void reglesDuJeu(){
 
 }
@@ -13,19 +21,20 @@ void afficherMenu() {
     gotoligcol(MenuminX + 2, MenuminY + 8);
     printf("%c", BALL);
     gotoligcol(MenuminX, MenuminY);
-    printf("Bienvenue dans la revanche de Snoopy.");
+
+    printf("%s%s%s\n", ANSI_YELLOW, "Bienvenue dans la revanche de Snoopy.", ANSI_RESET);
     gotoligcol(MenuminX + 2, MenuminY + 10);
-    printf("1. Regles du jeu");
+    printf("%s%s", ANSI_RED, "1.Regles du jeu");
     gotoligcol(MenuminX + 3, MenuminY + 7);
-    printf("2. Lancer un nouveau Jeu");
+    printf("%s%s", ANSI_BLUE, "2.Lancer un nouveau Jeu\n", ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 4, MenuminY + 8);
-    printf("3. Charger une partie ");
+    printf("%s%s", ANSI_RED, " 3.Charger une partie ", ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 5, MenuminY + 11);
-    printf("4. Mot de passe ");
+    printf("%s%s", ANSI_BLUE,"4. Mot de passe,"ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 6, MenuminY + 13);
-    printf("5. Scores ");
+    printf("%s%s", ANSI_RED,"5. Scores",ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 7, MenuminY + 13);
-    printf("6. Quitter ");
+    printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
 
     short Select = 0;
