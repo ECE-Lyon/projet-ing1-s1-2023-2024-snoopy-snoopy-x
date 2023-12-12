@@ -16,6 +16,7 @@ void reglesDuJeu(){
 }
 
 void afficherMenu() {
+    printf("\33[?25l");
     int MenuminX = 6;
     int MenuminY = 40;
     gotoligcol(MenuminX + 2, MenuminY + 8);
@@ -59,21 +60,25 @@ void afficherMenu() {
                 case 'E' :
                     switch (Select) {
                         case 0 :
-                            //GameRules();
+                            //TODO: GameRules();
                             break;
                         case 1 :
-                            Niveau();
+                            niveau();
                             break;
                         case 2 :
-                            //Chargement();
+                            //TODO: chargement();
                             break;
                         case 3 :
-                            //Password():
+                            //TODO: password():
                             break;
                         case 4 :
-                            //HighScores();
+                            //TODO: highScores();
                             break;
                         case 5 :
+                            //TODO: score();
+                            break;
+                        case 6 :
+                            //TODO: quitter();
                             break;
                     }
             }

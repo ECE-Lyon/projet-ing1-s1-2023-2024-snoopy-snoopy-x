@@ -6,7 +6,7 @@
 #define LINK 197
 
 
-typedef struct BALLE{
+typedef struct Balle{
     COORD co;
     short int direction;
 }BALLE;

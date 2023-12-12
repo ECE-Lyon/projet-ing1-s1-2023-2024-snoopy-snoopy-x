@@ -1,9 +1,58 @@
 #include "partie.h"
 
+NIVEAU initNiveau(short int niveau){
+    NIVEAU varNiveau;
+
+    // Initialisations ne dépendant pas du niveau
+    varNiveau.perso.vies = 3;
+    varNiveau.tempsMillis = 0;
+    for(int i = 0; i < 4; i++) {
+        varNiveau.oiseaux[i].recup = 0;
+    }
+    varNiveau.oiseaux[0].co.X = 0;
+    varNiveau.oiseaux[0].co.Y = 0;
+
+    varNiveau.oiseaux[1].co.X = 0;
+    varNiveau.oiseaux[1].co.Y = 9;
+
+    varNiveau.oiseaux[2].co.X = 9;
+    varNiveau.oiseaux[2].co.Y = 9;
+
+    varNiveau.oiseaux[3].co.X = 9;
+    varNiveau.oiseaux[3].co.Y = 0;
 
 
+    // Init dépendant de la mémoire : TODO:
+    FILE *fichierNiveau = NULL;
+    switch (niveau) {
+        case 1 :
+            fichierNiveau = fopen("../niveaux/niveau1.txt", "r"); break;
+        case 2 :
+            fichierNiveau = fopen("../niveaux/niveau2.txt", "r"); break;
+        case 3 :
+            fichierNiveau = fopen("../niveaux/niveau3.txt", "r"); break;
+        case 4 :
+            fichierNiveau = fopen("../niveaux/niveau4.txt", "r"); break;
 
-void Niveau() {
+        default :
+            assert(!"Niveau non existant");
+    }
+
+    assert(fichierNiveau);
+    fscanf(fichierNiveau, "tpsBalle %hd", &varNiveau.tpsBalle);
+    fscanf(fichierNiveau, "\ncoDepart %hd %hd", &varNiveau.perso.co.X, &varNiveau.perso.co.Y);
+    fscanf(fichierNiveau, "\nnbBalles %hd :", &varNiveau.nbBalles);
+    varNiveau.tabBalles = calloc(varNiveau.nbBalles, sizeof(BALLE)); // tableau de taille dynamique (ya ptetr le cours sur boostcamp)
+    fscanf(fichierNiveau, "\n");
+    for(int i = 0; i < varNiveau.nbBalles; i++){
+        fscanf(fichierNiveau, "co %hd %hd dir %hd\n", &varNiveau.tabBalles[i].co.X, &varNiveau.tabBalles[i].co.Y, &varNiveau.tabBalles[i].direction);
+    }
+    
+    return varNiveau;
+}
+
+
+void niveau() {
     clearConsole();
     FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a+");
     int finJeu = 0;

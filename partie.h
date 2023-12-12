@@ -10,13 +10,17 @@
 #define TEMPSLIM 120
 
 
-typedef struct niveau {
+typedef struct Niveau {
     PERSONNAGE perso;
-    BALLE balle[5];
+    short nbBalles;
+    BALLE* tabBalles;
+    OISEAUX oiseaux[4];
     short int tpsBalle; //Nombre de ticks par secondes du déplacement de la balle = fréquence = 1/période
     int tempsMillis;
-};
+}NIVEAU;
 
-void Niveau();
+NIVEAU initNiveau(short int niveau);
+
+void niveau();
 
 #endif

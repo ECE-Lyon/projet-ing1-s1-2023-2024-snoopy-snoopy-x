@@ -12,14 +12,14 @@
 //#include "consoleDebug/consoleDebug.h"
 
 
-typedef struct PERSONNAGE{
+typedef struct Personnage{
     COORD co;
     unsigned short int vies;
 }PERSONNAGE;
 
 
 
-typedef struct OISEAUX{
+typedef struct Oiseaux{
     COORD co;
     short int recup;
 }OISEAUX;
