@@ -13,6 +13,7 @@
 #define ANSI_MAGENTA "\x1b[35m"
 #define ANSI_CYAN "\x1b[36m"
 #define ANSI_WHITE "\x1b[37m"
+
 void reglesDuJeu();
 
 #endif
