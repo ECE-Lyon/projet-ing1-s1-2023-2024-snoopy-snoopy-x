@@ -1,6 +1,6 @@
 #include "consoleDebug.h"
 
-
+/*
 void printDateDansLogs(FILE* fichierLogs){
     time_t t = time(NULL);
     struct tm *tm = localtime(&t);
@@ -107,3 +107,4 @@ void debugFinJeu(FILE* fichierLogs, PERSONNAGE* perso, BALLE* balle){
                          "\t- Direction : %d\n\n",
             perso->co.X, perso->co.Y, perso->vies, balle->co.X, balle->co.X, balle-> direction);
 }
+*/

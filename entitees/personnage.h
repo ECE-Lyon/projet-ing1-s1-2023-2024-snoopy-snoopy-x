@@ -10,6 +10,7 @@
 #include <time.h>
 #include <stdio.h>
 #include "../Affichage/ecranConsole.h"
+#include "blocs.h"
 //#include "consoleDebug/consoleDebug.h"
 
 
@@ -29,7 +30,9 @@ typedef struct Oiseaux{
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
 void initOiseaux(OISEAUX *oiseaux);
 
-void deplacementPerso(PERSONNAGE *perso, char input);
+void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
 void cacherCharPerso(PERSONNAGE *perso);
+
+void initvictoireoudefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux);
 
 #endif

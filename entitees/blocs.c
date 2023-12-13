@@ -38,3 +38,10 @@ void afficherTousLesBlocs(BLOC* bloc, int nbBlocs) {
         afficherBloc(bloc[i]);
     }
 }
+
+short collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs) {
+    for(int i = 0; i < nbBlocs; i++) {
+        if (blocs[i].co.X == X && blocs[i].co.Y == Y) return 0;
+    }
+    return 1;
+}

@@ -63,7 +63,12 @@ void niveau() {
     double dif;
     gettimeofday(&startT, NULL);
     time(&start);
-
+    const int nbBlocs = 3;
+    BLOC blocs[] = {
+            initBloc(poussable, 9, 73),
+            initBloc(cassable, 11, 73),
+            initBloc(piege, 13, 73)
+    };
 
     time(&end);
     PERSONNAGE perso;
@@ -88,7 +93,7 @@ void niveau() {
         }
         char a;
         gotoligcol(0, 0);
-
+        afficherTousLesBlocs(blocs, 3);
         if (_kbhit()) {
             a = (char) getch();
             switch (a) {
@@ -98,13 +103,13 @@ void niveau() {
                     break;
                 case 't' :
                 case 'T' :
-                    consoleDebug(fichierLogs, &perso, &balle);
+                    //consoleDebug(fichierLogs, &perso, &balle);
                     break;
                 case 'm' :
                 case 'M' :
                     afficherMenu();
                 default :
-                    deplacementPerso(&perso, a);
+                    deplacementPerso(&perso, a, blocs, nbBlocs);
                     break;
             }
             if (difMillis >= difPrecMillis + 100) {
@@ -128,5 +133,5 @@ void niveau() {
         gotoligcol(24, 21);
         printf("%d, %d", perso.co.X, perso.co.Y);
     } while (1);
-    debugFinJeu(fichierLogs, &perso, &balle);
+    //debugFinJeu(fichierLogs, &perso, &balle);
 }
