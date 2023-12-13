@@ -12,7 +12,7 @@ typedef struct Balle{
 }BALLE;
 
 void initBalle(BALLE *balle, int X, int Y);
-void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, int X, int Y);
+void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nbBlocs);
 
 
 #endif

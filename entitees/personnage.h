@@ -33,6 +33,6 @@ void initOiseaux(OISEAUX *oiseaux);
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
 void cacherCharPerso(PERSONNAGE *perso);
 
-void initvictoireoudefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux);
+void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux);
 
 #endif

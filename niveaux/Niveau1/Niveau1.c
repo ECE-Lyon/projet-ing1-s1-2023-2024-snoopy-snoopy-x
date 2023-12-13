@@ -55,7 +55,6 @@ NIVEAU initNiveau(short int niveau){
 
 void niveau() {
     clearConsole();
-    FILE *fichierLogs = fopen("../consoleDebug/logs.log", "a+");
     int finJeu = 0;
     time_t start, end;
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
@@ -63,19 +62,19 @@ void niveau() {
     double dif;
     gettimeofday(&startT, NULL);
     time(&start);
-    const int nbBlocs = 3;
+    const short nbBlocs = 3;
     BLOC blocs[] = {
-            initBloc(poussable, 9, 73),
-            initBloc(cassable, 11, 73),
-            initBloc(piege, 13, 73)
+            initBloc(poussable, 1, 0),
+            initBloc(cassable, 0, 4),
+            initBloc(piege, 5, 7)
     };
 
     time(&end);
     PERSONNAGE perso;
-    initPersonnage(&perso, 7, 73);
+    initPersonnage(&perso, 0, 0);
     BALLE balle;
     initBalle(&balle, 19, 85);
-    afficherCase(&perso, &balle);
+    afficherCase();
 
     gotoligcol(perso.co.X, perso.co.Y);
     printf("O");
@@ -89,7 +88,7 @@ void niveau() {
         gotoligcol(0, 0);
         if (difMillis >= difPrecMillisBalle + 125) {
             difPrecMillisBalle = difMillis;
-            checkDeplacementBalle(&balle, &perso, balle.co.X, balle.co.Y);
+            checkDeplacementBalle(&balle, &perso, blocs, nbBlocs);
         }
         char a;
         gotoligcol(0, 0);
@@ -103,7 +102,6 @@ void niveau() {
                     break;
                 case 't' :
                 case 'T' :
-                    //consoleDebug(fichierLogs, &perso, &balle);
                     break;
                 case 'm' :
                 case 'M' :
@@ -133,5 +131,4 @@ void niveau() {
         gotoligcol(24, 21);
         printf("%d, %d", perso.co.X, perso.co.Y);
     } while (!finJeu);
-    //debugFinJeu(fichierLogs, &perso, &balle);
 }

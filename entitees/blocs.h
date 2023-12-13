@@ -8,6 +8,7 @@
 #include <windows.h>
 #include <assert.h>
 #include "../Affichage/ecranConsole.h"
+#include "conversionCoordonnees.h"
 //#include "../consoleDebug/consoleDebug.h"
 
 // Permet de définir les type de blocs, on le passe en typedef pour l'utiliser dans la struct BLOC.
@@ -26,6 +27,6 @@ void afficherBloc(BLOC bloc);
 
 void afficherTousLesBlocs(BLOC* bloc, int nbBlocs);
 
-short collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs);
+int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs);
 
 #endif //PROJET_BLOCS_H

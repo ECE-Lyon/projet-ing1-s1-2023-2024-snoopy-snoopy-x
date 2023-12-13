@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include "regles.h"
-#include "../niveaux/Niveau1/Niveau1.h"
+#include "../Niveaux/Niveau1/Niveau1.h"
 #include <stdio.h>
 #include <conio.h>
 
