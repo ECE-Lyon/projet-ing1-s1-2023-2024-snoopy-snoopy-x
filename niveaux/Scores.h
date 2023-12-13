@@ -1,5 +1,10 @@
 #ifndef PROJET_SCORES_H
 #define PROJET_SCORES_H
+#include "../entitees/personnage.h"
+#include "../entitees/balle.h"
+#include "../Affichage/ecranConsole.h"
+
+void gameOver();
 
 typedef struct Scores{
     short int scoreNiveau1;

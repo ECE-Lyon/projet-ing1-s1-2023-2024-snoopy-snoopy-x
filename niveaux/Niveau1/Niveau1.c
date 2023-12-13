@@ -102,6 +102,7 @@ void niveau() {
                     break;
                 case 't' :
                 case 'T' :
+                    //consoleDebug(fichierLogs, &perso, &balle);
                     break;
                 case 'm' :
                 case 'M' :
@@ -121,7 +122,7 @@ void niveau() {
             }
         }
         if (perso.vies == 0) {
-            finJeu = 1;
+            gameOver();
         }
         gotoligcol(21, 21);
         printf("Temps : %.2f\n", dif);
@@ -130,5 +131,6 @@ void niveau() {
         printf("Temps : %d\n", difMillis);
         gotoligcol(24, 21);
         printf("%d, %d", perso.co.X, perso.co.Y);
-    } while (!finJeu);
+    } while (1);
+    //debugFinJeu(fichierLogs, &perso, &balle);
 }
