@@ -28,7 +28,8 @@ void rTouches(){
            "Pour vous deplacer vers la droite :\tD \n"
            "Pour vous deplacer vers le bas :\tS \n"
            "Pour faire une action :\t\t\tE \n"
-           "Pour fermer le jeu :\t\t\tX \n\n"
+           "Pour fermer le jeu :\t\t\tX\n"
+           "Pour revenir au menu :\t\t\tM \n\n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){

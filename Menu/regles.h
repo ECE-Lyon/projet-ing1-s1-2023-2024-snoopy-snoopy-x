@@ -1,6 +1,6 @@
 #ifndef PROJET_REGLES_H
 #define PROJET_REGLES_H
-#include "../Partie/partie.h"
+#include "../Niveaux/Niveau1/Niveau1.h"
 #include "regles.h"
 #include <stdio.h>
 #include <conio.h>
@@ -13,6 +13,7 @@
 #define ANSI_MAGENTA "\x1b[35m"
 #define ANSI_CYAN "\x1b[36m"
 #define ANSI_WHITE "\x1b[37m"
+
 void reglesDuJeu();
 
 #endif

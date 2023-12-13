@@ -143,20 +143,29 @@ Balle :
 	- Direction : 1
 
 
-Fin du jeu : 12/13/23 12:08:39
+Fin du jeu : 12/13/23 12:12:03
 Personnage : 
-	- co X : 7, co Y : 73
-	- Pv : 3
+	- co X : 7, co Y : 85
+	- Pv : 0
 Balle : 
-	- Co X : 9, co Y : 9
-	- Direction : 3
-
-
-Fin du jeu : 12/13/23 12:11:23
-Personnage : 
-	- co X : 17, co Y : 81
-	- Pv : 3
-Balle : 
-	- Co X : 12, co Y : 12
+	- Co X : 7, co Y : 7
 	- Direction : 0
+
+
+Fin du jeu : 12/13/23 12:23:25
+Personnage : 
+	- co X : 19, co Y : 85
+	- Pv : 0
+Balle : 
+	- Co X : 19, co Y : 19
+	- Direction : 2
+
+
+Fin du jeu : 12/13/23 13:38:24
+Personnage : 
+	- co X : 21, co Y : 89
+	- Pv : 0
+Balle : 
+	- Co X : 21, co Y : 21
+	- Direction : 2
 

@@ -1,4 +1,5 @@
-#include "partie.h"
+#include "Niveau1.h"
+#include "../../Menu/menu.h"
 
 NIVEAU initNiveau(short int niveau){
     NIVEAU varNiveau;
@@ -26,13 +27,13 @@ NIVEAU initNiveau(short int niveau){
     FILE *fichierNiveau = NULL;
     switch (niveau) {
         case 1 :
-            fichierNiveau = fopen("../niveaux/niveau1.txt", "r"); break;
+            fichierNiveau = fopen("../Niveaux/niveau1.txt", "r"); break;
         case 2 :
-            fichierNiveau = fopen("../niveaux/niveau2.txt", "r"); break;
+            fichierNiveau = fopen("../Niveaux/niveau2.txt", "r"); break;
         case 3 :
-            fichierNiveau = fopen("../niveaux/niveau3.txt", "r"); break;
+            fichierNiveau = fopen("../Niveaux/niveau3.txt", "r"); break;
         case 4 :
-            fichierNiveau = fopen("../niveaux/niveau4.txt", "r"); break;
+            fichierNiveau = fopen("../Niveaux/niveau4.txt", "r"); break;
 
         default :
             assert(!"Niveau non existant");
@@ -98,12 +99,15 @@ void niveau() {
             switch (a) {
                 case 'x' :
                 case 'X' :
-                    finJeu = 1;
+                    quitter();
                     break;
                 case 't' :
                 case 'T' :
                     //consoleDebug(fichierLogs, &perso, &balle);
                     break;
+                case 'm' :
+                case 'M' :
+                    afficherMenu();
                 default :
                     deplacementPerso(&perso, a, blocs, nbBlocs);
                     break;

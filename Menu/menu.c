@@ -1,5 +1,5 @@
 #include "menu.h"
-#include "../Partie/partie.h"
+#include "../Niveaux/Niveau1/Niveau1.h"
 #include <stdio.h>
 #include <conio.h>
 #include "mdp.h"
@@ -12,6 +12,10 @@
 #define ANSI_MAGENTA "\x1b[35m"
 #define ANSI_CYAN "\x1b[36m"
 #define ANSI_WHITE "\x1b[37m"
+
+void quitter(){
+    exit(0);
+}
 
 void afficherMenu() {
     clearConsole();
@@ -75,10 +79,7 @@ void afficherMenu() {
                             //TODO: highScores();
                             break;
                         case 5 :
-                            //TODO: score();
-                            break;
-                        case 6 :
-                            //TODO: quitter();
+                            quitter();
                             break;
                     }
             }

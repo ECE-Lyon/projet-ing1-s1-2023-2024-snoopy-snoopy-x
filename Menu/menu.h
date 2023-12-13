@@ -3,7 +3,9 @@
 #include <windows.h>
 #include <stdio.h>
 #include "regles.h"
-
+#include "../niveaux/Niveau1/Niveau1.h"
+#include <stdio.h>
+#include <conio.h>
 
 #define DOUBLEVERTICAL 186
 #define DOUBLEHORIZONTAL 205
@@ -16,8 +18,7 @@
 #define LINK 197
 #define BALL 207
 
-
-
+void quitter();
 void afficherMenu();
 
 #endif
