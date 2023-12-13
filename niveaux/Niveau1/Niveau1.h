@@ -6,6 +6,7 @@
 #include <sys/time.h>
 #include "../../consoleDebug/consoleDebug.h"
 #include <conio.h>
+#include "../../Niveaux/Scores.h"
 
 #define TEMPSLIM 120
 
