@@ -2,6 +2,7 @@
 #include "../Partie/partie.h"
 #include <stdio.h>
 #include <conio.h>
+#include "mdp.h"
 #define ANSI_RESET "\x1b[0m"
 #define ANSI_BLACK "\x1b[30m"
 #define ANSI_RED "\x1b[31m"
@@ -67,6 +68,7 @@ void afficherMenu() {
                             //TODO: chargement();
                             break;
                         case 3 :
+                            motDePasse();
                             //TODO: password():
                             break;
                         case 4 :
