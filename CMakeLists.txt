@@ -39,6 +39,6 @@ add_executable(Exemple Affichage/exempleTableau.c
         Niveaux/Niveau1/Niveau1.c Niveaux/Niveau1/Niveau1.h
         Niveaux/Niveau3/Niveau3.c Niveaux/Niveau3/Niveau3.h
         Niveaux/Niveau2/Niveau2.c Niveaux/Niveau2/Niveau2.h
-        Niveaux/Niveau4/Niveau3.c Niveaux/Niveau4/Niveau3.h
+        Niveaux/Niveau4/Niveau4.c Niveaux/Niveau4/Niveau4.h
         niveaux/Scores.c niveaux/Scores.h
         entitees/conversionCoordonnees.c entitees/conversionCoordonnees.h)
