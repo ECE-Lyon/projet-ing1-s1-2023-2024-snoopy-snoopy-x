@@ -1,4 +1,4 @@
-#include "../Partie/partie.h"
+#include "../Niveaux/Niveau1/Niveau1.h"
 #include "../couleursPrintf/couleursPrintf.h"
 
 

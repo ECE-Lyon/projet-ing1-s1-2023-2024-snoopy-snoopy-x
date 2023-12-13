@@ -1,4 +1,8 @@
 #include "menu.h"
+#include "../Niveaux/Niveau1/Niveau1.h"
+#include <stdio.h>
+#include <conio.h>
+#include "mdp.h"
 #define ANSI_RESET "\x1b[0m"
 #define ANSI_BLACK "\x1b[30m"
 #define ANSI_RED "\x1b[31m"

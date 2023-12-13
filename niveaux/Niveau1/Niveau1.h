@@ -1,10 +1,10 @@
-#ifndef PROJET_PARTIE_H
-#define PROJET_PARTIE_H
+#ifndef PROJET_NIVEAU1_H
+#define PROJET_NIVEAU1_H
 #include <stdio.h>
-#include "../Affichage/plateau.h"
-#include "../entitees/blocs.h"
+#include "../../Affichage/plateau.h"
+#include "../../entitees/blocs.h"
 #include <sys/time.h>
-#include "../consoleDebug/consoleDebug.h"
+#include "../../consoleDebug/consoleDebug.h"
 #include <conio.h>
 
 #define TEMPSLIM 120
