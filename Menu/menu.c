@@ -11,11 +11,9 @@
 #define ANSI_MAGENTA "\x1b[35m"
 #define ANSI_CYAN "\x1b[36m"
 #define ANSI_WHITE "\x1b[37m"
-void reglesDuJeu(){
-
-}
 
 void afficherMenu() {
+    clearConsole();
     printf("\33[?25l");
     int MenuminX = 6;
     int MenuminY = 40;
@@ -60,7 +58,7 @@ void afficherMenu() {
                 case 'E' :
                     switch (Select) {
                         case 0 :
-                            //TODO: GameRules();
+                            reglesDuJeu();
                             break;
                         case 1 :
                             niveau();

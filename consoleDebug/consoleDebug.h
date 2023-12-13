@@ -2,7 +2,7 @@
 #define PROJET_CONSOLEDEBUG_H
 #include "../entitees/balle.h"
 #include <assert.h>
-#include "../niveaux/Affichage/ecranConsole.h"
+#include "../Affichage/ecranConsole.h"
 
 
 void printDateDansLogs(FILE* fichierLogs);

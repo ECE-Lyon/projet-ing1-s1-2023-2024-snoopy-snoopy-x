@@ -1,5 +1,5 @@
 #include <conio.h>
-#include "niveaux/Affichage/menu.h"
+#include "menu/menu.h"
 
 int main() {
     afficherMenu();

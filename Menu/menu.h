@@ -2,6 +2,7 @@
 #define UNTITLED15_MENU_H
 #include <windows.h>
 #include <stdio.h>
+#include "regles.h"
 
 
 #define DOUBLEVERTICAL 186
@@ -15,7 +16,8 @@
 #define LINK 197
 #define BALL 207
 
-void gotoligcol(int lig, int col);
+
+
 void afficherMenu();
 
 #endif

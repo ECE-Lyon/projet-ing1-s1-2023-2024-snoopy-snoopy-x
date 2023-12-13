@@ -9,6 +9,7 @@
 #include <conio.h>
 #include <time.h>
 #include <stdio.h>
+#include "../Affichage/ecranConsole.h"
 //#include "consoleDebug/consoleDebug.h"
 
 
@@ -24,7 +25,6 @@ typedef struct Oiseaux{
     short int recup;
 }OISEAUX;
 
-void gotoligcol(int lig, int col);
 
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
 void initOiseaux(OISEAUX *oiseaux);
