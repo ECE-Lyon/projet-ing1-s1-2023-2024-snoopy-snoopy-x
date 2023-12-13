@@ -1,5 +1,5 @@
-#include "partie.h"
-#include "../Menu/menu.h"
+#include "Niveau1.h"
+#include "../../Menu/menu.h"
 
 NIVEAU initNiveau(short int niveau){
     NIVEAU varNiveau;
