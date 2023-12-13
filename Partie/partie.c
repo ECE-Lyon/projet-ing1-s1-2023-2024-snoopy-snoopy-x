@@ -1,4 +1,5 @@
 #include "partie.h"
+#include "../Menu/menu.h"
 
 NIVEAU initNiveau(short int niveau){
     NIVEAU varNiveau;
@@ -93,12 +94,15 @@ void niveau() {
             switch (a) {
                 case 'x' :
                 case 'X' :
-                    finJeu = 1;
+                    quitter();
                     break;
                 case 't' :
                 case 'T' :
                     consoleDebug(fichierLogs, &perso, &balle);
                     break;
+                case 'm' :
+                case 'M' :
+                    afficherMenu();
                 default :
                     deplacementPerso(&perso, a);
                     break;

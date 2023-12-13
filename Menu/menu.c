@@ -1,8 +1,4 @@
 #include "menu.h"
-#include "../Partie/partie.h"
-#include <stdio.h>
-#include <conio.h>
-#include "mdp.h"
 #define ANSI_RESET "\x1b[0m"
 #define ANSI_BLACK "\x1b[30m"
 #define ANSI_RED "\x1b[31m"
@@ -12,6 +8,10 @@
 #define ANSI_MAGENTA "\x1b[35m"
 #define ANSI_CYAN "\x1b[36m"
 #define ANSI_WHITE "\x1b[37m"
+
+void quitter(){
+    exit(0);
+}
 
 void afficherMenu() {
     clearConsole();
@@ -75,10 +75,7 @@ void afficherMenu() {
                             //TODO: highScores();
                             break;
                         case 5 :
-                            //TODO: score();
-                            break;
-                        case 6 :
-                            //TODO: quitter();
+                            quitter();
                             break;
                     }
             }

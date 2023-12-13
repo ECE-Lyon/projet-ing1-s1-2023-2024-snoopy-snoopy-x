@@ -3,6 +3,9 @@
 #include <windows.h>
 #include <stdio.h>
 #include "regles.h"
+#include "../Partie/partie.h"
+#include <stdio.h>
+#include <conio.h>
 
 
 #define DOUBLEVERTICAL 186
@@ -17,7 +20,7 @@
 #define BALL 207
 
 
-
+void quitter();
 void afficherMenu();
 
 #endif
