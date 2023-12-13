@@ -11,5 +11,5 @@ int main() {
         printf("co balle %d : %hd %hd. dir : %hd\n", i, niveau1.tabBalles[i].co.X, niveau1.tabBalles[i].co.Y, niveau1.tabBalles[i].direction);
     }
 
-    while("ewan is gay");
+    while(1);
 }
