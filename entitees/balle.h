@@ -2,7 +2,7 @@
 #define PROJET_BALLE_H
 #include "personnage.h"
 #include <windows.h>
-#include "../ecranConsole.h"
+#include "../niveaux/Affichage/ecranConsole.h"
 #define LINK 197
 
 

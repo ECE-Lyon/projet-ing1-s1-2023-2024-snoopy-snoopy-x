@@ -1,5 +1,5 @@
 #include "menu.h"
-#include "partie.h"
+#include "../Partie/partie.h"
 #include <stdio.h>
 #include <conio.h>
 #define ANSI_RESET "\x1b[0m"

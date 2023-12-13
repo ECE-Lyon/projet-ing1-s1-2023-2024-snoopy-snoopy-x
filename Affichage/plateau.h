@@ -1,6 +1,6 @@
 #ifndef PROJET_PLATEAU_H
 #define PROJET_PLATEAU_H
-#include "entitees/balle.h"
+#include "../entitees/balle.h"
 
 #define DOUBLEVERTICAL 186
 #define DOUBLEHORIZONTAL 205

@@ -1,5 +1,5 @@
-#include "partie.h"
-#include "couleursPrintf/couleursPrintf.h"
+#include "../Partie/partie.h"
+#include "../couleursPrintf/couleursPrintf.h"
 
 
 int main() {
