@@ -2,7 +2,7 @@
 
 void gameOver(PERSONNAGE* perso){
         clearConsole();
-        gotoligcol( 2, 10);
+        gotoligcol( 0, 0);
         printf("GAME OVER");
         while(1);
 }

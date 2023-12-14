@@ -3,6 +3,7 @@
 #include "../entitees/personnage.h"
 #include "../entitees/balle.h"
 #include "../Affichage/ecranConsole.h"
+#define BLOC_GAMEOVER 219
 
 void gameOver();
 

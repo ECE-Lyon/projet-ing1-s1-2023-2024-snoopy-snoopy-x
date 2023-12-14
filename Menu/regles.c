@@ -36,16 +36,18 @@ void rTouches(){
         clearConsole();
         reglesDuJeu();
     }
+
 }
 
 void rBlocs(){
     clearConsole();
     gotoligcol(5, 0);
-    printf("LES OBJECTIFS :\n\n"
-           "Pour remporter la partie, vous devez recuperer les 4 oiseaux disposes aux extremites du plateau.\n"
-           "Pour ce faire, aller voir la rubrique DEPLACEMENTS des regles du jeu.\n"
-           "Cependant, prenez garde aux obstacles pouvant se presenter devant vous :\n"
-           "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau et si elles vous touche vous predez une vie.\n"
+    printf("LES BLOCS :\n\n"
+           "Il y a plusieurs blocs disponibles differents : \n"
+           "Les blocs que vous pourrez casser pour vous frayez un chemin  : \n"
+           "Les blocs que vous pourrez déplacer et qui seront immobiles : \n"
+           "Les blocs pieges qui vous feront directement perdre la partie\n"
+           " \n"
            "Pour faire une action :\t\t\tE \n"
            "Pour fermer le jeu :\t\t\tX \n\n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
@@ -60,11 +62,10 @@ void rBlocs(){
 void rScore(){
     clearConsole();
     gotoligcol(5, 0);
-    printf("LES OBJECTIFS :\n\n"
-           "Pour remporter la partie, vous devez recuperer les 4 oiseaux disposes aux extremites du plateau.\n"
-           "Pour ce faire, aller voir la rubrique DEPLACEMENTS des regles du jeu.\n"
-           "Cependant, prenez garde aux obstacles pouvant se presenter devant vous :\n"
-           "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau et si elles vous touche vous predez une vie.\n"
+    printf("LE SCORE :\n\n"
+           "Le score sera calcule en fonction du temps mis pour realiser les niveaux.\n"
+           "Plus vous serez rapide, plus il sera eleve. \n"
+           "Le score sera cumule sur les differents niveaux.\n"
            "Pour faire une action :\t\t\tE \n"
            "Pour fermer le jeu :\t\t\tX \n\n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
