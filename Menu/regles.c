@@ -9,8 +9,7 @@ void rObjectifs(){
            "Pour ce faire, aller voir la rubrique DEPLACEMENTS des regles du jeu.\n"
            "Cependant, prenez garde aux obstacles pouvant se presenter devant vous :\n"
            "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau et si elles vous touche vous predez une vie.\n"
-           "Pour faire une action :\t\t\tE \n"
-           "Pour fermer le jeu :\t\t\tX \n\n"
+           " \n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){
@@ -22,7 +21,7 @@ void rObjectifs(){
 void rTouches(){
     clearConsole();
     gotoligcol(5, 0);
-    printf("LE DEPLACEMENT :\n\n"
+    printf("LES TOUCHES :\n\n"
            "Pour vous deplacer vers le haut : \tZ \n"
            "Pour vous deplacer vers la gauche :\tQ \n"
            "Pour vous deplacer vers la droite :\tD \n"
@@ -44,13 +43,11 @@ void rBlocs(){
     gotoligcol(5, 0);
     printf("LES BLOCS :\n\n"
            "Il y a plusieurs blocs disponibles differents : \n"
-           "Les blocs que vous pourrez casser pour vous frayez un chemin  : \n"
-           "Les blocs que vous pourrez déplacer et qui seront immobiles : \n"
-           "Les blocs pieges qui vous feront directement perdre la partie\n"
+           " -Les blocs que vous pourrez casser pour vous frayez un chemin  : %c\n"
+           " -Les blocs que vous pourrez deplacer et qui seront immobiles : %c \n"
+           " -Les blocs pieges qui vous feront directement perdre la partie : %c\n "
            " \n"
-           "Pour faire une action :\t\t\tE \n"
-           "Pour fermer le jeu :\t\t\tX \n\n"
-           "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
+           "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.", CHAR_BLOC_CASSABLE, CHAR_BLOC_POUSSABLE, CHAR_BLOC_PIEGE);
     while(!_kbhit());
     if(_kbhit()){
         clearConsole();
@@ -66,8 +63,7 @@ void rScore(){
            "Le score sera calcule en fonction du temps mis pour realiser les niveaux.\n"
            "Plus vous serez rapide, plus il sera eleve. \n"
            "Le score sera cumule sur les differents niveaux.\n"
-           "Pour faire une action :\t\t\tE \n"
-           "Pour fermer le jeu :\t\t\tX \n\n"
+           " \n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){
@@ -87,7 +83,7 @@ void reglesDuJeu() {
     gotoligcol(reglesMinX + 2, reglesMinY + 2);
     printf("Objectifs");
     gotoligcol(reglesMinX + 3, reglesMinY + 2);
-    printf("Les Deplacements");
+    printf("Les Touches");
     gotoligcol(reglesMinX + 4, reglesMinY + 2);
     printf("Les Blocs");
     gotoligcol(reglesMinX + 5, reglesMinY + 2);
