@@ -61,13 +61,12 @@ void niveau() {
     double dif;
     gettimeofday(&startT, NULL);
     time(&start);
-    const short nbBlocs = 5;
+    const short nbBlocs = 4;
     BLOC blocs[] = {
-            initBloc(tapisroulant, 1, 2),
-            initBloc(tapisroulant, 5, 8),
-            initBloc(tapisroulant, 9, 7),
-            initBloc(tapisroulant, 0, 5),
-            initBloc(tapisroulant, 3, 6),
+            initBloc(tapisroulantgauche, 1, 2),
+            initBloc(tapisroulantbas, 5, 8),
+            initBloc(tapisroulantdroit, 9, 7),
+            initBloc(tapisroulanthaut, 7, 5),
     };
 
     time(&end);
@@ -129,7 +128,7 @@ void niveau() {
         gotoligcol(22, 21);
         printf("Temps : %d\n", difMillis);
         gotoligcol(24, 21);
-        printf("%d, %d", perso.co.X, perso.co.Y);
+        printf("%d", convCo(perso.co.X, perso.co.Y));
     } while (1);
     //debugFinJeu(fichierLogs, &perso, &balle);
 }

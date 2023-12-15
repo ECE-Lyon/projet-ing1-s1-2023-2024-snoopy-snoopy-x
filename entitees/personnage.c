@@ -66,10 +66,27 @@ void cacherCharPerso(PERSONNAGE *perso) {
 void tapisRoulant(short X, short Y,PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
     for (int i = 0; i < nbBlocs; i++) {
         if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1)){
-            if(blocs->type == tapisroulant){
-                perso->co.X += 2;
-                gotoligcol(perso->co.X, perso->co.Y);
-                printf("O");
+            switch(blocs[i].type){
+                case(tapisroulantbas) :
+                    perso->co.X += 2;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                case(tapisroulanthaut) :
+                    perso->co.X -= 2;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                case(tapisroulantdroit) :
+                    perso->co.Y += 4;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                case(tapisroulantgauche) :
+                    perso->co.Y -= 4;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
             }
         }
     }

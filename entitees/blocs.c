@@ -21,7 +21,16 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y){
             break;
         case fixe :
             break;
-        case tapisroulant : {
+        case tapisroulantbas : {
+        }
+            break;
+        case tapisroulanthaut : {
+        }
+            break;
+        case tapisroulantdroit : {
+        }
+            break;
+        case tapisroulantgauche : {
         }
             break;
         default :
@@ -52,8 +61,17 @@ void afficherBloc(BLOC* bloc) { // Affichage d'un bloc en fonction de son type
             case fixe :
                 printf("%c", CHAR_BLOC_FIXE);
                 break;
-            case tapisroulant :
+            case tapisroulantbas :
                 printf("%c", CHAR_BLOC_TAPIS_BAS);
+                break;
+            case tapisroulanthaut :
+                printf("%c", CHAR_BLOC_TAPIS_HAUT);
+                break;
+            case tapisroulantdroit :
+                printf("%c", CHAR_BLOC_TAPIS_DROIT);
+                break;
+            case tapisroulantgauche :
+                printf("%c", CHAR_BLOC_TAPIS_GAUCHE);
                 break;
         }
     }
