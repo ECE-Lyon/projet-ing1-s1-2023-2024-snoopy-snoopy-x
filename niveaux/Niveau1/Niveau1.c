@@ -55,18 +55,19 @@ NIVEAU initNiveau(short int niveau){
 
 void niveau() {
     clearConsole();
-    int finJeu = 0;
     time_t start, end;
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
     struct timeval stop, startT;
     double dif;
     gettimeofday(&startT, NULL);
     time(&start);
-    const short nbBlocs = 3;
+    const short nbBlocs = 5;
     BLOC blocs[] = {
-            initBloc(poussable, 1, 0),
-            initBloc(cassable, 0, 4),
-            initBloc(piege, 5, 7)
+            initBloc(cassable, 1, 2),
+            initBloc(cassable, 5, 8),
+            initBloc(cassable, 9, 7),
+            initBloc(cassable, 0, 5),
+            initBloc(cassable, 3, 6),
     };
 
     time(&end);
@@ -91,8 +92,8 @@ void niveau() {
             checkDeplacementBalle(&balle, &perso, blocs, nbBlocs);
         }
         char a;
-        gotoligcol(0, 0);
-        afficherTousLesBlocs(blocs, 3);
+
+        afficherTousLesBlocs(blocs, nbBlocs);
         if (_kbhit()) {
             a = (char) getch();
             switch (a) {
@@ -113,8 +114,6 @@ void niveau() {
             }
             if (difMillis >= difPrecMillis + 100) {
                 difPrecMillis = difMillis;
-                gotoligcol(perso.co.X, perso.co.Y);
-                printf("O");
                 gotoligcol(balle.co.X, balle.co.Y);
                 printf("%c", 207);
                 gotoligcol(23, 21);

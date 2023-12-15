@@ -53,14 +53,18 @@ void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs) 
                 printf("O");
             }
             break;
+        case 'e' :
+        case 'E' :
+            chercherCasserBlocs(perso->co, blocs, nbBlocs);
+            break;
         default :
             break;
     }
 }
 
 void cacherCharPerso(PERSONNAGE *perso) {
-    gotoligcol(perso->co.X, perso->co.Y),
-            printf(" ");
+    gotoligcol(perso->co.X, perso->co.Y);
+    printf(" ");
 }
 
 void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux) {

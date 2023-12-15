@@ -17,16 +17,20 @@ typedef enum {cassable, piege, poussable}TYPEBLOC; // Allez voir la docu sur les
 typedef struct bloc{
     COORD co;
     TYPEBLOC type;
-    //short pv;
+    short pv;
     short int existe;
 }BLOC;
 
 BLOC initBloc(TYPEBLOC type, short int X, short int Y); // Permet d'initialiser facilement les blocs
 
-void afficherBloc(BLOC bloc);
+void afficherBloc(BLOC* bloc);
 
 void afficherTousLesBlocs(BLOC* bloc, int nbBlocs);
 
 int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs);
+
+void casserBloc(short X, short Y, BLOC blocs[], int nbBlocs);
+
+void chercherCasserBlocs(COORD co, BLOC blocs[], int nbBlocs);
 
 #endif //PROJET_BLOCS_H
