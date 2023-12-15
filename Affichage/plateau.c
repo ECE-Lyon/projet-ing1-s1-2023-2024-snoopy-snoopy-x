@@ -1,11 +1,6 @@
 #include "plateau.h"
-#include "ecranConsole.h"
-
-#define ANSI_blanc "\x1b[37m"
-#define ANSI_RED "\x1b[32m"
 
 void afficherCase() {
-
     int TableauminX = 6;
     int TableauminY = 70;
     gotoligcol(TableauminX, TableauminY);
@@ -43,5 +38,4 @@ void afficherCase() {
         printf("%c", DOUBLEHORIZONTAL);
     }
     printf("%c", DOUBLEANGLEBASDROITE);
-    TableauminX = 6;
 }

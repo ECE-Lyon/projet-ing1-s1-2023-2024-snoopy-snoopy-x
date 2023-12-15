@@ -1,6 +1,5 @@
 #include "menu.h"
 
-
 void rObjectifs(){
     clearConsole();
     gotoligcol(5, 0);
@@ -47,7 +46,7 @@ void rBlocs(){
            " -Les blocs que vous pourrez deplacer et qui seront immobiles : %c \n"
            " -Les blocs pieges qui vous feront directement perdre la partie : %c\n "
            " \n"
-           "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.", CHAR_BLOC_CASSABLE, CHAR_BLOC_POUSSABLE, CHAR_BLOC_PIEGE);
+           "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){
         clearConsole();
@@ -81,15 +80,15 @@ void reglesDuJeu() {
     gotoligcol(reglesMinX, reglesMinY + 2);
     printf("Regles du Jeu :");
     gotoligcol(reglesMinX + 2, reglesMinY + 2);
-    printf("Objectifs");
+    printf("- Objectifs");
     gotoligcol(reglesMinX + 3, reglesMinY + 2);
-    printf("Les Touches");
+    printf("- Les Touches");
     gotoligcol(reglesMinX + 4, reglesMinY + 2);
-    printf("Les Blocs");
+    printf("- Les Blocs");
     gotoligcol(reglesMinX + 5, reglesMinY + 2);
-    printf("Le Score");
+    printf("- Le Score");
     gotoligcol(reglesMinX + 6, reglesMinY + 2);
-    printf("Retour ");
+    printf("- Retour ");
 
     short Select = 0;
     char key;

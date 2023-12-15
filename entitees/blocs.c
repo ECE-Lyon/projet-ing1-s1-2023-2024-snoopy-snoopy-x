@@ -1,13 +1,11 @@
 #include "blocs.h"
 
-
-BLOC initBloc(TYPEBLOC type, short int X, short int Y) {
+BLOC initBloc(TYPEBLOC type, short int X, short int Y){
     BLOC bloc;
     bloc.type = type;
     bloc.existe = 1;
     bloc.pv = -1;
-    bloc.co.X = X * 2 + 7;
-    bloc.co.Y = Y * 4 + 73;
+    bloc.co = convCo(X, Y);
     switch (bloc.type) {
         case cassable : {
             bloc.pv = 2;
@@ -32,7 +30,12 @@ void afficherBloc(BLOC* bloc) { // Affichage d'un bloc en fonction de son type
         gotoligcol(bloc->co.X, bloc->co.Y);
         switch (bloc->type) {
             case cassable :
-                printf("%c", CHAR_BLOC_CASSABLE);
+                if(bloc->pv == 2){
+                    printf("%c", CHAR_BLOC_CASSABLE_NEUF);
+                }
+                if(bloc->pv == 1){
+                    printf("%c", CHAR_BLOC_CASSABLE_ABIME);
+                }
                 break;
             case piege :
                 printf("%c", CHAR_BLOC_PIEGE);
@@ -83,4 +86,8 @@ void chercherCasserBlocs(COORD co, BLOC blocs[], int nbBlocs) {
     casserBloc(co.X + 2, co.Y, blocs, nbBlocs);
     casserBloc(co.X, co.Y + 4, blocs, nbBlocs);
     casserBloc(co.X, co.Y - 4, blocs, nbBlocs);
+}
+
+void tapisRoulant(short X, short Y, BLOC blocs[], int nbBlocs){
+
 }

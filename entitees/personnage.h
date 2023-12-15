@@ -4,6 +4,7 @@
 #define MAXY 109
 #define MINX 7
 #define MINY 73
+#define CHAR_OISEAUX 118
 
 #include <windows.h>
 #include <conio.h>
@@ -29,6 +30,7 @@ typedef struct Oiseaux{
 
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
 void initOiseaux(OISEAUX *oiseaux);
+void afficherOiseaux();
 
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
 void cacherCharPerso(PERSONNAGE *perso);

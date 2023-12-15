@@ -1,9 +1,16 @@
 #ifndef PROJET_BLOCS_H
 #define PROJET_BLOCS_H
 
-#define CHAR_BLOC_CASSABLE 35
-#define CHAR_BLOC_PIEGE 33
-#define CHAR_BLOC_POUSSABLE 19
+#define CHAR_BLOC_CASSABLE_NEUF 177
+#define CHAR_BLOC_CASSABLE_ABIME 176
+#define CHAR_BLOC_PIEGE 19
+#define CHAR_BLOC_POUSSABLE 61
+#define CHAR_BLOC_FIXE 219
+#define CHAR_BLOC_TAPIS_HAUT 24
+#define CHAR_BLOC_TAPIS_BAS 25
+#define CHAR_BLOC_TAPIS_DROIT 26
+#define CHAR_BLOC_TAPIS_GAUCHE 27
+
 
 #include <windows.h>
 #include <assert.h>
@@ -12,7 +19,7 @@
 //#include "../consoleDebug/consoleDebug.h"
 
 // Permet de définir les type de blocs, on le passe en typedef pour l'utiliser dans la struct BLOC.
-typedef enum {cassable, piege, poussable}TYPEBLOC; // Allez voir la docu sur les enums si vous voulez comprendre comment l'utiliser (pas dur)
+typedef enum {cassable, piege, poussable, fixe}TYPEBLOC; // Allez voir la docu sur les enums si vous voulez comprendre comment l'utiliser (pas dur)
 
 typedef struct bloc{
     COORD co;

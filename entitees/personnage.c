@@ -1,19 +1,15 @@
 #include "personnage.h"
 
-
-
 void initPersonnage(PERSONNAGE *perso, int X, int Y) {
     perso->vies = 3;
     perso->co = convCo(X, Y);
 }
-
 
 void initOiseaux(OISEAUX *oiseaux) {
     oiseaux->recup = 0;
     oiseaux->co.X = 19;
     oiseaux->co.Y = 49;
 }
-
 
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs) {
     switch (input) {
@@ -80,3 +76,6 @@ void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux) {
     }
 }
 
+void afficherOiseaux(){
+
+}

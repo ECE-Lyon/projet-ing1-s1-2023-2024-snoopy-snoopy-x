@@ -74,13 +74,13 @@ void niveau() {
     PERSONNAGE perso;
     initPersonnage(&perso, 0, 0);
     BALLE balle;
-    initBalle(&balle, 19, 85);
+    initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
 
     gotoligcol(perso.co.X, perso.co.Y);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
-    printf("%c", 207);
+    printf("%c", 27);
 
     do {
         time(&end);

@@ -1,9 +1,14 @@
 #include "Scores.h"
 
-void gameOver(PERSONNAGE* perso){
+void gameOver(){
+    clearConsole();
+    gotoligcol( 2, 10);
+    printf("GAME OVER\n\n"
+           "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU.");
+    if(_kbhit()){
         clearConsole();
-        gotoligcol( 0, 0);
-        printf("GAME OVER");
-        while(1);
+        afficherMenu();
+    }
+    while(1);
 }
 
