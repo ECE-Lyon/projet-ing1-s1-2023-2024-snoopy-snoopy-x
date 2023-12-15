@@ -63,19 +63,14 @@ void cacherCharPerso(PERSONNAGE *perso) {
     printf(" ");
 }
 
-void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux) {
-    int oiseauxTouches = 0;
-    // Vérifier si Snoopy touche un oiseau, sachant qu ils sont 4
-    for (int i = 0; i < 4; i++) {
-        if (snoopy->co.X == oiseaux[i].co.X && snoopy->co.Y == oiseaux[i].co.Y) {
-            oiseauxTouches++;
-            if (oiseauxTouches == 4) {
-                printf("vous avez gagne");  // Snoopy a touché tous les oiseaux et gagne/ il a reussi
+void tapisRoulant(short X, short Y,PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
+    for (int i = 0; i < nbBlocs; i++) {
+        if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1)){
+            if(blocs->type == tapisroulant){
+                perso->co.X += 2;
+                gotoligcol(perso->co.X, perso->co.Y);
+                printf("O");
             }
         }
     }
-}
-
-void afficherOiseaux(){
-
 }

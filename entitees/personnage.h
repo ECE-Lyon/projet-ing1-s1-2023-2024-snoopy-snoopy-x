@@ -35,6 +35,6 @@ void afficherOiseaux();
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
 void cacherCharPerso(PERSONNAGE *perso);
 
-void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux);
+void tapisRoulant(short X, short Y,PERSONNAGE *perso, BLOC blocs[], int nbBlocs);
 
 #endif

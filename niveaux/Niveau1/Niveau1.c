@@ -63,11 +63,11 @@ void niveau() {
     time(&start);
     const short nbBlocs = 5;
     BLOC blocs[] = {
-            initBloc(cassable, 1, 2),
-            initBloc(fixe, 5, 8),
-            initBloc(fixe, 9, 7),
-            initBloc(cassable, 0, 5),
-            initBloc(fixe, 3, 6),
+            initBloc(tapisroulant, 1, 2),
+            initBloc(tapisroulant, 5, 8),
+            initBloc(tapisroulant, 9, 7),
+            initBloc(tapisroulant, 0, 5),
+            initBloc(tapisroulant, 3, 6),
     };
 
     time(&end);
@@ -76,6 +76,7 @@ void niveau() {
     BALLE balle;
     initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
+
     gotoligcol(perso.co.X, perso.co.Y);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
@@ -91,7 +92,7 @@ void niveau() {
             checkDeplacementBalle(&balle, &perso, blocs, nbBlocs);
         }
         char a;
-
+        tapisRoulant(blocs->co.X, blocs->co.Y, &perso, blocs, nbBlocs);
         afficherTousLesBlocs(blocs, nbBlocs);
         if (_kbhit()) {
             a = (char) getch();

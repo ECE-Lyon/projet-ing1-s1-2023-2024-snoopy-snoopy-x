@@ -19,8 +19,9 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y){
             //TODO
         }
             break;
-        case fixe : {
-            // Rien de particulier pour lui
+        case fixe :
+            break;
+        case tapisroulant : {
         }
             break;
         default :
@@ -51,6 +52,9 @@ void afficherBloc(BLOC* bloc) { // Affichage d'un bloc en fonction de son type
             case fixe :
                 printf("%c", CHAR_BLOC_FIXE);
                 break;
+            case tapisroulant :
+                printf("%c", CHAR_BLOC_TAPIS_BAS);
+                break;
         }
     }
 }
@@ -66,8 +70,16 @@ void afficherTousLesBlocs(BLOC *bloc, int nbBlocs) { // Affichage de tous les bl
 
 int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs) {
     for (int i = 0; i < nbBlocs; i++) {
-        if (blocs[i].co.X == X && blocs[i].co.Y == Y && blocs[i].existe) {
-            return 1;
+        switch (blocs->type){
+            case fixe :
+            case poussable :
+            case cassable :
+                if (blocs[i].co.X == X && blocs[i].co.Y == Y && blocs[i].existe) {
+                    return 1;
+                }
+                break;
+            default:
+                break;
         }
     }
     return 0;
@@ -94,6 +106,4 @@ void chercherCasserBlocs(COORD co, BLOC blocs[], int nbBlocs) {
     casserBloc(co.X, co.Y - 4, blocs, nbBlocs);
 }
 
-void tapisRoulant(short X, short Y, BLOC blocs[], int nbBlocs){
 
-}
