@@ -64,10 +64,10 @@ void niveau() {
     const short nbBlocs = 5;
     BLOC blocs[] = {
             initBloc(cassable, 1, 2),
-            initBloc(cassable, 5, 8),
-            initBloc(cassable, 9, 7),
+            initBloc(fixe, 5, 8),
+            initBloc(fixe, 9, 7),
             initBloc(cassable, 0, 5),
-            initBloc(cassable, 3, 6),
+            initBloc(fixe, 3, 6),
     };
 
     time(&end);
@@ -76,7 +76,6 @@ void niveau() {
     BALLE balle;
     initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
-
     gotoligcol(perso.co.X, perso.co.Y);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
