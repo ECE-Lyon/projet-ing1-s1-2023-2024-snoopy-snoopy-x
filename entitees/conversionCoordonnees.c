@@ -1,14 +1,12 @@
 #include "conversionCoordonnees.h"
 
-//    X * 2 + 7;
-//    Y * 4 + 73;
 
 int convCoX(int x) {
-    return x * 2 + 7;
+    return ((x * 2) + MINX);
 }
 
 int convCoY(int y) {
-    return y * 4 + 73;
+    return ((y * 4) + MINY);
 }
 
 COORD convCo(int x, int y) {

@@ -21,17 +21,13 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y){
             break;
         case fixe :
             break;
-        case tapisroulantbas : {
-        }
+        case tapisroulantbas :
             break;
-        case tapisroulanthaut : {
-        }
+        case tapisroulanthaut :
             break;
-        case tapisroulantdroit : {
-        }
+        case tapisroulantdroit :
             break;
-        case tapisroulantgauche : {
-        }
+        case tapisroulantgauche :
             break;
         default :
             assert(!"Bloc non valide");
@@ -81,8 +77,7 @@ void afficherTousLesBlocs(BLOC bloc[], int nbBlocs) { // Affichage de tous les b
     for (int i = 0; i < nbBlocs; i++) {
         afficherBloc(&bloc[i]);
         // Pour afficher les blocs en haut pour débugger :
-       // gotoligcol(i+15, 0);
-
+        //gotoligcol(i+15, 0);
         //printf("%d, %d, co : %hd %hd", bloc[i].existe, bloc[i].pv, bloc[i].co.X, bloc[i].co.Y);
     }
 }
@@ -91,14 +86,17 @@ int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs) {
     for (int i = 0; i < nbBlocs; i++) {
         switch (blocs[i].type){
             case fixe :
+                if (blocs[i].co.X == X && blocs[i].co.Y == Y && blocs[i].existe) {
+                    return 1;
+                }
+                break;
             case poussable :
+                break;
             case cassable :
                 if (blocs[i].co.X == X && blocs[i].co.Y == Y && blocs[i].existe) {
                     return 1;
                 }
                 break;
-            case tapisroulanthaut :
-                return 0;
             default:
                 break;
         }

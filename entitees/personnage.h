@@ -1,9 +1,6 @@
 #ifndef PROJET_PERSONNAGE_H
 #define PROJET_PERSONNAGE_H
-#define MAXX 25
-#define MAXY 109
-#define MINX 7
-#define MINY 73
+
 #define CHAR_OISEAUX 118
 
 #include <windows.h>

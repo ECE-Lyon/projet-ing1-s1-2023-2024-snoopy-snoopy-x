@@ -39,8 +39,15 @@ NIVEAU initNiveau(short int niveau){
     }
 
     assert(fichierNiveau);
-    fscanf(fichierNiveau, "tpsBalle %hd", &varNiveau.tpsBalle);
+    fscanf(fichierNiveau, "tpsBalle %hd\n", &varNiveau.tpsBalle);
     fscanf(fichierNiveau, "\ncoDepart %hd %hd", &varNiveau.perso.co.X, &varNiveau.perso.co.Y);
+    varNiveau.perso.co.X = (short) convCoX(varNiveau.perso.co.X);
+    varNiveau.perso.co.Y = (short) convCoY(varNiveau.perso.co.Y);
+    varNiveau.perso.initX = varNiveau.perso.co.X;
+    varNiveau.perso.initY = varNiveau.perso.co.Y;
+    gotoligcol(1, 0);
+    printf("Co depart 1 : %d, %d", varNiveau.perso.co.X, varNiveau.perso.co.Y);
+
     fscanf(fichierNiveau, "\nnbBalles %hd :", &varNiveau.nbBalles);
     varNiveau.tabBalles = calloc(varNiveau.nbBalles, sizeof(BALLE)); // tableau de taille dynamique (ya ptetr le cours sur boostcamp)
     fscanf(fichierNiveau, "\n");
@@ -54,9 +61,11 @@ NIVEAU initNiveau(short int niveau){
     for(int i = 0; i < 10; i++) {
         fgets(plateau[i], 11, fichierNiveau);
         fgetc(fichierNiveau);
-        printf("%s\n", plateau[i]);
     }
-    BLOC tabBlocs[70];
+    varNiveau.perso.co.X = varNiveau.perso.initX;
+    varNiveau.perso.co.Y = varNiveau.perso.initY;
+
+    BLOC tabBlocs[81];
     for (short x = 0; x < 10; x++) {
         for (short y = 0; y < 10; y++) {
             if (plateau[x][y] != '0') {
@@ -90,6 +99,7 @@ NIVEAU initNiveau(short int niveau){
             }
         }
     }
+
     varNiveau.tabBlocs = calloc(varNiveau.nbBlocs, sizeof(BLOC));
     for (int i = 0; i < varNiveau.nbBlocs; i++) {
         varNiveau.tabBlocs[i] = tabBlocs[i+1];
@@ -98,6 +108,7 @@ NIVEAU initNiveau(short int niveau){
     //afficherTousLesBlocs(tabBlocs, varNiveau.nbBlocs+1);
     afficherTousLesBlocs(varNiveau.tabBlocs, varNiveau.nbBlocs);
     gotoligcol(10, 0);
+
     return varNiveau;
 }
 
@@ -114,15 +125,11 @@ void niveau() {
     time(&start);
 
     time(&end);
-    PERSONNAGE perso;
-    initPersonnage(&perso, 0, 0);
     BALLE balle;
     initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
 
-    perso.initX = 7;
-    perso.initY = 7;
-    gotoligcol(perso.initX, perso.initY);
+    gotoligcol(niveau.perso.co.X, niveau.perso.co.Y);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
     printf("%c", 27);
@@ -134,10 +141,10 @@ void niveau() {
         gotoligcol(0, 0);
         if (difMillis >= difPrecMillisBalle + 125) {
             difPrecMillisBalle = difMillis;
-            checkDeplacementBalle(&balle, &perso, niveau.tabBlocs, niveau.nbBlocs);
+            checkDeplacementBalle(&balle, &niveau.perso, niveau.tabBlocs, niveau.nbBlocs);
         }
         char a;
-        tapisRoulant(&perso, niveau.tabBlocs, niveau.nbBlocs);
+        tapisRoulant(&niveau.perso, niveau.tabBlocs, niveau.nbBlocs);
         afficherTousLesBlocs(niveau.tabBlocs, niveau.nbBlocs);
         if (_kbhit()) {
             a = (char) getch();
@@ -154,7 +161,7 @@ void niveau() {
                 case 'M' :
                     afficherMenu();
                 default :
-                    deplacementPerso(&perso, a, niveau.tabBlocs, niveau.nbBlocs);
+                    deplacementPerso(&niveau.perso, a, niveau.tabBlocs, niveau.nbBlocs);
                     break;
             }
             if (difMillis >= difPrecMillis + 100) {
@@ -162,10 +169,10 @@ void niveau() {
                 gotoligcol(balle.co.X, balle.co.Y);
                 printf("%c", 207);
                 gotoligcol(23, 21);
-                printf("PV : %d", perso.vies);
+                printf("PV : %d", niveau.perso.vies);
             }
         }
-        if (perso.vies == 0) {
+        if (niveau.perso.vies == 0) {
             gameOver();
         }
         gotoligcol(21, 21);
@@ -174,9 +181,9 @@ void niveau() {
         gotoligcol(22, 21);
         printf("Temps : %d\n", difMillis);
         gotoligcol(24, 21);
-        printf("%d", convCo(perso.co.X, perso.co.Y));
+        printf("Y:%d X:%d", niveau.perso.co.Y, niveau.perso.co.X);
         gotoligcol(25, 21);
-        printf("co init : %d%d\n", perso.initX, perso.initY);
+        printf("co init : %d%d\n", niveau.perso.initX, niveau.perso.initY);
     } while (1);
     //debugFinJeu(fichierLogs, &perso, &balle);
 }
