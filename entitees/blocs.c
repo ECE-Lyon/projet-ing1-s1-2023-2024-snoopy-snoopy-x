@@ -89,7 +89,7 @@ void afficherTousLesBlocs(BLOC bloc[], int nbBlocs) { // Affichage de tous les b
 
 int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs) {
     for (int i = 0; i < nbBlocs; i++) {
-        switch (blocs->type){
+        switch (blocs[i].type){
             case fixe :
             case poussable :
             case cassable :

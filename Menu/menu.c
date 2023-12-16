@@ -34,7 +34,7 @@ void afficherMenu() {
     gotoligcol(MenuminX + 4, MenuminY + 8);
     printf("%s%s", ANSI_RED, " 3.Charger une partie ", ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 5, MenuminY + 11);
-    printf("%s%s", ANSI_BLUE,"4. Mot de passe,"ANSI_GREEN, ANSI_RESET);
+    printf("%s%s", ANSI_BLUE,"4.Mot de passe"ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 6, MenuminY + 13);
     printf("%s%s", ANSI_RED,"5. Scores",ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 7, MenuminY + 13);

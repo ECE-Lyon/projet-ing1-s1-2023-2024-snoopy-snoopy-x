@@ -95,6 +95,9 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
     printf("%c", 207);
     if(balle->co.Y == perso->co.Y && balle->co.X == perso->co.X){
         perso->vies--;
+        resetPosition(perso);
+        gotoligcol(perso->co.X, perso->co.Y);
+        printf("O");
         gotoligcol(23, 21);
         printf("PV : %d", perso->vies);
     }

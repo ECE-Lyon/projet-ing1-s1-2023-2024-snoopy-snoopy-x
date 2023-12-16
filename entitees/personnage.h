@@ -18,6 +18,8 @@
 typedef struct Personnage{
     COORD co;
     unsigned short int vies;
+    unsigned short int initX;
+    unsigned short int initY;
 }PERSONNAGE;
 
 
@@ -25,6 +27,7 @@ typedef struct Personnage{
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
 
 void afficherOiseaux();
+void resetPosition(PERSONNAGE *perso);
 
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
 void cacherCharPerso(PERSONNAGE *perso);

@@ -1,16 +1,15 @@
 #ifndef PROJET_BLOCS_H
 #define PROJET_BLOCS_H
 
-#define CHAR_BLOC_CASSABLE_NEUF 177 // ▒
-#define CHAR_BLOC_CASSABLE_ABIME 176 // ░
-#define CHAR_BLOC_PIEGE 19 // ‼
-#define CHAR_BLOC_POUSSABLE 61 // =
-#define CHAR_BLOC_FIXE 219 // █
-#define CHAR_BLOC_TAPIS_HAUT 24 // ↑
-#define CHAR_BLOC_TAPIS_BAS 25 // ↓
-#define CHAR_BLOC_TAPIS_DROIT 26 // →
-#define CHAR_BLOC_TAPIS_GAUCHE 27 // ←
-
+#define CHAR_BLOC_CASSABLE_NEUF 177
+#define CHAR_BLOC_CASSABLE_ABIME 176
+#define CHAR_BLOC_PIEGE 19
+#define CHAR_BLOC_POUSSABLE 61
+#define CHAR_BLOC_FIXE 219
+#define CHAR_BLOC_TAPIS_HAUT 24
+#define CHAR_BLOC_TAPIS_BAS 25
+#define CHAR_BLOC_TAPIS_DROIT 26
+#define CHAR_BLOC_TAPIS_GAUCHE 60
 
 #include <windows.h>
 #include <assert.h>
@@ -32,7 +31,7 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y); // Permet d'initialiser 
 
 void afficherBloc(BLOC* bloc);
 
-void afficherTousLesBlocs(BLOC bloc[], int nbBlocs);
+void afficherTousLesBlocs(BLOC* bloc, int nbBlocs);
 
 int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs);
 

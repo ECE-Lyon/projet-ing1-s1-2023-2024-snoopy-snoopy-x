@@ -9,19 +9,17 @@ NIVEAU initNiveau(short int niveau){
     for(int i = 0; i < 4; i++) {
         varNiveau.oiseaux[i].recup = 0;
     }
-    {
-        varNiveau.oiseaux[0].co.X = 0;
-        varNiveau.oiseaux[0].co.Y = 0;
+    varNiveau.oiseaux[0].co.X = 0;
+    varNiveau.oiseaux[0].co.Y = 0;
 
-        varNiveau.oiseaux[1].co.X = 0;
-        varNiveau.oiseaux[1].co.Y = 9;
+    varNiveau.oiseaux[1].co.X = 0;
+    varNiveau.oiseaux[1].co.Y = 9;
 
-        varNiveau.oiseaux[2].co.X = 9;
-        varNiveau.oiseaux[2].co.Y = 9;
+    varNiveau.oiseaux[2].co.X = 9;
+    varNiveau.oiseaux[2].co.Y = 9;
 
-        varNiveau.oiseaux[3].co.X = 9;
-        varNiveau.oiseaux[3].co.Y = 0;
-    }
+    varNiveau.oiseaux[3].co.X = 9;
+    varNiveau.oiseaux[3].co.Y = 0;
 
 
     // Init dépendant de la mémoire :
@@ -121,7 +119,10 @@ void niveau() {
     BALLE balle;
     initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
-    gotoligcol(perso.co.X, perso.co.Y);
+
+    perso.initX = 7;
+    perso.initY = 7;
+    gotoligcol(perso.initX, perso.initY);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
     printf("%c", 27);
@@ -173,7 +174,9 @@ void niveau() {
         gotoligcol(22, 21);
         printf("Temps : %d\n", difMillis);
         gotoligcol(24, 21);
-        printf("%d, %d", perso.co.X, perso.co.Y);
+        printf("%d", convCo(perso.co.X, perso.co.Y));
+        gotoligcol(25, 21);
+        printf("co init : %d%d\n", perso.initX, perso.initY);
     } while (1);
     //debugFinJeu(fichierLogs, &perso, &balle);
 }
