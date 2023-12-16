@@ -7,7 +7,7 @@ void rObjectifs(){
            "Pour remporter la partie, vous devez recuperer les 4 oiseaux disposes aux extremites du plateau.\n"
            "Pour ce faire, aller voir la rubrique DEPLACEMENTS des regles du jeu.\n"
            "Cependant, prenez garde aux obstacles pouvant se presenter devant vous :\n"
-           "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau et si elles vous touche vous predez une vie.\n"
+           "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau1 et si elles vous touche vous predez une vie.\n"
            " \n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());

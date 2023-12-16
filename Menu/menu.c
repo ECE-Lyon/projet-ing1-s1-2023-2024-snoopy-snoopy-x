@@ -66,7 +66,7 @@ void afficherMenu() {
                             reglesDuJeu();
                             break;
                         case 1 :
-                            niveau();
+                            niveau1();
                             break;
                         case 2 :
                             //TODO: chargement();

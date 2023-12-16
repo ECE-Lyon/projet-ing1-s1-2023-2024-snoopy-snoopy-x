@@ -94,7 +94,7 @@ void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
 
 void piege(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
     for (int i = 0; i < nbBlocs; i++) {
-        if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1)){
+        if(blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1){
             if(blocs[i].type == pieges){
                 perso->vies--;
                 resetPosition(perso);

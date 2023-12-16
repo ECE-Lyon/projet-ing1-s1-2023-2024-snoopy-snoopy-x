@@ -25,7 +25,7 @@ add_executable(PROJET main.c
         entitees/conversionCoordonnees.h
         entitees/Oiseaux.c
         entitees/Oiseaux.c
-)
+        niveaux/chargerNiveaux.c niveaux/chargerNiveaux.h)
 
 
 add_executable(Exemple Affichage/exempleTableau.c
@@ -48,4 +48,4 @@ add_executable(Exemple Affichage/exempleTableau.c
         Niveaux/Niveau1/Niveau1.c Niveaux/Niveau1/Niveau1.h
         entitees/Oiseaux.c
         entitees/Oiseaux.c
-)
+        niveaux/chargerNiveaux.c niveaux/chargerNiveaux.h)
