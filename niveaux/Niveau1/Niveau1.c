@@ -104,7 +104,6 @@ NIVEAU initNiveau(short int niveau){
 }
 
 
-
 void niveau() {
     NIVEAU niveau;
     niveau = initNiveau(1);

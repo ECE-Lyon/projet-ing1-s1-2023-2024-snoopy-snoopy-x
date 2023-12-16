@@ -2,6 +2,7 @@
 #define PROJET_NIVEAU1_H
 #include "../../Affichage/plateau.h"
 #include "../../entitees/blocs.h"
+#include "../../entitees/Oiseaux.h"
 #include <sys/time.h>
 #include "../../Niveaux/Scores.h"
 #include "../../Menu/menu.h"

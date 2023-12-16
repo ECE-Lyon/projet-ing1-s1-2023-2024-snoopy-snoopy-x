@@ -22,14 +22,8 @@ typedef struct Personnage{
 
 
 
-typedef struct Oiseaux{
-    COORD co;
-    short int recup;
-}OISEAUX;
-
-
 void initPersonnage(PERSONNAGE *perso, int X, int Y);
-void initOiseaux(OISEAUX *oiseaux);
+
 void afficherOiseaux();
 
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
