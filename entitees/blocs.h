@@ -18,7 +18,7 @@
 //#include "../consoleDebug/consoleDebug.h"
 
 // Permet de définir les type de blocs, on le passe en typedef pour l'utiliser dans la struct BLOC.
-typedef enum {cassable, piege, poussable, fixe, tapisroulantbas, tapisroulantgauche, tapisroulanthaut, tapisroulantdroit}TYPEBLOC; // Allez voir la docu sur les enums si vous voulez comprendre comment l'utiliser (pas dur)
+typedef enum {cassable, pieges, poussable, fixe, tapisroulantbas, tapisroulantgauche, tapisroulanthaut, tapisroulantdroit}TYPEBLOC; // Allez voir la docu sur les enums si vous voulez comprendre comment l'utiliser (pas dur)
 //équivalent save: A,     B,       C,       D,       E,                F,                    G,                 H
 typedef struct bloc{
     COORD co;

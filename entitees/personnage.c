@@ -5,8 +5,6 @@ void initPersonnage(PERSONNAGE *perso, int X, int Y) {
     perso->co = convCo(X, Y);
 }
 
-
-
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs) {
     switch (input) {
         case 'd' :
@@ -60,8 +58,8 @@ void cacherCharPerso(PERSONNAGE *perso) {
 }
 
 void resetPosition(PERSONNAGE *perso){
-    perso->co.X = convCoX(perso->initX);
-    perso->co.Y = convCoY(perso->initY);
+    perso->co.X = perso->initX;
+    perso->co.Y = perso->initY;
 }
 
 void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
@@ -89,6 +87,19 @@ void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
                     printf("O");
                     break;
                 default : break;
+            }
+        }
+    }
+}
+
+void piege(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
+    for (int i = 0; i < nbBlocs; i++) {
+        if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1)){
+            if(blocs[i].type == pieges){
+                perso->vies--;
+                resetPosition(perso);
+                gotoligcol(perso->co.X, perso->co.Y);
+                printf("O");
             }
         }
     }

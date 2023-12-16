@@ -75,7 +75,7 @@ NIVEAU initNiveau(short int niveau){
                         tabBlocs[varNiveau.nbBlocs] = initBloc(cassable, x, y);
                         break;
                     case 'B' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(piege, x, y);
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(pieges, x, y);
                         break;
                     case 'C' :
                         tabBlocs[varNiveau.nbBlocs] = initBloc(poussable, x, y);
@@ -108,7 +108,6 @@ NIVEAU initNiveau(short int niveau){
     //afficherTousLesBlocs(tabBlocs, varNiveau.nbBlocs+1);
     afficherTousLesBlocs(varNiveau.tabBlocs, varNiveau.nbBlocs);
     gotoligcol(10, 0);
-
     return varNiveau;
 }
 
@@ -125,11 +124,15 @@ void niveau() {
     time(&start);
 
     time(&end);
+    PERSONNAGE perso;
+    initPersonnage(&perso, 0, 0);
     BALLE balle;
     initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
 
-    gotoligcol(niveau.perso.co.X, niveau.perso.co.Y);
+    perso.initX = 7;
+    perso.initY = 7;
+    gotoligcol(perso.initX, perso.initY);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
     printf("%c", 27);
@@ -143,9 +146,9 @@ void niveau() {
             difPrecMillisBalle = difMillis;
             checkDeplacementBalle(&balle, &niveau.perso, niveau.tabBlocs, niveau.nbBlocs);
         }
-        char a;
         tapisRoulant(&niveau.perso, niveau.tabBlocs, niveau.nbBlocs);
         afficherTousLesBlocs(niveau.tabBlocs, niveau.nbBlocs);
+        char a;
         if (_kbhit()) {
             a = (char) getch();
             switch (a) {
@@ -161,6 +164,7 @@ void niveau() {
                 case 'M' :
                     afficherMenu();
                 default :
+                    piege(&perso, niveau.tabBlocs, niveau.nbBlocs);
                     deplacementPerso(&niveau.perso, a, niveau.tabBlocs, niveau.nbBlocs);
                     break;
             }

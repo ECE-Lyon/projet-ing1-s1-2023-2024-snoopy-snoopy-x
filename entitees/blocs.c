@@ -11,8 +11,7 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y){
             bloc.pv = 2;
         }
             break;
-        case piege : {
-            //TODO
+        case pieges : {
         }
             break;
         case poussable : {
@@ -48,7 +47,7 @@ void afficherBloc(BLOC* bloc) { // Affichage d'un bloc en fonction de son type
                     printf("%c", CHAR_BLOC_CASSABLE_ABIME);
                 }
                 break;
-            case piege :
+            case pieges :
                 printf("%c", CHAR_BLOC_PIEGE);
                 break;
             case poussable :
