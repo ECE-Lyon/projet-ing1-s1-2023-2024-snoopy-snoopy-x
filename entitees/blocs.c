@@ -77,12 +77,12 @@ void afficherBloc(BLOC* bloc) { // Affichage d'un bloc en fonction de son type
     }
 }
 
-void afficherTousLesBlocs(BLOC *bloc, int nbBlocs) { // Affichage de tous les blocs via l'appel successif de la fonction afficherBloc()
+void afficherTousLesBlocs(BLOC bloc[], int nbBlocs) { // Affichage de tous les blocs via l'appel successif de la fonction afficherBloc()
     for (int i = 0; i < nbBlocs; i++) {
-        gotoligcol(i, 0);
-        // Pour afficher les blocs en haut pour débugger :
-        // printf("%d, %d", bloc[i].existe, bloc[i].pv);
         afficherBloc(&bloc[i]);
+        // Pour afficher les blocs en haut pour débugger :
+        gotoligcol(i+15, 0);
+        printf("%d, %d, co : %hd %hd", bloc[i].existe, bloc[i].pv, bloc[i].co.X, bloc[i].co.Y);
     }
 }
 
@@ -96,6 +96,8 @@ int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs) {
                     return 1;
                 }
                 break;
+            case tapisroulanthaut :
+                return 0;
             default:
                 break;
         }

@@ -1,5 +1,4 @@
 #include "Niveau1.h"
-#include "../../Menu/menu.h"
 
 NIVEAU initNiveau(short int niveau){
     NIVEAU varNiveau;
@@ -10,30 +9,32 @@ NIVEAU initNiveau(short int niveau){
     for(int i = 0; i < 4; i++) {
         varNiveau.oiseaux[i].recup = 0;
     }
-    varNiveau.oiseaux[0].co.X = 0;
-    varNiveau.oiseaux[0].co.Y = 0;
+    {
+        varNiveau.oiseaux[0].co.X = 0;
+        varNiveau.oiseaux[0].co.Y = 0;
 
-    varNiveau.oiseaux[1].co.X = 0;
-    varNiveau.oiseaux[1].co.Y = 9;
+        varNiveau.oiseaux[1].co.X = 0;
+        varNiveau.oiseaux[1].co.Y = 9;
 
-    varNiveau.oiseaux[2].co.X = 9;
-    varNiveau.oiseaux[2].co.Y = 9;
+        varNiveau.oiseaux[2].co.X = 9;
+        varNiveau.oiseaux[2].co.Y = 9;
 
-    varNiveau.oiseaux[3].co.X = 9;
-    varNiveau.oiseaux[3].co.Y = 0;
+        varNiveau.oiseaux[3].co.X = 9;
+        varNiveau.oiseaux[3].co.Y = 0;
+    }
 
 
-    // Init dépendant de la mémoire : TODO:
+    // Init dépendant de la mémoire :
     FILE *fichierNiveau = NULL;
     switch (niveau) {
         case 1 :
-            fichierNiveau = fopen("../Niveaux/niveau1.txt", "r"); break;
+            fichierNiveau = fopen("..\\niveaux\\Niveau1\\niveau1.txt", "r"); break;
         case 2 :
-            fichierNiveau = fopen("../Niveaux/niveau2.txt", "r"); break;
+            //fichierNiveau = fopen("../niveaux/Niveau2.txt", "r"); break;
         case 3 :
-            fichierNiveau = fopen("../Niveaux/niveau3.txt", "r"); break;
+            //fichierNiveau = fopen("../niveaux/Niveau3.txt", "r"); break;
         case 4 :
-            fichierNiveau = fopen("../Niveaux/niveau4.txt", "r"); break;
+            //fichierNiveau = fopen("../niveaux/Niveau4.txt", "r"); break;
 
         default :
             assert(!"Niveau non existant");
@@ -48,12 +49,65 @@ NIVEAU initNiveau(short int niveau){
     for(int i = 0; i < varNiveau.nbBalles; i++){
         fscanf(fichierNiveau, "co %hd %hd dir %hd\n", &varNiveau.tabBalles[i].co.X, &varNiveau.tabBalles[i].co.Y, &varNiveau.tabBalles[i].direction);
     }
-    
+
+    // Chargement des blocs :
+    varNiveau.nbBlocs = 0;
+    unsigned char plateau[10][10];
+    for(int i = 0; i < 10; i++) {
+        fgets(plateau[i], 11, fichierNiveau);
+        fgetc(fichierNiveau);
+        printf("%s\n", plateau[i]);
+    }
+    BLOC tabBlocs[70];
+    for (short x = 0; x < 10; x++) {
+        for (short y = 0; y < 10; y++) {
+            if (plateau[x][y] != '0') {
+                varNiveau.nbBlocs++;
+                switch (plateau[x][y]) {
+                    case 'A' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(cassable, x, y);
+                        break;
+                    case 'B' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(piege, x, y);
+                        break;
+                    case 'C' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(poussable, x, y);
+                        break;
+                    case 'D' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(fixe, x, y);
+                        break;
+                    case 'E' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulantbas, x, y);
+                        break;
+                    case 'F' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulantgauche, x, y);
+                        break;
+                    case 'G' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulanthaut, x, y);
+                        break;
+                    case 'H' :
+                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulantdroit, x, y);
+                        break;
+                };
+            }
+        }
+    }
+    varNiveau.tabBlocs = calloc(varNiveau.nbBlocs, sizeof(BLOC));
+    for (int i = 0; i < varNiveau.nbBlocs; i++) {
+        varNiveau.tabBlocs[i] = tabBlocs[i+1];
+    }
+    printf("\nnbBlocs : %d", varNiveau.nbBlocs);
+    //afficherTousLesBlocs(tabBlocs, varNiveau.nbBlocs+1);
+    afficherTousLesBlocs(varNiveau.tabBlocs, varNiveau.nbBlocs);
+    gotoligcol(10, 0);
     return varNiveau;
 }
 
 
+
 void niveau() {
+    NIVEAU niveau;
+    niveau = initNiveau(1);
     clearConsole();
     time_t start, end;
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
@@ -61,13 +115,6 @@ void niveau() {
     double dif;
     gettimeofday(&startT, NULL);
     time(&start);
-    const short nbBlocs = 4;
-    BLOC blocs[] = {
-            initBloc(tapisroulantgauche, 1, 2),
-            initBloc(tapisroulantbas, 5, 8),
-            initBloc(tapisroulantdroit, 9, 7),
-            initBloc(tapisroulanthaut, 7, 5),
-    };
 
     time(&end);
     PERSONNAGE perso;
@@ -75,7 +122,6 @@ void niveau() {
     BALLE balle;
     initBalle(&balle, convCoX(5), convCoY(5));
     afficherCase();
-
     gotoligcol(perso.co.X, perso.co.Y);
     printf("O");
     gotoligcol(balle.co.X, balle.co.Y);
@@ -88,11 +134,11 @@ void niveau() {
         gotoligcol(0, 0);
         if (difMillis >= difPrecMillisBalle + 125) {
             difPrecMillisBalle = difMillis;
-            checkDeplacementBalle(&balle, &perso, blocs, nbBlocs);
+            checkDeplacementBalle(&balle, &perso, niveau.tabBlocs, niveau.nbBlocs);
         }
         char a;
-        tapisRoulant(blocs->co.X, blocs->co.Y, &perso, blocs, nbBlocs);
-        afficherTousLesBlocs(blocs, nbBlocs);
+        tapisRoulant(&perso, niveau.tabBlocs, niveau.nbBlocs);
+        afficherTousLesBlocs(niveau.tabBlocs, niveau.nbBlocs);
         if (_kbhit()) {
             a = (char) getch();
             switch (a) {
@@ -108,7 +154,7 @@ void niveau() {
                 case 'M' :
                     afficherMenu();
                 default :
-                    deplacementPerso(&perso, a, blocs, nbBlocs);
+                    deplacementPerso(&perso, a, niveau.tabBlocs, niveau.nbBlocs);
                     break;
             }
             if (difMillis >= difPrecMillis + 100) {
@@ -128,7 +174,7 @@ void niveau() {
         gotoligcol(22, 21);
         printf("Temps : %d\n", difMillis);
         gotoligcol(24, 21);
-        printf("%d", convCo(perso.co.X, perso.co.Y));
+        printf("%d, %d", perso.co.X, perso.co.Y);
     } while (1);
     //debugFinJeu(fichierLogs, &perso, &balle);
 }

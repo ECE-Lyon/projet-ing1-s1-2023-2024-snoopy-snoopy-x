@@ -1,15 +1,15 @@
 #ifndef PROJET_BLOCS_H
 #define PROJET_BLOCS_H
 
-#define CHAR_BLOC_CASSABLE_NEUF 177
-#define CHAR_BLOC_CASSABLE_ABIME 176
-#define CHAR_BLOC_PIEGE 19
-#define CHAR_BLOC_POUSSABLE 61
-#define CHAR_BLOC_FIXE 219
-#define CHAR_BLOC_TAPIS_HAUT 24
-#define CHAR_BLOC_TAPIS_BAS 25
-#define CHAR_BLOC_TAPIS_DROIT 26
-#define CHAR_BLOC_TAPIS_GAUCHE 27
+#define CHAR_BLOC_CASSABLE_NEUF 177 // ▒
+#define CHAR_BLOC_CASSABLE_ABIME 176 // ░
+#define CHAR_BLOC_PIEGE 19 // ‼
+#define CHAR_BLOC_POUSSABLE 61 // =
+#define CHAR_BLOC_FIXE 219 // █
+#define CHAR_BLOC_TAPIS_HAUT 24 // ↑
+#define CHAR_BLOC_TAPIS_BAS 25 // ↓
+#define CHAR_BLOC_TAPIS_DROIT 26 // →
+#define CHAR_BLOC_TAPIS_GAUCHE 27 // ←
 
 
 #include <windows.h>
@@ -20,7 +20,7 @@
 
 // Permet de définir les type de blocs, on le passe en typedef pour l'utiliser dans la struct BLOC.
 typedef enum {cassable, piege, poussable, fixe, tapisroulantbas, tapisroulantgauche, tapisroulanthaut, tapisroulantdroit}TYPEBLOC; // Allez voir la docu sur les enums si vous voulez comprendre comment l'utiliser (pas dur)
-
+//équivalent save: A,     B,       C,       D,       E,                F,                    G,                 H
 typedef struct bloc{
     COORD co;
     TYPEBLOC type;
@@ -32,7 +32,7 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y); // Permet d'initialiser 
 
 void afficherBloc(BLOC* bloc);
 
-void afficherTousLesBlocs(BLOC* bloc, int nbBlocs);
+void afficherTousLesBlocs(BLOC bloc[], int nbBlocs);
 
 int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs);
 
