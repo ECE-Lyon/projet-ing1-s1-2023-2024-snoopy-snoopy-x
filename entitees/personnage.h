@@ -19,10 +19,6 @@ typedef struct Personnage{
 }PERSONNAGE;
 
 
-
-void initPersonnage(PERSONNAGE *perso, int X, int Y);
-
-void afficherOiseaux();
 void resetPosition(PERSONNAGE *perso);
 
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);

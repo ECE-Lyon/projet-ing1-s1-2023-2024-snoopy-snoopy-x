@@ -3,10 +3,10 @@
 
 #include "windows.h"
 
-#define MAXX 25
-#define MAXY (MAXX + 84)
 #define MINX 7
-#define MINY (MINX + 66)
+#define MINY 73
+#define MAXX (MINX+9*2)
+#define MAXY (MINY+9*4)
 
 short convCoX(int x);
 short convCoY(int y);

@@ -1,5 +1,5 @@
 tpsBalle 5
-coDepart 4 6
+coDepart 1 1
 nbBalles 3 :
 co 1 2 dir 0
 co 3 4 dir 1

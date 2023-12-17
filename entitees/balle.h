@@ -17,6 +17,6 @@ void afficherBalles(short nbBalles, BALLE* balle);
 
 void checkDeplacementBalle(BALLE* balle, PERSONNAGE* perso, BLOC blocs[], int nbBlocs);
 
-void checkDeplacementTouesBalles(short nbBalles, BALLE* balle, PERSONNAGE* perso, BLOC blocs[], int nbBlocs);
+void checkDeplacementToutesBalles(short nbBalles, BALLE* balle, PERSONNAGE* perso, BLOC blocs[], int nbBlocs);
 
 #endif

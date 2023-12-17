@@ -1,9 +1,5 @@
 #include "personnage.h"
 
-void initPersonnage(PERSONNAGE *perso, int X, int Y) {
-    perso->vies = 3;
-    perso->co = convCo(X, Y);
-}
 
 void cacherCharPerso(PERSONNAGE *perso) {
     gotoligcol(perso->co.X, perso->co.Y);

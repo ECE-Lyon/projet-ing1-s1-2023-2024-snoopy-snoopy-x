@@ -8,13 +8,14 @@ void jouerNiveau(NIVEAU* niveau) {
 
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
     struct timeval stop, startT;
+    gettimeofday(&startT, NULL);
 
     do {
         gettimeofday(&stop, NULL);
 
         if (difMillis >= difPrecMillisBalle + 1000/niveau->tpsBalle) {
             difPrecMillisBalle = difMillis;
-            checkDeplacementTouesBalles(niveau->nbBalles, niveau->tabBalles, &niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
+            checkDeplacementToutesBalles(niveau->nbBalles, niveau->tabBalles, &niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
         }
 
         afficherTousLesBlocs(niveau->tabBlocs, niveau->nbBlocs);
@@ -54,7 +55,7 @@ void jouerNiveau(NIVEAU* niveau) {
 
         difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
         niveau->tempsMillis = difMillis;
-        gotoligcol(22, 21);
+        gotoligcol(0, 0);
         printf("Temps restant : %d\n", (TEMPS_MAX_MILLIS - niveau->tempsMillis)/1000);
         /*
         gotoligcol(24, 21);

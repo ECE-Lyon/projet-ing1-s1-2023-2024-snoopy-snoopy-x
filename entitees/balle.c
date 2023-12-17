@@ -110,7 +110,7 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
     }
 }
 
-void checkDeplacementTouesBalles(short nbBalles, BALLE* balle, PERSONNAGE* perso, BLOC blocs[], int nbBlocs) {
+void checkDeplacementToutesBalles(short nbBalles, BALLE* balle, PERSONNAGE* perso, BLOC blocs[], int nbBlocs) {
     for(int i = 0; i < nbBalles; i++) {
         checkDeplacementBalle(&balle[i], perso, blocs, nbBlocs);
     }

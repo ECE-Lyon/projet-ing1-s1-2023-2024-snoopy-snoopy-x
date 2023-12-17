@@ -7,19 +7,7 @@ NIVEAU initNiveau(short int niveau){
     // Initialisations ne dépendant pas du niveau
     varNiveau.perso.vies = 3;
     varNiveau.tempsMillis = 0;
-
-    for(int i = 0; i < 4; i++) { varNiveau.oiseaux[i].recup = 0; }
-    varNiveau.oiseaux[0].co.X = 0;
-    varNiveau.oiseaux[0].co.Y = 0;
-
-    varNiveau.oiseaux[1].co.X = 0;
-    varNiveau.oiseaux[1].co.Y = 9;
-
-    varNiveau.oiseaux[2].co.X = 9;
-    varNiveau.oiseaux[2].co.Y = 9;
-
-    varNiveau.oiseaux[3].co.X = 9;
-    varNiveau.oiseaux[3].co.Y = 0;
+    initOiseaux(varNiveau.oiseaux);
 
 
     // Init dépendant de la mémoire :
