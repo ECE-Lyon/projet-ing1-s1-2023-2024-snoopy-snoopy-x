@@ -41,6 +41,7 @@ void afficherMenu() {
     printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
 
+
     short Select = 0;
     char key;
     do {

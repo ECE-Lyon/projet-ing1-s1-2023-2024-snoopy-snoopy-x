@@ -17,3 +17,15 @@ void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux) {
         }
     }
 }
+void oiseaux(){
+    int TableauminX = 6;
+    int TableauminY = 70;
+    gotoligcol(TableauminX+1,TableauminY+3);
+    printf("%c", CHAR_OISEAUX);
+    gotoligcol(TableauminX+1,TableauminY+39);
+    printf("%c", CHAR_OISEAUX);
+    gotoligcol(TableauminX+19,TableauminY+3);
+    printf("%c", CHAR_OISEAUX);
+    gotoligcol(TableauminX+19,TableauminY+39);
+    printf("%c", CHAR_OISEAUX);
+}

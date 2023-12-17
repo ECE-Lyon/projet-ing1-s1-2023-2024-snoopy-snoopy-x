@@ -4,8 +4,9 @@ void gameOver(){
     clearConsole();
     gotoligcol( 2, 10);
     printf("GAME OVER\n\n"
+
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU."
-           ",                      \n"
+           ",                      \n\n\n"
            "                            ..@@@@@@@@#,          \n"
            "                         ..@@@@@@@@@@@@@@@.       \n"
            "             ...@@@@@@@@@@@@@@@@@@@@@@@@@@@*.     \n"
