@@ -6,6 +6,13 @@ void initBalle(BALLE *balle, int X, int Y){                 //initialistation de
     balle->direction = 2;                                   //Variable de direction de la balle
 }
 
+void afficherBalles(short nbBalles, BALLE* balle) {
+    for(int i = 0; i < nbBalles; i++) {
+        gotoligcol(balle[i].co.X, balle[i].co.Y);
+        printf("%c", 27);
+    }
+}
+
 void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nbBlocs){ //initialistation de la structure gerant le déplacement de la balle
     if(balle->co.X%2){
         if (balle->co.X == perso->co.X && balle->co.Y == perso->co.Y) {
@@ -100,5 +107,11 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
         printf("O");
         gotoligcol(23, 21);
         printf("PV : %d", perso->vies);
+    }
+}
+
+void checkDeplacementTouesBalles(short nbBalles, BALLE* balle, PERSONNAGE* perso, BLOC blocs[], int nbBlocs) {
+    for(int i = 0; i < nbBalles; i++) {
+        checkDeplacementBalle(&balle[i], perso, blocs, nbBlocs);
     }
 }

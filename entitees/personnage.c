@@ -64,24 +64,24 @@ void resetPosition(PERSONNAGE *perso){
 
 void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
     for (int i = 0; i < nbBlocs; i++) {
-        if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1)){
+        if(blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs[i].existe == 1){
             switch(blocs[i].type){
-                case(tapisroulantbas) :
+                case tapisroulantbas :
                     perso->co.X += 2;
                     gotoligcol(perso->co.X, perso->co.Y);
                     printf("O");
                     break;
-                case(tapisroulanthaut) :
+                case tapisroulanthaut :
                     perso->co.X -= 2;
                     gotoligcol(perso->co.X, perso->co.Y);
                     printf("O");
                     break;
-                case(tapisroulantdroit) :
+                case tapisroulantdroit :
                     perso->co.Y += 4;
                     gotoligcol(perso->co.X, perso->co.Y);
                     printf("O");
                     break;
-                case(tapisroulantgauche) :
+                case tapisroulantgauche :
                     perso->co.Y -= 4;
                     gotoligcol(perso->co.X, perso->co.Y);
                     printf("O");

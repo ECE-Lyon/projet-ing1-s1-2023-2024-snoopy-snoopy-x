@@ -1,7 +1,6 @@
 #ifndef PROJET_PERSONNAGE_H
 #define PROJET_PERSONNAGE_H
 
-#define CHAR_OISEAUX 118
 
 #include <windows.h>
 #include <conio.h>

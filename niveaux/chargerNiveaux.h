@@ -2,11 +2,10 @@
 #define PROJET_CHARGERNIVEAUX_H
 
 #include "../Affichage/plateau.h"
-#include "../entitees/blocs.h"
 #include "../entitees/Oiseaux.h"
 #include <sys/time.h>
-#include "../Niveaux/Scores.h"
-#include "../Menu/menu.h"
+
+
 
 #define TEMPS_MAX_MILLIS 180000
 #define TEMPS_MAX 180

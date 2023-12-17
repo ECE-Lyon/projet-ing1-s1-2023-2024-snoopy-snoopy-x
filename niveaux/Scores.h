@@ -1,9 +1,8 @@
 #ifndef PROJET_SCORES_H
 #define PROJET_SCORES_H
-#include "../entitees/personnage.h"
+
 #include "../entitees/balle.h"
-#include "../Affichage/ecranConsole.h"
-#include "../Menu/regles.h"
+//#include "../Affichage/ecranConsole.h"
 #include "../Menu/menu.h"
 
 void gameOver();

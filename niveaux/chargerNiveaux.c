@@ -51,7 +51,10 @@ NIVEAU initNiveau(short int niveau){
     varNiveau.tabBalles = calloc(varNiveau.nbBalles, sizeof(BALLE)); // tableau de taille dynamique (ya ptetr le cours sur boostcamp)
     fscanf(fichierNiveau, "\n");
     for(int i = 0; i < varNiveau.nbBalles; i++){
-        fscanf(fichierNiveau, "co %hd %hd dir %hd\n", &varNiveau.tabBalles[i].co.X, &varNiveau.tabBalles[i].co.Y, &varNiveau.tabBalles[i].direction);
+        short X, Y;
+        fscanf(fichierNiveau, "co %hd %hd dir %hd\n", &X, &Y, &varNiveau.tabBalles[i].direction);
+        varNiveau.tabBalles[i].co.X = convCoX(X);
+        varNiveau.tabBalles[i].co.Y = convCoY(Y);
     }
 
     // Chargement des blocs :

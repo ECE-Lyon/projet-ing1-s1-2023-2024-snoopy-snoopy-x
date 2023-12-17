@@ -1,11 +1,11 @@
 #include "conversionCoordonnees.h"
 
 
-int convCoX(int x) {
+short convCoX(int x) {
     return ((x * 2) + MINX);
 }
 
-int convCoY(int y) {
+short convCoY(int y) {
     return ((y * 4) + MINY);
 }
 
