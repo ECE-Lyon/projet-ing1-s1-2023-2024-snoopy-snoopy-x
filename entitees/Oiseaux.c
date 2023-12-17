@@ -1,31 +1,36 @@
 #include "Oiseaux.h"
 
 void initOiseaux(OISEAUX *oiseaux) {
-    oiseaux->recup = 0;
-    oiseaux->co.X = 19;
-    oiseaux->co.Y = 49;
+    oiseaux[0].co.X = convCoX(0);
+    oiseaux[0].co.Y = convCoY(0);
+    oiseaux[0].recup = 0;
+
+    oiseaux[1].co.X = convCoX(9);
+    oiseaux[1].co.Y = convCoY(0);
+    oiseaux[1].recup = 0;
+
+    oiseaux[2].co.X = convCoX(0);
+    oiseaux[2].co.Y = convCoY(9);
+    oiseaux[2].recup = 0;
+
+    oiseaux[3].co.X = convCoX(9);
+    oiseaux[3].co.Y = convCoY(9);
+    oiseaux[3].recup = 0;
 }
-void victoireDefaite(PERSONNAGE *snoopy, OISEAUX *oiseaux) {
-    int oiseauxTouches = 0;
-    // Vérifier si Snoopy touche un oiseau, sachant qu ils sont 4
+
+void afficherOiseaux(OISEAUX *oiseaux) {
     for (int i = 0; i < 4; i++) {
-        if (snoopy->co.X == oiseaux[i].co.X && snoopy->co.Y == oiseaux[i].co.Y) {
-            oiseauxTouches++;
-            if (oiseauxTouches == 4) {
-                printf("vous avez gagne");  // Snoopy a touché tous les oiseaux et gagne/ il a reussi
-            }
+        if (!oiseaux->recup) {
+            gotoligcol(oiseaux[i].co.X, oiseaux[i].co.Y);
+            printf("%c", CHAR_OISEAUX);
         }
     }
 }
-void oiseaux(){
-    int TableauminX = 6;
-    int TableauminY = 70;
-    gotoligcol(TableauminX+1,TableauminY+3);
-    printf("%c", CHAR_OISEAUX);
-    gotoligcol(TableauminX+1,TableauminY+39);
-    printf("%c", CHAR_OISEAUX);
-    gotoligcol(TableauminX+19,TableauminY+3);
-    printf("%c", CHAR_OISEAUX);
-    gotoligcol(TableauminX+19,TableauminY+39);
-    printf("%c", CHAR_OISEAUX);
+
+void recupOiseaux(OISEAUX *oiseaux, PERSONNAGE perso) {
+    for (int i = 0; i < 4; i++) {
+        if (perso.co.X == oiseaux[i].co.X && perso.co.Y == oiseaux[i].co.Y){
+            oiseaux[i].recup = 1;
+        }
+    }
 }

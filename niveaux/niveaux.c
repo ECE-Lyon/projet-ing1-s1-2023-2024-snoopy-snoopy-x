@@ -18,6 +18,7 @@ void jouerNiveau(NIVEAU* niveau) {
         }
 
         afficherTousLesBlocs(niveau->tabBlocs, niveau->nbBlocs);
+        afficherOiseaux(niveau->oiseaux);
         gotoligcol(niveau->perso.co.X, niveau->perso.co.Y);
         printf("O");
 
@@ -39,6 +40,7 @@ void jouerNiveau(NIVEAU* niveau) {
                     afficherMenu();
                 default :
                     deplacementPerso(&niveau->perso, a, niveau->tabBlocs, niveau->nbBlocs);
+                    recupOiseaux(niveau->oiseaux, niveau->perso);
                     break;
             }
             if (difMillis >= difPrecMillis + 100) {
