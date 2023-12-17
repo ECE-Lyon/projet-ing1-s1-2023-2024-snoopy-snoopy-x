@@ -23,7 +23,7 @@ typedef enum {cassable, pieges, poussable, fixe, tapisroulantbas, tapisroulantga
 typedef struct bloc{
     COORD co;
     TYPEBLOC type;
-    short pv;
+    short pv, deplacementRestant;
     short int existe;
 }BLOC;
 
@@ -38,5 +38,6 @@ int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs);
 void casserBloc(short X, short Y, BLOC blocs[], int nbBlocs);
 
 void chercherCasserBlocs(COORD co, BLOC blocs[], int nbBlocs);
+
 
 #endif //PROJET_BLOCS_H

@@ -21,7 +21,7 @@ void jouerNiveau(NIVEAU* niveau) {
         gotoligcol(niveau->perso.co.X, niveau->perso.co.Y);
         printf("O");
 
-        piege(&niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
+        blocPiege(&niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
         gotoligcol(23, 21);
         printf("PV : %d", niveau->perso.vies);
 

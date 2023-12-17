@@ -29,6 +29,6 @@ void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs);
 void cacherCharPerso(PERSONNAGE *perso);
 
 void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs);
-void piege(PERSONNAGE *perso, BLOC blocs[], int nbBlocs);
-
+void blocPiege(PERSONNAGE *perso, BLOC blocs[], int nbBlocs);
+void blocPoussable(PERSONNAGE *perso, BLOC blocs[], int nbBlocs);
 #endif

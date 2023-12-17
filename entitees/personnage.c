@@ -5,6 +5,96 @@ void initPersonnage(PERSONNAGE *perso, int X, int Y) {
     perso->co = convCo(X, Y);
 }
 
+void cacherCharPerso(PERSONNAGE *perso) {
+    gotoligcol(perso->co.X, perso->co.Y);
+    printf(" ");
+}
+
+void resetPosition(PERSONNAGE *perso){
+    perso->co.X = perso->initX;
+    perso->co.Y = perso->initY;
+}
+
+void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
+    for (int i = 0; i < nbBlocs; i++) {
+        if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs[i].existe == 1)){
+            switch(blocs[i].type){
+                case(tapisroulantbas) :
+                    perso->co.X += 2;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                case(tapisroulanthaut) :
+                    perso->co.X -= 2;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                case(tapisroulantdroit) :
+                    perso->co.Y += 4;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                case(tapisroulantgauche) :
+                    perso->co.Y -= 4;
+                    gotoligcol(perso->co.X, perso->co.Y);
+                    printf("O");
+                    break;
+                default : break;
+            }
+        }
+    }
+}
+
+void blocPiege(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
+    for (int i = 0; i < nbBlocs; i++) {
+        if((blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs[i].existe == 1)){
+            if(blocs[i].type == pieges){
+                perso->vies--;
+                resetPosition(perso);
+                gotoligcol(perso->co.X, perso->co.Y);
+                printf("O");
+            }
+        }
+    }
+}
+
+void blocPoussable(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
+    for (int i = 0; i < nbBlocs; i++) {
+        if (blocs[i].co.X == perso->co.X - 2 && blocs[i].co.Y == perso->co.Y && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
+            blocs[i].deplacementRestant--;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf(" ");
+            blocs[i].co.X = blocs[i].co.X - 2;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf("%c", CHAR_BLOC_POUSSABLE);
+        }
+        if (blocs[i].co.X == perso->co.X + 2 && blocs[i].co.Y == perso->co.Y && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
+            blocs[i].deplacementRestant--;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf(" ");
+            blocs[i].co.X = blocs[i].co.X + 2;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf("%c", CHAR_BLOC_POUSSABLE);
+        }
+        if (blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y + 4 && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
+            blocs[i].deplacementRestant--;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf(" ");
+            blocs[i].co.Y = blocs[i].co.Y + 4;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf("%c", CHAR_BLOC_POUSSABLE);
+        }
+        if (blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y - 4 && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
+            blocs[i].deplacementRestant--;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf(" ");
+            blocs[i].co.Y = blocs[i].co.Y - 4;
+            gotoligcol(blocs[i].co.X, blocs[i].co.Y);
+            printf("%c", CHAR_BLOC_POUSSABLE);
+        }
+    }
+}
+
 void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs) {
     switch (input) {
         case 'd' :
@@ -46,61 +136,9 @@ void deplacementPerso(PERSONNAGE *perso, char input, BLOC blocs[], int nbBlocs) 
         case 'e' :
         case 'E' :
             chercherCasserBlocs(perso->co, blocs, nbBlocs);
+            blocPoussable(perso, blocs, nbBlocs);
             break;
         default :
             break;
-    }
-}
-
-void cacherCharPerso(PERSONNAGE *perso) {
-    gotoligcol(perso->co.X, perso->co.Y);
-    printf(" ");
-}
-
-void resetPosition(PERSONNAGE *perso){
-    perso->co.X = perso->initX;
-    perso->co.Y = perso->initY;
-}
-
-void tapisRoulant(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
-    for (int i = 0; i < nbBlocs; i++) {
-        if(blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs[i].existe == 1){
-            switch(blocs[i].type){
-                case tapisroulantbas :
-                    perso->co.X += 2;
-                    gotoligcol(perso->co.X, perso->co.Y);
-                    printf("O");
-                    break;
-                case tapisroulanthaut :
-                    perso->co.X -= 2;
-                    gotoligcol(perso->co.X, perso->co.Y);
-                    printf("O");
-                    break;
-                case tapisroulantdroit :
-                    perso->co.Y += 4;
-                    gotoligcol(perso->co.X, perso->co.Y);
-                    printf("O");
-                    break;
-                case tapisroulantgauche :
-                    perso->co.Y -= 4;
-                    gotoligcol(perso->co.X, perso->co.Y);
-                    printf("O");
-                    break;
-                default : break;
-            }
-        }
-    }
-}
-
-void piege(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
-    for (int i = 0; i < nbBlocs; i++) {
-        if(blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y && blocs->existe == 1){
-            if(blocs[i].type == pieges){
-                perso->vies--;
-                resetPosition(perso);
-                gotoligcol(perso->co.X, perso->co.Y);
-                printf("O");
-            }
-        }
     }
 }

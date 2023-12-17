@@ -5,6 +5,7 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y){
     bloc.type = type;
     bloc.existe = 1;
     bloc.pv = -1;
+    bloc.deplacementRestant = 0;
     bloc.co = convCo(X, Y);
     switch (bloc.type) {
         case cassable : {
@@ -14,9 +15,8 @@ BLOC initBloc(TYPEBLOC type, short int X, short int Y){
         case pieges : {
         }
             break;
-        case poussable : {
-            //TODO
-        }
+        case poussable :
+            bloc.deplacementRestant = 1;
             break;
         case fixe :
             break;
@@ -90,6 +90,9 @@ int collisionBlocs(short X, short Y, BLOC blocs[], int nbBlocs) {
                 }
                 break;
             case poussable :
+                if (blocs[i].co.X == X && blocs[i].co.Y == Y && blocs[i].existe) {
+                    return 1;
+                }
                 break;
             case cassable :
                 if (blocs[i].co.X == X && blocs[i].co.Y == Y && blocs[i].existe) {
@@ -123,5 +126,6 @@ void chercherCasserBlocs(COORD co, BLOC blocs[], int nbBlocs) {
     casserBloc(co.X, co.Y + 4, blocs, nbBlocs);
     casserBloc(co.X, co.Y - 4, blocs, nbBlocs);
 }
+
 
 

@@ -2,6 +2,8 @@
 #define PROJET_NIVEAUX_H
 
 #include "chargerNiveaux.h"
+#include "../Menu/menu.h"
+#include "Scores.h"
 
 void jouerNiveau(NIVEAU* niveau);
 
