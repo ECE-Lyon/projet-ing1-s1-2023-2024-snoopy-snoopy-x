@@ -13,7 +13,7 @@
 #define HORIZONTAL 196
 #define LINK 197
 #define ANSI_blanc "\x1b[37m"
-#define ANSI_RED "\x1b[32m"
+#define ANSI_GREEN "\x1b[32m"
 
 
 void afficherCase();

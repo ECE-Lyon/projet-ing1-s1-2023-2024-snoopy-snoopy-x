@@ -24,4 +24,6 @@ typedef struct Niveau {
 
 NIVEAU initNiveau(short int niveau);
 
+void afficherTemps();
+
 #endif //PROJET_CHARGERNIVEAUX_H
