@@ -20,6 +20,7 @@ void jouerNiveau(NIVEAU* niveau) {
 
         afficherTousLesBlocs(niveau->tabBlocs, niveau->nbBlocs);
         afficherOiseaux(niveau->oiseaux);
+        oiseauxRecup(niveau->oiseaux, niveau->perso);
         gotoligcol(niveau->perso.co.X, niveau->perso.co.Y);
         printf("O");
 
@@ -52,7 +53,6 @@ void jouerNiveau(NIVEAU* niveau) {
         if (niveau->perso.vies == 0) {
             gameOver();
         }
-
         difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
         niveau->tempsMillis = difMillis;
         gotoligcol(0, 0);

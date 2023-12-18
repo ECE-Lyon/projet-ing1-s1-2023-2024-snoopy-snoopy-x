@@ -4,6 +4,7 @@
 #include <windows.h>
 //#include "../Affichage/ecranConsole.h"
 #define LINK 197
+#define BALL 207
 
 
 typedef struct Balle{
