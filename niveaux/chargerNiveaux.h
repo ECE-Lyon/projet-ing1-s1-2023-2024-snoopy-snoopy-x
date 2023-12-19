@@ -3,6 +3,10 @@
 
 //#include "../Affichage/plateau.h"
 #include "../entitees/Oiseaux.h"
+//#include "../Menu/menu.h"
+//#include "Scores.h"
+
+
 #include <sys/time.h>
 
 

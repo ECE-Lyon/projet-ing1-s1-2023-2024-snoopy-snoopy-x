@@ -22,6 +22,5 @@ typedef struct Scores{
     short int scoreNiveau3;
     short int scoreNiveau4;
 }SCORES;
-*/
 
 #endif //PROJET_SCORES_H
