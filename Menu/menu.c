@@ -75,14 +75,14 @@ void afficherMenu() {
             switch (Select) {
                 case 0 :
                     gotoligcol(MenuminX + 2, MenuminY + 8);
-                    printf("%c", BALL);
+                    printf("%s%c",ANSI_YELLOW, BALL);
                     gotoligcol(MenuminX + 3, MenuminY + 5);
                     printf("  ");
                     gotoligcol(0,0);
                     break;
                 case 1 :
                     gotoligcol(MenuminX + 3, MenuminY + 5);
-                    printf("%c", BALL);
+                    printf("%s%c",ANSI_YELLOW, BALL);
                     gotoligcol(MenuminX + 2, MenuminY + 8);
                     printf("  ");
                     gotoligcol(MenuminX + 4, MenuminY + 6);
@@ -91,7 +91,7 @@ void afficherMenu() {
                     break;
                 case 2:
                     gotoligcol(MenuminX + 4, MenuminY + 6);
-                    printf("%c", BALL);
+                    printf("%s%c",ANSI_YELLOW, BALL);
                     gotoligcol(MenuminX + 3, MenuminY + 5);
                     printf("  ");
                     gotoligcol(MenuminX + 5, MenuminY + 9);
@@ -100,7 +100,7 @@ void afficherMenu() {
                     break;
                 case 3 :
                     gotoligcol(MenuminX + 5, MenuminY + 9);
-                    printf("%c", BALL);
+                    printf("%s%c", ANSI_YELLOW,BALL);
                     gotoligcol(MenuminX + 4, MenuminY + 6);
                     printf("  ");
                     gotoligcol(MenuminX + 6, MenuminY + 11);
@@ -109,7 +109,7 @@ void afficherMenu() {
                     break;
                 case 4 :
                     gotoligcol(MenuminX + 6, MenuminY + 11 );
-                    printf("%c", BALL);
+                    printf("%s%c", ANSI_YELLOW,BALL);
                     gotoligcol(MenuminX + 5, MenuminY + 9);
                     printf("  ");
                     gotoligcol(MenuminX + 7, MenuminY + 11);
@@ -118,7 +118,7 @@ void afficherMenu() {
                     break;
                 case 5 :
                     gotoligcol(MenuminX + 7, MenuminY + 11);
-                    printf("%c", BALL);
+                    printf("%s%c",ANSI_YELLOW, BALL);
                     gotoligcol(MenuminX + 6, MenuminY + 11);
                     printf("  ");
                     gotoligcol(0,0);

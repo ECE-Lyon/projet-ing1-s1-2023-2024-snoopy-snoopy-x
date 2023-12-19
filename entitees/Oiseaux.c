@@ -45,15 +45,15 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
     if(scoreOiseaux==4){
         clearConsole();
         gotoligcol(14,100);
-        printf("Le mote de passe est : \n\n");
+        printf("%s%s", ANSI_MAGENTA, "Le mot de passe est : \n\n");
         gotoligcol(16,102);
-        printf("Niveau suivant\n");
+        printf("%s%s", ANSI_CYAN,"Niveau suivant\n");
         gotoligcol(18,102);
-        printf( "Retour au menu \n");
+        printf( "%s%s", ANSI_MAGENTA,"Retour au menu \n");
         gotoligcol(20,102);
-        printf( "Saisir un mot de passe \n");
+        printf( "%s%s",ANSI_CYAN,"Saisir un mot de passe \n");
         gotoligcol(22,102);
-        printf("Quitter le jeu");
+        printf("%s%s", ANSI_MAGENTA, "Quitter le jeu");
         gotoligcol(0,0);
         printf("                                                                                \n"
                "                                                                                 \n"
@@ -118,34 +118,27 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
                                 printf("Le mot de passe est : ");
                                 break;
                             case 1 :
-                                //niveau1();
-                                break;
+                                afficherMenu();
+                                 break;
                             case 2 :
-                                //TODO: chargement();
+                               motDePasse();
                                 break;
                             case 3 :
-                                //motDePasse();
-                                //TODO: password():
-                                break;
-                            case 4 :
-                                //TODO: highScores();
-                                break;
-                            case 5 :
-                                //quitter();
+                                quitter();
                                 break;
                         }
                 }
                 switch (Select) {
                     case 0 :
                         gotoligcol( 16,  98);
-                        printf("%c", BALL);
+                        printf("%s%c", ANSI_YELLOW, BALL);
                         gotoligcol( 16+ 2,  98);
                         printf("  ");
                         gotoligcol(0,0);
                         break;
                     case 1 :
                         gotoligcol( 18,  98);
-                        printf("%c", BALL);
+                        printf("%s%c", ANSI_YELLOW, BALL);
                         gotoligcol( 18+ 2,  98);
                         printf("  ");
                         gotoligcol( 18-2,  98);
@@ -154,7 +147,7 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
                         break;
                     case 2:
                         gotoligcol( 20,  98);
-                        printf("%c", BALL);
+                        printf("%s%c", ANSI_YELLOW, BALL);
                         gotoligcol( 20+2,  98);
                         printf("  ");
                         gotoligcol( 20-2,  98);
@@ -163,23 +156,13 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
                         break;
                     case 3 :
                         gotoligcol( 22,  98);
-                        printf("%c", BALL);
+                        printf("%s%c", ANSI_YELLOW, BALL);
                         gotoligcol( 22+2,  98);
                         printf("  ");
                         gotoligcol( 22-2,  98);
                         printf("  ");
                         gotoligcol(0,0);
                         break;
-                    case 4 :
-                        gotoligcol( + 24,  98 );
-                        printf("%c", BALL);
-                        gotoligcol( + 24+2,  98);
-                        printf("  ");
-                        gotoligcol( + 24-2,  + 98);
-                        printf("  ");
-                        gotoligcol(0,0);
-                        break;
-
                 }
                 if(key == 'e' || key == 'E'){
 

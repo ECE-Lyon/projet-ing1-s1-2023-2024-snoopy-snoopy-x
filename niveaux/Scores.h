@@ -1,9 +1,12 @@
 #ifndef PROJET_SCORES_H
 #define PROJET_SCORES_H
 
-#include "../entitees/balle.h"
 //#include "../Affichage/ecranConsole.h"
-#include "../Menu/menu.h"
+//#include "../Menu/menu.h"
+#include <windows.h>
+#include <conio.h>
+#include "chargerNiveaux.h"
+#include "../entitees/balle.h"
 
 void gameOver();
 
