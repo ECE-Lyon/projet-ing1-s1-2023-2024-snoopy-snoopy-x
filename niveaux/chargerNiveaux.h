@@ -1,7 +1,7 @@
 #ifndef PROJET_CHARGERNIVEAUX_H
 #define PROJET_CHARGERNIVEAUX_H
 
-#include "../Affichage/plateau.h"
+//#include "../Affichage/plateau.h"
 #include "../entitees/Oiseaux.h"
 #include <sys/time.h>
 

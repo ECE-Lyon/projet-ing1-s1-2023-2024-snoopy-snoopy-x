@@ -26,7 +26,9 @@ add_executable(PROJET main.c
         entitees/Oiseaux.c
         entitees/Oiseaux.c
         niveaux/chargerNiveaux.c niveaux/chargerNiveaux.h
-        niveaux/niveaux.c niveaux/niveaux.h)
+        niveaux/niveaux.c niveaux/niveaux.h
+        sauvegardes/sauvegardes.h sauvegardes/sauvegardes.c
+        )
 
 
 add_executable(Exemple Affichage/exempleTableau.c
@@ -50,4 +52,6 @@ add_executable(Exemple Affichage/exempleTableau.c
         entitees/Oiseaux.c
         entitees/Oiseaux.c
         niveaux/chargerNiveaux.c niveaux/chargerNiveaux.h
-        niveaux/niveaux.c niveaux/niveaux.h)
+        niveaux/niveaux.c niveaux/niveaux.h
+        sauvegardes/sauvegardes.h sauvegardes/sauvegardes.c
+        )

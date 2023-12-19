@@ -97,6 +97,3 @@ NIVEAU initNiveau(short int niveau){
 
     return varNiveau;
 }
-void afficherTemps(){
-
-}

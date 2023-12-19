@@ -1,10 +1,10 @@
 #include "niveaux.h"
 
-void jouerNiveau(NIVEAU* niveau) {
+void jouerNiveau(PARTIE* partie) {
     clearConsole();
 
     afficherCase();
-    afficherBalles(niveau->nbBalles, niveau->tabBalles);
+    afficherBalles(partie->niveau.nbBalles, partie->niveau.tabBalles);
 
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
     struct timeval stop, startT;
@@ -13,36 +13,41 @@ void jouerNiveau(NIVEAU* niveau) {
     do {
         gettimeofday(&stop, NULL);
 
-        if (difMillis >= difPrecMillisBalle + 1000/niveau->tpsBalle) {
+        if (difMillis >= difPrecMillisBalle + 1000/partie->niveau.tpsBalle) {
             difPrecMillisBalle = difMillis;
-            checkDeplacementToutesBalles(niveau->nbBalles, niveau->tabBalles, &niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
+            checkDeplacementToutesBalles(partie->niveau.nbBalles, partie->niveau.tabBalles, &partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         }
 
-        afficherTousLesBlocs(niveau->tabBlocs, niveau->nbBlocs);
-        afficherOiseaux(niveau->oiseaux);
-        oiseauxRecup(niveau->oiseaux, niveau->perso);
-        gotoligcol(niveau->perso.co.X, niveau->perso.co.Y);
+        afficherTousLesBlocs(partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+        afficherOiseaux(partie->niveau.oiseaux);
+        oiseauxRecup(partie->niveau.oiseaux, partie->niveau.perso);
+        gotoligcol(partie->niveau.perso.co.X, partie->niveau.perso.co.Y);
         printf("O");
 
-        blocPiege(&niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
+        blocPiege(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         gotoligcol(23, 21);
-        printf("PV : %d", niveau->perso.vies);
+        printf("PV : %d", partie->niveau.perso.vies);
 
-        tapisRoulant(&niveau->perso, niveau->tabBlocs, niveau->nbBlocs);
+        tapisRoulant(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         char a;
         if (_kbhit()) {
             a = (char) getch();
             switch (a) {
                 case 'x' :
                 case 'X' :
-                    quitter();
-                    break;
+                    exit(0);
+                case 'n' :
+                case 'N' : {
+                    FILE* fichier = selectFichier();
+                    sauvegarder(*partie, fichier);
+                    exit(0);
+                }
                 case 'm' :
                 case 'M' :
-                    afficherMenu();
+                    //afficherMenu();
                 default :
-                    deplacementPerso(&niveau->perso, a, niveau->tabBlocs, niveau->nbBlocs);
-                    recupOiseaux(niveau->oiseaux, niveau->perso);
+                    deplacementPerso(&partie->niveau.perso, a, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+                    recupOiseaux(partie->niveau.oiseaux, partie->niveau.perso);
                     break;
             }
             if (difMillis >= difPrecMillis + 100) {
@@ -50,18 +55,19 @@ void jouerNiveau(NIVEAU* niveau) {
             }
         }
 
-        if (niveau->perso.vies == 0) {
+        if (partie->niveau.perso.vies == 0) {
             gameOver();
         }
+
         difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-        niveau->tempsMillis = difMillis;
+        partie->niveau.tempsMillis = difMillis;
         gotoligcol(0, 0);
-        printf("Temps restant : %d\n", (TEMPS_MAX_MILLIS - niveau->tempsMillis)/1000);
+        printf("Temps restant : %d\n", (TEMPS_MAX_MILLIS - partie->niveau.tempsMillis)/1000);
         /*
         gotoligcol(24, 21);
-        printf("X:%d Y:%d", niveau->perso.co.X, niveau->perso.co.Y);
+        printf("X:%d Y:%d", partie->niveau.perso.co.X, partie->niveau.perso.co.Y);
         gotoligcol(25, 21);
-        printf("co init : %d %d\n", niveau->perso.initX, niveau->perso.initY);
+        printf("co init : %d %d\n", partie->niveau.perso.initX, partie->niveau.perso.initY);
         */
     } while (1);
 }

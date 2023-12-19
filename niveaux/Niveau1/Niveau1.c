@@ -2,6 +2,7 @@
 
 
 void niveau1() {
-    NIVEAU niveau = initNiveau(1);
-    jouerNiveau(&niveau);
+    PARTIE partie;
+    partie.niveau = initNiveau(1);
+    jouerNiveau(&partie);
 }

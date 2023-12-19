@@ -92,104 +92,11 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
                "                               ))))))))))))))))))<                               \n"
                "                                ))<)))))))))))<<)                                \n"
                "                                      <<<<<                                      \n"
-               "                                                                                 \n");
-        short Select = 0;
-        char key;
-        do {
-            if (_kbhit()) {
-                key = (char) getch();
-                switch (key) {
-                    case 'z' :
-                    case 'Z' :
-                        if (Select > 0) {
-                            Select--;
-                        }
-                        break;
-                    case 's' :
-                    case 'S' :
-                        if (Select < 6) {
-                            Select++;
-                        }
-                        break;
-                    case 'e' :
-                    case 'E' :
-                        switch (Select) {
-                            case 0 :
-                                printf("Le mot de passe est : ");
-                                break;
-                            case 1 :
-                                //niveau1();
-                                break;
-                            case 2 :
-                                //TODO: chargement();
-                                break;
-                            case 3 :
-                                //motDePasse();
-                                //TODO: password():
-                                break;
-                            case 4 :
-                                //TODO: highScores();
-                                break;
-                            case 5 :
-                                //quitter();
-                                break;
-                        }
-                }
-                switch (Select) {
-                    case 0 :
-                        gotoligcol( 16,  98);
-                        printf("%c", BALL);
-                        gotoligcol( 16+ 2,  98);
-                        printf("  ");
-                        gotoligcol(0,0);
-                        break;
-                    case 1 :
-                        gotoligcol( 18,  98);
-                        printf("%c", BALL);
-                        gotoligcol( 18+ 2,  98);
-                        printf("  ");
-                        gotoligcol( 18-2,  98);
-                        printf("  ");
-                        gotoligcol(0,0);
-                        break;
-                    case 2:
-                        gotoligcol( 20,  98);
-                        printf("%c", BALL);
-                        gotoligcol( 20+2,  98);
-                        printf("  ");
-                        gotoligcol( 20-2,  98);
-                        printf("  ");
-                        gotoligcol(0,0);
-                        break;
-                    case 3 :
-                        gotoligcol( 22,  98);
-                        printf("%c", BALL);
-                        gotoligcol( 22+2,  98);
-                        printf("  ");
-                        gotoligcol( 22-2,  98);
-                        printf("  ");
-                        gotoligcol(0,0);
-                        break;
-                    case 4 :
-                        gotoligcol( + 24,  98 );
-                        printf("%c", BALL);
-                        gotoligcol( + 24+2,  98);
-                        printf("  ");
-                        gotoligcol( + 24-2,  + 98);
-                        printf("  ");
-                        gotoligcol(0,0);
-                        break;
-
-                }
-                if(key == 'e' || key == 'E'){
-
-                }
-            }
-
-
-        }while (1);
-    }
+               "                                                                                 \n"
+               "                                                                                                                              \n"
+               "                                                                                   \n");
         while(1){
-            if(_kbhit()) break;}
-
+            if(_kbhit()) break;
+        }
     }
+}
