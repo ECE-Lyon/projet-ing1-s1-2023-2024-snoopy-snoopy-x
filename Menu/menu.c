@@ -127,11 +127,18 @@ void afficherMenu() {
                         case 0 :
                             reglesDuJeu();
                             break;
-                        case 1 :
-                            niveau1();
-                            break;
-                        case 2 :
-                            //TODO: chargement();
+                        case 1 : {
+                            PARTIE partie = niveau1();
+                            PARTIE partie1 = niveau2(partie);
+                            //PARTIE partie2 = niveau3(partie1);
+                            //partie2;
+                            return;
+                        }
+                        case 2 :{
+                            PARTIE partie = chargerNiveau(selectFichier());
+                            jouerNiveau(&partie);
+                        }
+
                             break;
                         case 3 :
                             motDePasse();

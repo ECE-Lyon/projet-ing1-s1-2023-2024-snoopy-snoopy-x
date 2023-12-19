@@ -24,7 +24,7 @@ typedef struct bloc{
     COORD co;
     TYPEBLOC type;
     short pv, deplacementRestant;
-    short int existe;
+    short existe;
 }BLOC;
 
 BLOC initBloc(TYPEBLOC type, short int X, short int Y); // Permet d'initialiser facilement les blocs

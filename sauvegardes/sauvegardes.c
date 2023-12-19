@@ -5,7 +5,8 @@ FILE *selectFichier() {
     gotoligcol(MINX_MENU_SAVE, MINY_MENU_SAVE);
     printf("Quel fichier de sauvegarde voulez vous utiliser ?");
     gotoligcol(MINX_MENU_SAVE + 1, MINY_MENU_SAVE);
-    FILE *fichierSaveTemp = fopen("../sauvegardes/save1", "r");
+    FILE *fichierSaveTemp = fopen("../sauvegardes/save1.txt", "r");
+    assert(fichierSaveTemp);
     printf("1. ");
     if (fgetc(fichierSaveTemp) == -1) {
         printf("Fichier vide");
@@ -13,8 +14,10 @@ FILE *selectFichier() {
         printf("Sauvegarde disponible");
     }
     fclose(fichierSaveTemp);
+
     gotoligcol(MINX_MENU_SAVE + 2, MINY_MENU_SAVE);
     fichierSaveTemp = fopen("../sauvegardes/save2.txt", "r");
+    assert(fichierSaveTemp);
     printf("2. ");
     if (fgetc(fichierSaveTemp) == -1) {
         printf("Fichier vide");
@@ -22,8 +25,10 @@ FILE *selectFichier() {
         printf("Sauvegarde disponible");
     }
     fclose(fichierSaveTemp);
+
     gotoligcol(MINX_MENU_SAVE + 3, MINY_MENU_SAVE);
     fichierSaveTemp = fopen("../sauvegardes/save3.txt", "r");
+    assert(fichierSaveTemp);
     printf("3. ");
     if (fgetc(fichierSaveTemp) == -1) {
         printf("Fichier vide");
@@ -35,13 +40,14 @@ FILE *selectFichier() {
     gotoligcol(MINX_MENU_SAVE + 4, MINY_MENU_SAVE);
     int choix;
     scanf("%d", &choix);
+
     switch (choix) {
         case 1 :
-            return fopen("../sauvegardes/save1", "r+");
+            return fopen("../sauvegardes/save1.txt", "r+");
         case 2 :
-            return fopen("../sauvegardes/save2", "r+");
+            return fopen("../sauvegardes/save2.txt", "r+");
         case 3 :
-            return fopen("../sauvegardes/save3", "r+");
+            return fopen("../sauvegardes/save3.txt", "r+");
         default :
             return NULL;
     }
@@ -59,29 +65,21 @@ PARTIE chargerNiveau(FILE *fichier) {
     printf("\n%hd", partie.niveauActuel);
 
     fscanf(fichier, "coActuelles %hd %hd\n", &varNiveau.perso.co.X, &varNiveau.perso.co.Y);
-    printf("\nco : %hd %hd", varNiveau.perso.co.X, varNiveau.perso.co.Y);
-    varNiveau.perso.co.X = (short) convCoX(varNiveau.perso.co.X);
-    varNiveau.perso.co.Y = (short) convCoY(varNiveau.perso.co.Y);
-    printf("\nco : %hd %hd", varNiveau.perso.co.X, varNiveau.perso.co.Y);
-
-    fscanf(fichier, "tpsBalle %hd\n", &varNiveau.tpsBalle);
-
-    fscanf(fichier, "\ncoDepart %hd %hd", &varNiveau.perso.initX, &varNiveau.perso.initY);
-    varNiveau.perso.initX = (short) convCoX(varNiveau.perso.initX);
-    varNiveau.perso.initY = (short) convCoY(varNiveau.perso.initY);
-    gotoligcol(1, 0);
-    printf("Co depart 1 : %d, %d", varNiveau.perso.co.X, varNiveau.perso.co.Y);
-
-    fscanf(fichier, "\nnbBalles %hd :", &varNiveau.nbBalles);
-    varNiveau.tabBalles = calloc(varNiveau.nbBalles,
-                                 sizeof(BALLE)); // tableau de taille dynamique (ya ptetr le cours sur boostcamp)
-    fscanf(fichier, "\n");
-    for (int i = 0; i < varNiveau.nbBalles; i++) {
-        short X, Y;
-        fscanf(fichier, "co %hd %hd dir %hd\n", &X, &Y, &varNiveau.tabBalles[i].direction);
-        varNiveau.tabBalles[i].co.X = convCoX(X);
-        varNiveau.tabBalles[i].co.Y = convCoY(Y);
+    fscanf(fichier, "pv %hd\n", &varNiveau.perso.vies);
+    fscanf(fichier, "oiseaux");
+    for(int i = 0; i < 4; i++) {
+        fscanf(fichier, " %hd", &varNiveau.oiseaux[i].recup);
     }
+    fscanf(fichier, "\n");
+    fscanf(fichier, "tpsBalle %hd\n", &varNiveau.tpsBalle);
+    fscanf(fichier, "tpsRestant %d\n", &varNiveau.tempsRestant);
+    fscanf(fichier, "coDepart %hd %hd\n", &varNiveau.perso.initX, &varNiveau.perso.initY);
+
+    fscanf(fichier, "nbBalles %hd :\n", &varNiveau.nbBalles);
+    varNiveau.tabBalles = calloc(varNiveau.nbBalles, sizeof(BALLE));
+    for (int i = 0; i < varNiveau.nbBalles; i++) {
+        fscanf(fichier, "co %hd %hd dir %hd\n", &varNiveau.tabBalles[i].co.X, &varNiveau.tabBalles[i].co.Y, &varNiveau.tabBalles[i].direction);
+     }
 
     // Chargement des blocs :
     varNiveau.nbBlocs = 0;
@@ -90,41 +88,12 @@ PARTIE chargerNiveau(FILE *fichier) {
         fgets(plateau[i], 11, fichier);
         fgetc(fichier);
     }
-    //varNiveau.perso.co.X = varNiveau.perso.initX; // Sert à résoudre un bug inexplicable la co X se change toute
-    //varNiveau.perso.co.Y = varNiveau.perso.initY; // seule à la ligne fgets(...) juste au dessus (10eme itération)
-
-
     BLOC tabBlocs[81];
     for (short x = 0; x < 10; x++) { // Chargement des blocs depuis le .txt
         for (short y = 0; y < 10; y++) {
             if (plateau[x][y] != '0') {
                 varNiveau.nbBlocs++;
-                switch (plateau[x][y]) {
-                    case 'A' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(cassable, x, y);
-                        break;
-                    case 'B' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(pieges, x, y);
-                        break;
-                    case 'C' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(poussable, x, y);
-                        break;
-                    case 'D' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(fixe, x, y);
-                        break;
-                    case 'E' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulantbas, x, y);
-                        break;
-                    case 'F' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulantgauche, x, y);
-                        break;
-                    case 'G' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulanthaut, x, y);
-                        break;
-                    case 'H' :
-                        tabBlocs[varNiveau.nbBlocs] = initBloc(tapisroulantdroit, x, y);
-                        break;
-                };
+                tabBlocs[varNiveau.nbBlocs] = initBloc(plateau[x][y]-65, x, y);
             }
         }
     }
@@ -140,34 +109,43 @@ PARTIE chargerNiveau(FILE *fichier) {
 
 
 void sauvegarder(PARTIE partie, FILE *fichier) {
-
-    assert(fichier);
+    //assert(fichier);
     fprintf(fichier, "niveau %hd\n", partie.niveauActuel);
     fprintf(fichier, "coActuelles %hd %hd\n", partie.niveau.perso.co.X, partie.niveau.perso.co.Y);
-    fprintf(fichier, "tpsBalle %hd", partie.niveau.tpsBalle);
-    fprintf(fichier, "\ncoDepart %hd %hd", partie.niveau.perso.initX, partie.niveau.perso.initY);
-    fprintf(fichier, "\nnbBalles %hd :", partie.niveau.nbBalles);
+    fprintf(fichier, "pv %d\n", partie.niveau.perso.vies);
+    fprintf(fichier, "oiseaux");
+    for(int i = 0; i < 4; i++) {
+        fprintf(fichier, " %hd", partie.niveau.oiseaux[i].recup);
+    }
     fprintf(fichier, "\n");
+    fprintf(fichier, "tpsBalle %hd\n", partie.niveau.tpsBalle);
+    fprintf(fichier, "tpsRestant %d\n", partie.niveau.tempsRestant);
+    fprintf(fichier, "coDepart %hd %hd\n", partie.niveau.perso.initX, partie.niveau.perso.initY);
+    fprintf(fichier, "nbBalles %hd :\n", partie.niveau.nbBalles);
     for (int i = 0; i < partie.niveau.nbBalles; i++) {
         fprintf(fichier, "co %hd %hd dir %hd\n", partie.niveau.tabBalles[i].co.X, partie.niveau.tabBalles[i].co.Y,
                 partie.niveau.tabBalles[i].direction);
     }
+    int nbBlocs = 0;
     char tabBlocs[10][10];
     for(int x = 0; x < 10; x++) {
         for (int y = 0; y < 10; y++) {
-            tabBlocs[y][x] = 0;
+            tabBlocs[x][y] = '0';
             for(int i = 0; i < partie.niveau.nbBlocs; i++) {
-                if (partie.niveau.tabBlocs[i].co.X == x && partie.niveau.tabBlocs[i].co.Y == y) {
-                    tabBlocs[y][x] = (char) (partie.niveau.tabBlocs[i].type+65);
+                if (partie.niveau.tabBlocs[i].co.X == convCoX(x) && partie.niveau.tabBlocs[i].co.Y == convCoY(y) && partie.niveau.tabBlocs[i].existe) {
+                    tabBlocs[x][y] = partie.niveau.tabBlocs[i].type+65;
+                    nbBlocs++;
                 }
             }
         }
     }
     for(int x = 0; x < 10; x++) {
         for (int y = 0; y < 10; y++) {
-            fprintf(fichier, "%c", &tabBlocs[x][y]);
+            fprintf(fichier, "%c", tabBlocs[x][y]);
         }
         fprintf(fichier, "\n");
     }
+    fprintf(fichier, "nbBlocs %d :\n", nbBlocs);
+
     fclose(fichier);
 }

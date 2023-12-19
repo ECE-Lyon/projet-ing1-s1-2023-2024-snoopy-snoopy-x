@@ -8,7 +8,7 @@ NIVEAU initNiveau(short int niveau){
     varNiveau.perso.vies = 3;
     varNiveau.tempsRestant = 0;
     initOiseaux(varNiveau.oiseaux);
-
+    varNiveau.tempsRestant = 120;
 
     // Init dépendant de la mémoire :
     FILE *fichierNiveau = NULL;
@@ -16,9 +16,9 @@ NIVEAU initNiveau(short int niveau){
         case 1 :
             fichierNiveau = fopen("..\\niveaux\\Niveau1\\niveau1.txt", "r"); break;
         case 2 :
-            //fichierNiveau = fopen("../niveaux/Niveau2.txt", "r"); break;
+            fichierNiveau = fopen("..\\niveaux\\Niveau2\\niveau2.txt", "r"); break;
         case 3 :
-            //fichierNiveau = fopen("../niveaux/Niveau3.txt", "r"); break;
+            fichierNiveau = fopen("..\\niveaux\\Niveau3\\niveau3.txt", "r"); break;
         case 4 :
             //fichierNiveau = fopen("../niveaux/Niveau4.txt", "r"); break;
         default :

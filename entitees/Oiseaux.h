@@ -20,6 +20,6 @@ void afficherOiseaux(OISEAUX* oiseaux);
 
 void recupOiseaux(OISEAUX* oiseaux, PERSONNAGE perso);
 
-void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso);
+short oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso);
 
 #endif //PROJET_OISEAUX_H

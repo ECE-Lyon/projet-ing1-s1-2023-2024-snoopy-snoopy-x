@@ -1,12 +1,13 @@
 #include "niveaux.h"
 #include "Scores.h"
 
-void jouerNiveau(PARTIE *partie) {
+void jouerNiveau(PARTIE* partie) {
     clearConsole();
 
     afficherCase();
     afficherBalles(partie->niveau.nbBalles, partie->niveau.tabBalles);
 
+    int tempsDebut = partie->niveau.tempsRestant;
     int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
     struct timeval stop, startT;
     gettimeofday(&startT, NULL);
@@ -22,7 +23,10 @@ void jouerNiveau(PARTIE *partie) {
 
         afficherTousLesBlocs(partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         afficherOiseaux(partie->niveau.oiseaux);
-        oiseauxRecup(partie->niveau.oiseaux, partie->niveau.perso);
+        if(oiseauxRecup(partie->niveau.oiseaux, partie->niveau.perso)) {
+            partie->niveauActuel++;
+            return;
+        }
         gotoligcol(partie->niveau.perso.co.X, partie->niveau.perso.co.Y);
         printf("O");
 
@@ -40,8 +44,7 @@ void jouerNiveau(PARTIE *partie) {
                     exit(0);
                 case 'n' :
                 case 'N' : {
-                    FILE *fichier = selectFichier();
-                    sauvegarder(*partie, fichier);
+                    sauvegarder(*partie, selectFichier());
                     exit(0);
                 }
                 case 'm' :
@@ -60,8 +63,9 @@ void jouerNiveau(PARTIE *partie) {
         if (partie->niveau.perso.vies == 0) {
             gameOver();
         }
+
         difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-        partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - difMillis) / 1000;
+        partie->niveau.tempsRestant = (tempsDebut*1000 - difMillis) / 1000;
         gotoligcol(0, 0);
         printf("Temps restant : %d\n", partie->niveau.tempsRestant);
 

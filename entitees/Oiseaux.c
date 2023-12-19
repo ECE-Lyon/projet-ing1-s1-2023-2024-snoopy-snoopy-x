@@ -35,7 +35,7 @@ void recupOiseaux(OISEAUX *oiseaux, PERSONNAGE perso) {
     }
 }
 
-void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
+short oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
     int scoreOiseaux = 0;
     for (int i = 0; i < 4; i++) {
         if (oiseaux[i].recup){
@@ -43,6 +43,8 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
         }
     }
     if(scoreOiseaux==4){
+        return 1;
+        /*
         clearConsole();
         gotoligcol(14,100);
         printf("%s%s", ANSI_MAGENTA, "Le mot de passe est : \n\n");
@@ -170,6 +172,7 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
             }
 
 
-        }while (1);
+        }while (1);*/
     }
+    return 0;
 }

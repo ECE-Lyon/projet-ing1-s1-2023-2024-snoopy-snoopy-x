@@ -3,6 +3,6 @@
 
 #include "../niveaux.h"
 
-void niveau1();
+PARTIE niveau1();
 
 #endif
