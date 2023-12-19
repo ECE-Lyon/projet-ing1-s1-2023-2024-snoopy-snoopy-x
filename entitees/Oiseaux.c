@@ -118,13 +118,13 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
                                 printf("Le mot de passe est : ");
                                 break;
                             case 1 :
-                                //afficherMenu();
-                                 break;
+                                afficherMenu();
+                                break;
                             case 2 :
-                                //motDePasse();
+                                motDePasse();
                                 break;
                             case 3 :
-                                //quitter();
+                                quitter();
                                 break;
                         }
                 }

@@ -20,6 +20,7 @@ void afficherCase() {
     gotoligcol(TableauminX + 22, TableauminY - 4);
     printf("%s%c", ANSI_GREEN, DOUBLEANGLEBASGAUCHE);
     for (int m = 0; m < 49; ++m) {
+       // if(partie->niveau.tempsRestant)
         printf("%s%c", ANSI_GREEN, DOUBLEHORIZONTAL);
     }
     printf("%c", DOUBLEANGLEBASDROITE);
