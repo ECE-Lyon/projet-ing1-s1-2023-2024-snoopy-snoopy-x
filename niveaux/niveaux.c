@@ -87,7 +87,7 @@ void jouerNiveau(PARTIE* partie) {
             printf("temps diftemps : %d\n", partie->niveau.difTemps);
 
             partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-            partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000 + tempsEnPause;
+            partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
 
             if (partie->niveau.difMillis >= difPrecMillis + 857) {
                 difPrecMillis = partie->niveau.difMillis;

@@ -130,7 +130,7 @@ void afficherMenu() {
                         case 1 : {
                             PARTIE partie = niveau1();
                             PARTIE partie1 = niveau2(partie);
-                            //PARTIE partie2 = niveau3(partie1);
+                            PARTIE partie2 = niveau3(partie1);
                             //partie2;
                             return;
                         }
