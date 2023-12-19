@@ -5,6 +5,8 @@ void jouerNiveau(PARTIE* partie) {
     clearConsole();
 
     afficherCase();
+    gotoligcol(5, 91);
+    printf("%d", partie->niveauActuel);
     afficherBalles(partie->niveau.nbBalles, partie->niveau.tabBalles);
 
         int difPrecMillis = 0, difPrecMillisBalle = 0;
