@@ -11,7 +11,7 @@
 
 
 
-#define TEMPS_MAX_MILLIS 180000
+#define TEMPS_MAX_MILLIS 120000
 #define TEMPS_MAX 180
 
 
@@ -23,7 +23,8 @@ typedef struct Niveau {
     BLOC* tabBlocs;
     OISEAUX oiseaux[4];
     short int tpsBalle; //Nombre de ticks par secondes du déplacement de la balle = fréquence = 1/période
-    int tempsMillis;
+    int tempsRestant;
+    int i;
 }NIVEAU;
 
 NIVEAU initNiveau(short int niveau);

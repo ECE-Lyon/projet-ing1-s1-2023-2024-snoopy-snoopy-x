@@ -12,6 +12,8 @@
 #define VERTICAL 179
 #define HORIZONTAL 196
 #define LINK 197
+#define DOUBLELIENHAUT 202
+#define DOUBLELIENBAS 203
 #define ANSI_blanc "\x1b[37m"
 #define ANSI_GREEN "\x1b[32m"
 
