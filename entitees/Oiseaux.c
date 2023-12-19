@@ -118,13 +118,13 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
                                 printf("Le mot de passe est : ");
                                 break;
                             case 1 :
-                                afficherMenu();
+                                //afficherMenu();
                                  break;
                             case 2 :
-                               motDePasse();
+                                //motDePasse();
                                 break;
                             case 3 :
-                                quitter();
+                                //quitter();
                                 break;
                         }
                 }
@@ -172,7 +172,4 @@ void oiseauxRecup(OISEAUX *oiseaux, PERSONNAGE perso) {
 
         }while (1);
     }
-        while(1){
-            if(_kbhit()) break;}
-
-    }
+}
