@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include "../sauvegardes/sauvegardes.h"
+#include "Scores.h"
+
 //#include "../Menu/menu.h"
 
 

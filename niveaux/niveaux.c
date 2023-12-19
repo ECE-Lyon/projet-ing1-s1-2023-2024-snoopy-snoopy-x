@@ -7,19 +7,23 @@ void jouerNiveau(PARTIE* partie) {
     afficherCase();
     afficherBalles(partie->niveau.nbBalles, partie->niveau.tabBalles);
 
-    int tempsDebut = partie->niveau.tempsRestant;
-    int difMillis = 0, difPrecMillis = 0, difPrecMillisBalle = 0;
-    struct timeval stop, startT;
-    gettimeofday(&startT, NULL);
-
-    do {
+        int difPrecMillis = 0, difPrecMillisBalle = 0;
+        int difMillis = 0;
+        partie->niveau.tempsRestant = 120;
+        struct timeval stop, startT, pause, finPause;
+        gettimeofday(&startT, NULL);
         gettimeofday(&stop, NULL);
+    int tempsDebut = partie->niveau.tempsRestant;
 
-        if (difMillis >= difPrecMillisBalle + 1000 / partie->niveau.tpsBalle) {
-            difPrecMillisBalle = difMillis;
-            checkDeplacementToutesBalles(partie->niveau.nbBalles, partie->niveau.tabBalles, &partie->niveau.perso,
-                                         partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-        }
+
+        do {
+            gettimeofday(&stop, NULL);
+
+            if (partie->niveau.difMillis >= difPrecMillisBalle + 1000 / partie->niveau.tpsBalle) {
+                difPrecMillisBalle = partie->niveau.difMillis;
+                checkDeplacementToutesBalles(partie->niveau.nbBalles, partie->niveau.tabBalles, &partie->niveau.perso,
+                                             partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+            }
 
         afficherTousLesBlocs(partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         afficherOiseaux(partie->niveau.oiseaux);
@@ -30,84 +34,100 @@ void jouerNiveau(PARTIE* partie) {
         gotoligcol(partie->niveau.perso.co.X, partie->niveau.perso.co.Y);
         printf("O");
 
-        blocPiege(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-        gotoligcol(23, 21);
-        printf("PV : %d", partie->niveau.perso.vies);
+            blocPiege(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+            gotoligcol(23, 21);
+            printf("PV : %d", partie->niveau.perso.vies);
 
-        tapisRoulant(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-        char a;
-        if (_kbhit()) {
-            a = (char) getch();
-            switch (a) {
-                case 'x' :
-                case 'X' :
-                    exit(0);
-                case 'n' :
-                case 'N' : {
-                    sauvegarder(*partie, selectFichier());
-                    exit(0);
+            tapisRoulant(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+            char key;
+            char a;
+            if (_kbhit()) {
+                a = (char) getch();
+                switch (a) {
+                    case 'x' :
+                    case 'X' :
+                        exit(0);
+                    case 'n' :
+                    case 'N' : {
+                        sauvegarder(*partie, selectFichier());
+                        exit(0);
+                    }
+                    case 'p' :
+                    case 'P' :
+                        gettimeofday(&pause, NULL);
+                        int tempsDebut = partie->niveau.tempsRestant;
+                        gotoligcol(5, 9);
+                        printf("Jeu en pause, taper P pour continuer %ld\n", pause.tv_sec);
+                        gotoligcol(5, 10);
+                        while(!_kbhit());
+                        gettimeofday(&startT, NULL);
+                        gettimeofday(&stop, NULL);
+                        partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
+                        partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
+                        //tempsEnPause += partie->niveau.tempsRestant - tempsDebut;
+                        partie->niveau.tempsRestant = tempsDebut;
+                        break;
+                    default :
+                        deplacementPerso(&partie->niveau.perso, a, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+                        recupOiseaux(partie->niveau.oiseaux, partie->niveau.perso);
+                        break;
                 }
-                case 'm' :
-                case 'M' :
-                    //afficherMenu();
-                default :
-                    deplacementPerso(&partie->niveau.perso, a, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-                    recupOiseaux(partie->niveau.oiseaux, partie->niveau.perso);
-                    break;
+                if (partie->niveau.difMillis >= difPrecMillis + 100) {
+                    difPrecMillis = partie->niveau.difMillis;
+                }
             }
-            if (difMillis >= difPrecMillis + 100) {
-                difPrecMillis = difMillis;
-            }
-        }
 
-        if (partie->niveau.perso.vies == 0) {
-            gameOver();
-        }
+            if (partie->niveau.perso.vies == 0 || partie->niveau.tempsRestant == -1) {
+                gameOver();
+            }
+            gotoligcol(0, 0);
+            printf("Pause ? : %d\n", partie->niveau.pause);
+            printf("temps restant : %d  \n", partie->niveau.tempsRestant);
+            printf("temps Pause : %d\n", partie->niveau.tempsPause);
+            printf("temps diftemps : %d\n", partie->niveau.difTemps);
 
-        difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-        partie->niveau.tempsRestant = (tempsDebut*1000 - difMillis) / 1000;
-        gotoligcol(0, 0);
-        printf("Temps restant : %d\n", partie->niveau.tempsRestant);
+            partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
+            partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000 + tempsEnPause;
 
-        if (difMillis >= difPrecMillis + 857) {
-            difPrecMillis = difMillis;
-            if (partie->niveau.tempsRestant > 99) {
-                gotoligcol(5, 93 + partie->niveau.i);
-                printf(" ");
-                partie->niveau.i += 1;
+            if (partie->niveau.difMillis >= difPrecMillis + 857) {
+                difPrecMillis = partie->niveau.difMillis;
+                if (partie->niveau.tempsRestant > 99 && partie->niveau.tempsRestant <= 120) {
+                    gotoligcol(5, 93 + partie->niveau.i);
+                    printf(" ");
+                    partie->niveau.i += 1;
+                }
+                if (partie->niveau.tempsRestant == 99) {
+                    partie->niveau.i = 0;
+                }
+                if (partie->niveau.tempsRestant > 81 && partie->niveau.tempsRestant <= 99) {
+                    gotoligcol(6 + partie->niveau.i, 113);
+                    printf("   ");
+                    partie->niveau.i += 1;
+                }
+                if (partie->niveau.tempsRestant == 81) {
+                    partie->niveau.i = 0;
+                }
+                if (partie->niveau.tempsRestant > 39 && partie->niveau.tempsRestant <= 81) {
+                    gotoligcol(27, 115 - partie->niveau.i);
+                    printf(" ");
+                    partie->niveau.i += 1;
+                }
+                if (partie->niveau.tempsRestant == 39) {
+                    partie->niveau.i = 0;
+                }
+                if (partie->niveau.tempsRestant > 21 && partie->niveau.tempsRestant <= 39) {
+                    gotoligcol(26 - partie->niveau.i, 67);
+                    printf("   ");
+                    partie->niveau.i += 1;
+                }
+                if (partie->niveau.tempsRestant == 21) {
+                    partie->niveau.i = 0;
+                }
+                if (partie->niveau.tempsRestant > 1 && partie->niveau.tempsRestant <= 21) {
+                    gotoligcol(5, 67 + partie->niveau.i);
+                    printf(" ");
+                    partie->niveau.i += 1;
+                }
             }
-            if (partie->niveau.tempsRestant == 99) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 81 && partie->niveau.tempsRestant <= 99) {
-                gotoligcol(6 + partie->niveau.i, 113);
-                printf("   ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 81) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 39 && partie->niveau.tempsRestant <= 81) {
-                gotoligcol(27, 115 - partie->niveau.i);
-                printf(" ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 39) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 21 && partie->niveau.tempsRestant <= 39) {
-                gotoligcol(26 - partie->niveau.i, 67);
-                printf("   ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 21) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 0 && partie->niveau.tempsRestant <= 21) {
-                gotoligcol(5, 67 + partie->niveau.i);
-                printf(" ");
-                partie->niveau.i += 1;
-            }
-        }
-    } while (1);
-}
+        } while (1);
+    }

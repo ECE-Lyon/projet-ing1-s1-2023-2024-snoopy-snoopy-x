@@ -3,7 +3,6 @@
 #include "../entitees/balle.h"
 #include "ecranConsole.h"
 
-
 #define DOUBLEVERTICAL 186
 #define DOUBLEHORIZONTAL 205
 #define DOUBLEANGLEHAUTGAUCHE 201

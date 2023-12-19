@@ -147,13 +147,13 @@ void reglesDuJeu() {
     gotoligcol(reglesMinX + 26, reglesMinY+80);
     printf( "  -###. ---.##+--. .-.    --        #+             \n");
     gotoligcol(reglesMinX + 27, reglesMinY+80);
-    printf( "        .-++.-.    -. . . -.       -#+             \n");
+    printf( "        .-++.-.    -. . . -.         -#+             \n");
     gotoligcol(reglesMinX + 28, reglesMinY+69);
-    printf( "         +++.    .-###..++-       .#-              \n");
+    printf( "           +++.    .-###..++-           .#-              \n");
     gotoligcol(reglesMinX + 29, reglesMinY+67);
-    printf( "              .+. -+  +#.        #.                \n");
+    printf( "                .+. -+  +#.                 #.                \n");
     gotoligcol(reglesMinX + 30, reglesMinY+69);
-    printf( "           .- .-+-.   .#.   .    +-                \n");
+    printf( "             .- .-+-.   .#.   .           +-                \n");
     gotoligcol(reglesMinX + 31, reglesMinY+80);
     printf( "             .        +-    +.   -+....            \n");
     gotoligcol(reglesMinX + 32, reglesMinY+80);
@@ -164,7 +164,7 @@ void reglesDuJeu() {
     printf( "               --              . .+. -#  +.+.      \n");
     gotoligcol(reglesMinX + 35, reglesMinY+80);
     printf( "               .-###+--.....   .+ .-.+#+++--       \n");
-    
+
 
 
     short Select = 0;

@@ -25,6 +25,10 @@ typedef struct Niveau {
     short int tpsBalle; //Nombre de ticks par secondes du déplacement de la balle = fréquence = 1/période
     int tempsRestant;
     int i;
+    int pause;
+    int tempsPause;
+    int difMillis;
+    int difTemps;
 }NIVEAU;
 
 NIVEAU initNiveau(short int niveau);
