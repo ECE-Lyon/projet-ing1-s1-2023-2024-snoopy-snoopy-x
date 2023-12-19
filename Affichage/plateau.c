@@ -27,7 +27,7 @@ void afficherCase() {
     for(int i = 0; i < 23; i++){
         for (int j = 0; j < 49; ++j) {
             gotoligcol(TableauminX - 1 + i, TableauminY - 3 + j);
-            printf("%c", CHAR_BLOC_FIXE);
+            printf("%s%c",ANSI_CYAN, CHAR_BLOC_FIXE);
         }
     }
 

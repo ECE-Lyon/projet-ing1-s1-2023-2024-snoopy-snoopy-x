@@ -3,6 +3,7 @@
 #include "../entitees/balle.h"
 #include "ecranConsole.h"
 
+
 #define DOUBLEVERTICAL 186
 #define DOUBLEHORIZONTAL 205
 #define DOUBLEANGLEHAUTGAUCHE 201
@@ -16,7 +17,8 @@
 #define DOUBLELIENBAS 203
 #define ANSI_blanc "\x1b[37m"
 #define ANSI_GREEN "\x1b[32m"
-
+#define ANSI_WHITE "\x1b[37m"
+#define ANSI_CYAN "\x1b[36m"
 
 void afficherCase();
 

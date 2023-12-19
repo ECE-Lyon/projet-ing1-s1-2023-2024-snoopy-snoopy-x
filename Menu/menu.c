@@ -12,24 +12,10 @@ void afficherMenu() {
     int MenuminY = 40;
     gotoligcol(MenuminX + 2, MenuminY + 8);
     printf("%c", BALL);
-    gotoligcol(MenuminX, MenuminY);
-
-    printf("%s%s%s\n", ANSI_YELLOW, "Bienvenue dans la revanche de Snoopy.", ANSI_RESET);
-    gotoligcol(MenuminX + 2, MenuminY + 10);
-    printf("%s%s", ANSI_RED, "1.Regles du jeu");
-    gotoligcol(MenuminX + 3, MenuminY + 7);
-    printf("%s%s", ANSI_BLUE, "2.Lancer un nouveau Jeu\n", ANSI_GREEN, ANSI_RESET);
-    gotoligcol(MenuminX + 4, MenuminY + 8);
-    printf("%s%s", ANSI_RED, " 3.Charger une partie ", ANSI_GREEN, ANSI_RESET);
-    gotoligcol(MenuminX + 5, MenuminY + 11);
-    printf("%s%s", ANSI_BLUE,"4.Mot de passe"ANSI_GREEN, ANSI_RESET);
-    gotoligcol(MenuminX + 6, MenuminY + 13);
-    printf("%s%s", ANSI_RED,"5. Scores",ANSI_GREEN, ANSI_RESET);
-    gotoligcol(MenuminX + 7, MenuminY + 13);
-    printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
     gotoligcol(0,0);
-    printf("                       #                       \n"
+    printf("%s%s", ANSI_RED
+            "                       #                       \n"
            "                      ###                      \n"
            "                      # #                      \n"
            "                     ## ##                     \n"
@@ -102,6 +88,20 @@ void afficherMenu() {
     gotoligcol(23,70);
     printf("          #                          #         ");
 
+    gotoligcol(MenuminX, MenuminY);
+    printf("%s%s%s\n", ANSI_YELLOW, "Bienvenue dans la revanche de Snoopy.", ANSI_RESET);
+    gotoligcol(MenuminX + 2, MenuminY + 10);
+    printf("%s%s", ANSI_RED, "1.Regles du jeu");
+    gotoligcol(MenuminX + 3, MenuminY + 7);
+    printf("%s%s", ANSI_BLUE, "2.Lancer un nouveau Jeu\n", ANSI_GREEN, ANSI_RESET);
+    gotoligcol(MenuminX + 4, MenuminY + 8);
+    printf("%s%s", ANSI_RED, " 3.Charger une partie ", ANSI_GREEN, ANSI_RESET);
+    gotoligcol(MenuminX + 5, MenuminY + 11);
+    printf("%s%s", ANSI_BLUE,"4.Mot de passe"ANSI_GREEN, ANSI_RESET);
+    gotoligcol(MenuminX + 6, MenuminY + 13);
+    printf("%s%s", ANSI_RED,"5. Scores",ANSI_GREEN, ANSI_RESET);
+    gotoligcol(MenuminX + 7, MenuminY + 13);
+    printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
     short Select = 0;
     char key;
@@ -109,8 +109,8 @@ void afficherMenu() {
         if (_kbhit()) {
             key = (char) getch();
             switch (key) {
-                case 'z' :
                 case 'Z' :
+                case 'z' :
                     if (Select > 0) {
                         Select--;
                     }

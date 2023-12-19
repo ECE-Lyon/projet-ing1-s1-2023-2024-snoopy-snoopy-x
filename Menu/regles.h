@@ -1,6 +1,7 @@
 #ifndef PROJET_REGLES_H
 #define PROJET_REGLES_H
 #include "../niveaux/Niveau1/Niveau1.h"
+#include "../entitees/blocs.h"
 #include <stdio.h>
 #include <conio.h>
 #define ANSI_RESET "\x1b[0m"
