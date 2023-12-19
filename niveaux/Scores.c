@@ -29,10 +29,7 @@ void gameOver(){
            "                   *.,,.,.,@@.@@.    .,.          \n"
            "               .@@@&.&@@@@@@@@@@@@@@.*            \n"
            "               .  ,.%.@@/@@@@@@@@@....            ");
-    if(_kbhit()){
-        clearConsole();
-        afficherMenu();
-    }
-    while(1);
+    while(!_kbhit());
+    clearConsole();
 }
 

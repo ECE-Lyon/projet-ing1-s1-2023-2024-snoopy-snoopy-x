@@ -28,6 +28,79 @@ void afficherMenu() {
     gotoligcol(MenuminX + 7, MenuminY + 13);
     printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
+    gotoligcol(0,0);
+    printf("                       #                       \n"
+           "                      ###                      \n"
+           "                      # #                      \n"
+           "                     ## ##                     \n"
+           "                    ##   ##                    \n"
+           "                    ##    #                    \n"
+           "                   ##     ##                   \n"
+           "                   #       ##                  \n"
+           "                  #         #                  \n"
+           "  #################         ################# \n"
+           "    ##                                   ##   \n"
+           "      ###                             ###      \n"
+           "        ####                        ###        \n"
+           "           ###                   ###           \n"
+           "              ##               ###             \n"
+           "              ##                ##             \n"
+           "             ##                  #             \n"
+           "             #         ##        ##            \n"
+           "            ##      ### ###       ##           \n"
+           "            #     ###      ###    ##           \n"
+           "           ##  ###           ###   ##          \n"
+           "           # ###                ### #          \n"
+           "          ###                      ###         \n"
+           "          #                          #         ");
+    gotoligcol(0,70);
+    printf("                       #                       \n");
+    gotoligcol(1,70);
+    printf("                      ###                      \n");
+    gotoligcol(2,70);
+    printf("                      # #                      \n");
+    gotoligcol(3,70);
+    printf("                     ## ##                     \n");
+    gotoligcol(4,70);
+    printf("                    ##   ##                    \n");
+    gotoligcol(5,70);
+    printf("                    ##    #                    \n");
+    gotoligcol(6,70);
+    printf("                   ##     ##                   \n");
+    gotoligcol(7,70);
+    printf("                   #       ##                  \n");
+    gotoligcol(8,70);
+    printf("                  #         #                  \n");
+    gotoligcol(9,70);
+    printf("  #################         ################# \n");
+    gotoligcol(10,70);
+    printf("    ##                                   ##   \n");
+    gotoligcol(11,70);
+    printf("      ###                             ###      \n");
+    gotoligcol(12,70);
+    printf("        ####                        ###        \n");
+    gotoligcol(13,70);
+    printf("           ###                   ###           \n");
+    gotoligcol(14,70);
+    printf("              ##               ###             \n");
+    gotoligcol(15,70);
+    printf("              ##                ##             \n");
+    gotoligcol(16,70);
+    printf("             ##                  #             \n");
+    gotoligcol(17,70);
+    printf("             #         ##        ##            \n");
+    gotoligcol(18,70);
+    printf("            ##      ### ###       ##           \n");
+    gotoligcol(19,70);
+    printf("            #     ###      ###    ##           \n");
+    gotoligcol(20,70);
+    printf("           ##  ###           ###   ##          \n");
+    gotoligcol(21,70);
+    printf("           # ###                ### #          \n");
+    gotoligcol(22,70);
+    printf("          ###                      ###         \n");
+    gotoligcol(23,70);
+    printf("          #                          #         ");
 
 
     short Select = 0;
