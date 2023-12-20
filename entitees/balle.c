@@ -104,8 +104,6 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
         resetPosition(perso);
         gotoligcol(perso->co.X, perso->co.Y);
         printf("O");
-        gotoligcol(23, 21);
-        printf("%s PV : %d",ANSI_CYAN, perso->vies);
     }
 }
 
