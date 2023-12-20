@@ -5,6 +5,7 @@
 //#include "../Affichage/ecranConsole.h"
 #define LINK 197
 #define BALL 207
+#define ANSI_CYAN "\x1b[36m"
 
 typedef struct Balle{
     COORD co;

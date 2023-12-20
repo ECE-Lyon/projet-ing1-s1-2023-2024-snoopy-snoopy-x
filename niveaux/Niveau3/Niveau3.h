@@ -1,6 +1,8 @@
 #ifndef PROJET_NIVEAU3_H
 #define PROJET_NIVEAU3_H
 
+
+#define ANSI_BLUE "\x1b[34m"
 #include "../niveaux.h"
 
 

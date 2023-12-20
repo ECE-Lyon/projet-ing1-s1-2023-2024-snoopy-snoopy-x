@@ -10,6 +10,14 @@
 #define CHAR_BLOC_TAPIS_BAS 25
 #define CHAR_BLOC_TAPIS_DROIT 26
 #define CHAR_BLOC_TAPIS_GAUCHE 60
+#define ANSI_WHITE "\x1b[37m"
+#define ANSI_YELLOW "\x1b[33m"
+
+#define ANSI_RED "\x1b[31m"
+#define ANSI_GREEN "\x1b[32m"
+#define ANSI_BLUE "\x1b[34m"
+#define ANSI_CYAN "\x1b[36m"
+
 
 #include <windows.h>
 #include <assert.h>

@@ -22,7 +22,7 @@ void afficherOiseaux(OISEAUX *oiseaux) {
     for (int i = 0; i < 4; i++) {
         if (!oiseaux[i].recup) {
             gotoligcol(oiseaux[i].co.X, oiseaux[i].co.Y);
-            printf("%c", CHAR_OISEAUX);
+            printf("%s%c",ANSI_MAGENTA, CHAR_OISEAUX);
         }
     }
 }

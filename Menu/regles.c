@@ -42,16 +42,16 @@ void rTouches(){
 void rBlocs(){
     clearConsole();
     gotoligcol(5, 0);
-    printf("LES BLOCS :\n\n"
-           "Il y a plusieurs blocs disponibles differents : \n");
-    printf(" -Les blocs que vous ne pourrez ni deplacer ni traverser : \t\t\t\t\t%c\n",CHAR_BLOC_FIXE);
-    printf(" -Les blocs que vous pourrez casser pour vous frayez un chemin  qui seront d'abord comme cela :\t%c \n"
-           "\t avant d'etre comme cela : \t\t\t\t\t\t\t\t%c \n "
-           "\t puis se detruirons\n",CHAR_BLOC_CASSABLE_NEUF, CHAR_BLOC_CASSABLE_ABIME);
-    printf(" -Les blocs que vous pourrez deplacer une seule fois dans toutes les directions : \t\t%c \n",CHAR_BLOC_POUSSABLE);
-    printf(" -Les blocs pieges qui vous feront directement perdre une vie : \t\t\t\t%c\n" ,CHAR_BLOC_PIEGE);
-    printf(" -Les blocs blocs tapis roulants qui vous deplacent sur la case pointee : \t\t     %c %c %c %c\n\n" , CHAR_BLOC_TAPIS_DROIT, CHAR_BLOC_TAPIS_GAUCHE, CHAR_BLOC_TAPIS_HAUT, CHAR_BLOC_TAPIS_BAS);
-    printf( "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
+    printf("%sLES BLOCS :\n\n"
+           "Il y a plusieurs blocs disponibles differents : \n", ANSI_GREEN);
+    printf(" -Les blocs que vous ne pourrez ni deplacer ni traverser : \t\t\t\t\t%s%c\n",ANSI_WHITE,CHAR_BLOC_FIXE);
+    printf("%s -Les blocs que vous pourrez casser pour vous frayez un chemin  qui seront d'abord comme cela :\t%s%c \n"
+           "\t %s avant d'etre comme cela : \t\t\t\t\t\t\t\t%s%c \n "
+           "\t %spuis se detruirons.\n",ANSI_GREEN, ANSI_YELLOW,CHAR_BLOC_CASSABLE_NEUF,ANSI_GREEN,ANSI_YELLOW, CHAR_BLOC_CASSABLE_ABIME, ANSI_GREEN);
+    printf("%s -Les blocs que vous pourrez deplacer une seule fois dans toutes les directions : \t\t%c \n",ANSI_GREEN, CHAR_BLOC_POUSSABLE);
+    printf("%s -Les blocs pieges qui vous feront directement perdre une vie : \t\t\t\t%s%c\n" ,ANSI_GREEN,ANSI_RED, CHAR_BLOC_PIEGE);
+    printf("%s -Les blocs blocs tapis roulants qui vous deplacent sur la case pointee : \t\t   %s  %c %c %c %c\n\n" ,ANSI_GREEN, ANSI_WHITE, CHAR_BLOC_TAPIS_DROIT, CHAR_BLOC_TAPIS_GAUCHE, CHAR_BLOC_TAPIS_HAUT, CHAR_BLOC_TAPIS_BAS);
+    printf( "%s APPUYEZ SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.", ANSI_GREEN);
     while(!_kbhit());
     if(_kbhit()){
         clearConsole();
@@ -81,7 +81,7 @@ void reglesDuJeu() {
     int reglesMinX = 5;
     int reglesMinY = 0;
     gotoligcol(reglesMinX +2, reglesMinY);
-    printf("%c", BALL);
+    printf("%s%c",ANSI_GREEN, BALL);
     gotoligcol(reglesMinX, reglesMinY + 2);
     printf("Regles du Jeu :");
     gotoligcol(reglesMinX + 2, reglesMinY + 2);
@@ -96,7 +96,7 @@ void reglesDuJeu() {
     printf("- Retour ");
 
     gotoligcol(reglesMinX , reglesMinY+80);
-    printf("                          .+++++-.---#+---         \n");
+    printf(" %s                         .+++++-.---#+---         \n", ANSI_MAGENTA);
     gotoligcol(reglesMinX + 1, reglesMinY+80);
     printf("                        .+-###+#-+-+--##+-..       \n");
     gotoligcol(reglesMinX + 2, reglesMinY+80);
@@ -166,7 +166,7 @@ void reglesDuJeu() {
     gotoligcol(reglesMinX + 34, reglesMinY+80);
     printf( "               --              . .+. -#  +.+.      \n");
     gotoligcol(reglesMinX + 35, reglesMinY+80);
-    printf( "               .-###+--.....   .+ .-.+#+++--       \n");
+    printf( "               .-###+--.....   .+ .-.+#+++-- %s      \n",ANSI_GREEN);
 
 
 

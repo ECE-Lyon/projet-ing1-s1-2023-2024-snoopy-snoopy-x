@@ -9,7 +9,7 @@ void initBalle(BALLE *balle, int X, int Y){                 //initialistation de
 void afficherBalles(short nbBalles, BALLE* balle) {
     for(int i = 0; i < nbBalles; i++) {
         gotoligcol(balle[i].co.X, balle[i].co.Y);
-        printf("%c", 27);
+        printf("%s%c",ANSI_CYAN, 27);
     }
 }
 
@@ -24,7 +24,7 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
         }
     }else{
         gotoligcol(balle->co.X, balle->co.Y);
-        printf("%c",LINK);
+        printf("%s%c",ANSI_CYAN, LINK);
     }
     switch(balle->direction){
         case 0 : {
@@ -99,14 +99,14 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
         }
     }
     gotoligcol(balle->co.X, balle->co.Y);
-    printf("%c", 207);
+    printf("%s%c",ANSI_CYAN, 207);
     if(balle->co.Y == perso->co.Y && balle->co.X == perso->co.X){
         perso->vies--;
         resetPosition(perso);
         gotoligcol(perso->co.X, perso->co.Y);
         printf("O");
         gotoligcol(23, 21);
-        printf("PV : %d", perso->vies);
+        printf("%s PV : %d",ANSI_CYAN, perso->vies);
     }
 }
 

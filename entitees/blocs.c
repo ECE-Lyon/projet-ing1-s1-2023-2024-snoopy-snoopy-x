@@ -40,33 +40,33 @@ void afficherBloc(BLOC* bloc) { // Affichage d'un bloc en fonction de son type
         switch (bloc->type) {
             case cassable :
                 if(bloc->pv == 2){
-                    printf("%c", CHAR_BLOC_CASSABLE_NEUF);
+                    printf("%s%c",ANSI_YELLOW, CHAR_BLOC_CASSABLE_NEUF);
                     break;
                 }
                 if(bloc->pv == 1){
-                    printf("%c", CHAR_BLOC_CASSABLE_ABIME);
+                    printf("%s%c",ANSI_YELLOW, CHAR_BLOC_CASSABLE_ABIME);
                 }
                 break;
             case pieges :
-                printf("%c", CHAR_BLOC_PIEGE);
+                printf("%s%c",ANSI_RED, CHAR_BLOC_PIEGE);
                 break;
             case poussable :
-                printf("%c", CHAR_BLOC_POUSSABLE);
+                printf("%s%c",ANSI_GREEN, CHAR_BLOC_POUSSABLE);
                 break;
             case fixe :
-                printf("%c", CHAR_BLOC_FIXE);
+                printf("%s%c",ANSI_WHITE, CHAR_BLOC_FIXE);
                 break;
             case tapisroulantbas :
-                printf("%c", CHAR_BLOC_TAPIS_BAS);
+                printf("%s%c",ANSI_WHITE, CHAR_BLOC_TAPIS_BAS);
                 break;
             case tapisroulanthaut :
-                printf("%c", CHAR_BLOC_TAPIS_HAUT);
+                printf("%s%c",ANSI_WHITE, CHAR_BLOC_TAPIS_HAUT);
                 break;
             case tapisroulantdroit :
-                printf("%c", CHAR_BLOC_TAPIS_DROIT);
+                printf("%s%c",ANSI_WHITE, CHAR_BLOC_TAPIS_DROIT);
                 break;
             case tapisroulantgauche :
-                printf("%c", CHAR_BLOC_TAPIS_GAUCHE);
+                printf("%s%c",ANSI_WHITE, CHAR_BLOC_TAPIS_GAUCHE);
                 break;
         }
     }
