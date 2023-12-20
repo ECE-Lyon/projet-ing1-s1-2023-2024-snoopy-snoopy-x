@@ -109,6 +109,25 @@ void jouerNiveau(PARTIE *partie) {
                                          partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         }
 
+        switch (partie->niveau.perso.vies) {
+            case 3 :
+                gotoligcol(29, 89);
+                printf("%c %c %c", 3, 3, 3);
+                break;
+            case 2 :
+                gotoligcol(29, 89);
+                printf("     ");
+                gotoligcol(29, 89);
+                printf("  %c %c", 3, 3);
+                break;
+            case 1 :
+                gotoligcol(29, 89);
+                printf("     ");
+                gotoligcol(29, 89);
+                printf("    %c", 3);
+                break;
+        }
+
         if ((i < 23 || (i >= 44 && i < 93) ||
              (i >= 114 && i < 137)) && partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
             partie->niveau.difPrecMillis = partie->niveau.difMillis;
