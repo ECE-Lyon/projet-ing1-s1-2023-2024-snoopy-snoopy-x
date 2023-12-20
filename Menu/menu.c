@@ -76,9 +76,11 @@ void afficherMenu() {
                                 case 2 : {
                                     PARTIE partie1 = niveau2(partie);
                                     PARTIE partie2 = niveau3(partie1);
-                                }
+                                    afficherMenu();
+                                } break;
                                 case 3 : {
                                     PARTIE partie2 = niveau3(partie);
+                                    afficherMenu();
                                 }
                                     break;
                                 default :
