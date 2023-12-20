@@ -147,6 +147,18 @@ void afficherMenu() {
                                 break;
                             }
                             jouerNiveau(&partie);
+                            switch(partie.niveauActuel) {
+                                case 2 : {
+                                    PARTIE partie1 = niveau2(partie);
+                                    PARTIE partie2 = niveau3(partie1);
+                                }
+                                case 3 : {
+                                    PARTIE partie2 = niveau3(partie);
+                                }
+                                    break;
+                                default :
+                                    printf("Erreur de niveau");
+                            }
                         }
 
                             break;

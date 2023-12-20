@@ -66,6 +66,7 @@ PARTIE chargerNiveau(FILE *fichier) {
     printf("\n%hd", partie.niveauActuel);
 
     fscanf(fichier, "coActuelles %hd %hd\n", &varNiveau.perso.co.X, &varNiveau.perso.co.Y);
+    short bugY = varNiveau.perso.co.Y, bugX = varNiveau.perso.co.X;
     fscanf(fichier, "pv %hd\n", &varNiveau.perso.vies);
     fscanf(fichier, "oiseaux");
     for(int i = 0; i < 4; i++) {
@@ -102,7 +103,8 @@ PARTIE chargerNiveau(FILE *fichier) {
     for (int i = 0; i < varNiveau.nbBlocs; i++) {
         varNiveau.tabBlocs[i] = tabBlocs[i + 1];
     }
-
+    varNiveau.perso.co.Y = bugY;
+    varNiveau.perso.co.X = bugX;
     partie.niveau = varNiveau;
     fclose(fichier);
     return partie;
