@@ -16,7 +16,6 @@ void jouerNiveau(PARTIE *partie) {
     struct timeval stop, startT, pause, finPause;
     gettimeofday(&startT, NULL);
     gettimeofday(&stop, NULL);
-    int tempsDebut = partie->niveau.tempsRestant;
 
 
     do {
@@ -56,21 +55,17 @@ void jouerNiveau(PARTIE *partie) {
                     exit(0);
                 }
                 case 'p' :
-                case 'P' :
-                    gettimeofday(&pause, NULL);
-                    int tempsDebut = partie->niveau.tempsRestant;
+                case 'P' : {
+                    time_t tempsDebutPause = time(NULL);
                     gotoligcol(5, 9);
                     printf("Jeu en pause, taper P pour continuer %ld\n", pause.tv_sec);
                     gotoligcol(5, 10);
                     while (!_kbhit());
-                    gettimeofday(&startT, NULL);
-                    gettimeofday(&stop, NULL);
-                    partie->niveau.difMillis =
-                            ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-                    partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
-                    //tempsEnPause += partie->niveau.tempsRestant - tempsDebut;
-                    partie->niveau.tempsRestant = tempsDebut;
+                    time_t tempsFinPause = time(NULL);
+                    time_t tempsDePause = difftime(tempsDebutPause, tempsFinPause);
+                    startT.tv_sec -= (int) tempsDePause;
                     break;
+                }
                 default :
                     deplacementPerso(&partie->niveau.perso, a, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
                     recupOiseaux(partie->niveau.oiseaux, partie->niveau.perso);
@@ -89,6 +84,8 @@ void jouerNiveau(PARTIE *partie) {
 
         partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
         partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
+
+
 
         if (partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
             partie->niveau.difPrecMillis = partie->niveau.difMillis;

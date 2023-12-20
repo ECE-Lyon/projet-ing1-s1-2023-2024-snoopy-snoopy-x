@@ -256,6 +256,12 @@ void coupe() {
            "                                ))<)))))))))))<<)                                \n"
            "                                      <<<<<                                      \n"
            "                                                                                 \n");
+    clock_t start,end;
+    start = clock();
+    end = clock();
+    while((end - start) <= 2*CLOCKS_PER_SEC) {
+        end = clock();
+    }
     while (!_kbhit());
 }
 
