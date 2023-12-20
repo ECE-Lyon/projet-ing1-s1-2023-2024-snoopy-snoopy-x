@@ -28,11 +28,11 @@ typedef struct Niveau {
     int pause;
     int tempsPause;
     int difMillis;
+    int difPrecMillis;
     int difTemps;
 }NIVEAU;
 
 NIVEAU initNiveau(short int niveau);
 
-void afficherTemps();
 
 #endif //PROJET_CHARGERNIVEAUX_H

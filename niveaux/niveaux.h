@@ -7,7 +7,6 @@
 
 //#include "../Menu/menu.h"
 
-
 void jouerNiveau(PARTIE* partie);
 
 #endif //PROJET_NIVEAUX_H
