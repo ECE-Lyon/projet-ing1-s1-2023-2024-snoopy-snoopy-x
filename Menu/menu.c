@@ -76,15 +76,24 @@ void afficherMenu() {
                                 case 2 : {
                                     PARTIE partie1 = niveau2(partie);
                                     PARTIE partie2 = niveau3(partie1);
+                                    int score = 0;
+                                    for(int i = 0; i < 3; i++) {
+                                        score += partie2.score[i];
+                                    }
+                                    score *= 100 * partie2.niveau.perso.vies;
+                                    coupe(score);
                                     afficherMenu();
                                 } break;
                                 case 3 : {
                                     PARTIE partie2 = niveau3(partie);
+                                    int score = 0;
+                                    for(int i = 0; i < 3; i++) {
+                                        score += partie2.score[i];
+                                    }
+                                    score *= 100 * partie2.niveau.perso.vies;
+                                    coupe(score);
                                     afficherMenu();
-                                }
-                                    break;
-                                default :
-                                    printf("Erreur de niveau");
+                                } break;
                             }
                         }
 
