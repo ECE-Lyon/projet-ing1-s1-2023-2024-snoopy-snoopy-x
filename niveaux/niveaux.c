@@ -6,6 +6,7 @@ void jouerNiveau(PARTIE *partie) {
     afficherCase();
     gotoligcol(5, 91);
     printf("%s%d",ANSI_YELLOW, partie->niveauActuel);
+    const int tempsRestantDebut = partie->niveau.tempsRestant;
     afficherBalles(partie->niveau.nbBalles, partie->niveau.tabBalles);
     BLOCSTEMPS blocstemps[137];
     partie->niveau.difPrecMillis = 0;
@@ -69,7 +70,6 @@ void jouerNiveau(PARTIE *partie) {
 
         blocPiege(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         tapisRoulant(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-        char key;
         char a;
         if (_kbhit()) {
             a = (char) getch();
@@ -107,7 +107,7 @@ void jouerNiveau(PARTIE *partie) {
         }
 
         partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-        partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
+        partie->niveau.tempsRestant = (tempsRestantDebut*1000 - partie->niveau.difMillis) / 1000;
 
 
         if ((i < 23 || (i >= 44 && i < 93) ||

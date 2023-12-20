@@ -7,7 +7,6 @@ NIVEAU initNiveau(short int niveau){
     // Initialisations ne dépendant pas du niveau
     varNiveau.perso.vies = 3;
     initOiseaux(varNiveau.oiseaux);
-    varNiveau.tempsRestant = 120;
 
     // Init dépendant de la mémoire :
     FILE *fichierNiveau = NULL;
@@ -91,6 +90,7 @@ NIVEAU initNiveau(short int niveau){
     for (int i = 0; i < varNiveau.nbBlocs; i++) {
         varNiveau.tabBlocs[i] = tabBlocs[i+1];
     }
+    varNiveau.tempsRestant = 120;
 
     return varNiveau;
 }
