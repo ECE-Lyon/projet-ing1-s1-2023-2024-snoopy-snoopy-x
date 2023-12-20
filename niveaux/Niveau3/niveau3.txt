@@ -1,7 +1,7 @@
-tpsBalle 3
+tpsBalle 5
 coDepart 4 4
 nbBalles 3 :
-co 2 2 dir 2
+co 2 2 dir 1
 co 3 4 dir 1
 co 9 1 dir 0
 0AAB0B00E0
