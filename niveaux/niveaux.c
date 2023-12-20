@@ -10,10 +10,7 @@ void jouerNiveau(PARTIE *partie) {
     BLOCSTEMPS blocstemps[137];
     partie->niveau.difPrecMillis = 0;
     int difPrecMillisBalle = 0;
-    int difMillis = 0;
-    int i = 0;
-    partie->niveau.tempsRestant = 120;
-    struct timeval stop, startT, pause, finPause;
+    struct timeval stop, startT, pause;
     gettimeofday(&startT, NULL);
     gettimeofday(&stop, NULL);
 
@@ -50,7 +47,7 @@ void jouerNiveau(PARTIE *partie) {
         gotoligcol(blocstemps[i].co.X, blocstemps[i].co.Y);
         printf("%s%c%s", ANSI_GREEN, CHAR_BLOC_FIXE, ANSI_GREEN);
     }
-
+    int i = 0;
 
     do {
         gettimeofday(&stop, NULL);
