@@ -62,7 +62,7 @@ void blocPoussable(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
             printf(" ");
             blocs[i].co.X = blocs[i].co.X - 2;
             gotoligcol(blocs[i].co.X, blocs[i].co.Y);
-            printf("%c", CHAR_BLOC_POUSSABLE);
+            printf("%s%c%s", ANSI_WHITE, CHAR_BLOC_POUSSABLE, ANSI_GREEN);
         }
         if (blocs[i].co.X == perso->co.X + 2 && blocs[i].co.Y == perso->co.Y && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
             blocs[i].deplacementRestant--;
@@ -70,7 +70,7 @@ void blocPoussable(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
             printf(" ");
             blocs[i].co.X = blocs[i].co.X + 2;
             gotoligcol(blocs[i].co.X, blocs[i].co.Y);
-            printf("%c", CHAR_BLOC_POUSSABLE);
+            printf("%s%c%s", ANSI_WHITE, CHAR_BLOC_POUSSABLE, ANSI_GREEN);
         }
         if (blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y + 4 && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
             blocs[i].deplacementRestant--;
@@ -78,7 +78,7 @@ void blocPoussable(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
             printf(" ");
             blocs[i].co.Y = blocs[i].co.Y + 4;
             gotoligcol(blocs[i].co.X, blocs[i].co.Y);
-            printf("%c", CHAR_BLOC_POUSSABLE);
+            printf("%s%c%s", ANSI_WHITE, CHAR_BLOC_POUSSABLE, ANSI_GREEN);
         }
         if (blocs[i].co.X == perso->co.X && blocs[i].co.Y == perso->co.Y - 4 && blocs[i].type == poussable && blocs[i].deplacementRestant >= 1) {
             blocs[i].deplacementRestant--;
@@ -86,7 +86,7 @@ void blocPoussable(PERSONNAGE *perso, BLOC blocs[], int nbBlocs){
             printf(" ");
             blocs[i].co.Y = blocs[i].co.Y - 4;
             gotoligcol(blocs[i].co.X, blocs[i].co.Y);
-            printf("%c", CHAR_BLOC_POUSSABLE);
+            printf("%s%c%s", ANSI_WHITE, CHAR_BLOC_POUSSABLE, ANSI_GREEN);
         }
     }
 }
