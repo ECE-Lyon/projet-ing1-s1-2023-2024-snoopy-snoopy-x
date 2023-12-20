@@ -6,7 +6,6 @@
 #define LINK 197
 #define BALL 207
 
-
 typedef struct Balle{
     COORD co;
     short int direction;

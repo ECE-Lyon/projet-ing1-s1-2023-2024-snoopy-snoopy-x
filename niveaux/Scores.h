@@ -3,6 +3,7 @@
 
 #include "../entitees/balle.h"
 #include "chargerNiveaux.h"
+#define ANSI_RED "\x1b[31m"
 
 
 void gameOver();

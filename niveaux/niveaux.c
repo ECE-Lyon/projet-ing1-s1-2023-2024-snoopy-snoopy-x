@@ -16,7 +16,6 @@ void jouerNiveau(PARTIE *partie) {
     struct timeval stop, startT, pause, finPause;
     gettimeofday(&startT, NULL);
     gettimeofday(&stop, NULL);
-    int tempsDebut = partie->niveau.tempsRestant;
 
     for (int i = 0; i < 137; ++i) {
         blocstemps[i].etatBloc = 1;
@@ -90,21 +89,17 @@ void jouerNiveau(PARTIE *partie) {
                     exit(0);
                 }
                 case 'p' :
-                case 'P' :
-                    gettimeofday(&pause, NULL);
-                    int tempsDebut = partie->niveau.tempsRestant;
+                case 'P' : {
+                    time_t tempsDebutPause = time(NULL);
                     gotoligcol(5, 9);
                     printf("Jeu en pause, taper P pour continuer %ld\n", pause.tv_sec);
                     gotoligcol(5, 10);
                     while (!_kbhit());
-                    gettimeofday(&startT, NULL);
-                    gettimeofday(&stop, NULL);
-                    partie->niveau.difMillis =
-                            ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
-                    partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
-                    //tempsEnPause += partie->niveau.tempsRestant - tempsDebut;
-                    partie->niveau.tempsRestant = tempsDebut;
+                    time_t tempsFinPause = time(NULL);
+                    time_t tempsDePause = difftime(tempsDebutPause, tempsFinPause);
+                    startT.tv_sec -= (int) tempsDePause;
                     break;
+                }
                 default :
                     deplacementPerso(&partie->niveau.perso, a, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
                     recupOiseaux(partie->niveau.oiseaux, partie->niveau.perso);
@@ -126,71 +121,18 @@ void jouerNiveau(PARTIE *partie) {
 
 
         if ((i < 23 || (i >= 44 && i < 93) ||
-            (i >= 114 && i < 137)) && partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
+             (i >= 114 && i < 137)) && partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
             partie->niveau.difPrecMillis = partie->niveau.difMillis;
             gotoligcol(blocstemps[i].co.X, blocstemps[i].co.Y);
             printf(" ");
             i++;
         }
         if (((i >= 23 && i < 44) ||
-            (i >= 93 && i < 115)) && partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
+             (i >= 93 && i < 115)) && partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
             partie->niveau.difPrecMillis = partie->niveau.difMillis;
             gotoligcol(blocstemps[i].co.X, blocstemps[i].co.Y);
             printf("   ");
             i++;
         }
-
-
-
-
-
-
-
-
-/*
-        if (partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
-            partie->niveau.difPrecMillis = partie->niveau.difMillis;
-            if (partie->niveau.tempsRestant == 119){
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 99 && partie->niveau.tempsRestant <= 120) {
-                gotoligcol(5, 93 + partie->niveau.i);
-                printf(" ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 99) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 81 && partie->niveau.tempsRestant <= 99) {
-                gotoligcol(6 + partie->niveau.i, 113);
-                printf("   ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 81) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 39 && partie->niveau.tempsRestant <= 81) {
-                gotoligcol(27, 115 - partie->niveau.i);
-                printf(" ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 39) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 21 && partie->niveau.tempsRestant <= 39) {
-                gotoligcol(26 - partie->niveau.i, 67);
-                printf("   ");
-                partie->niveau.i += 1;
-            }
-            if (partie->niveau.tempsRestant == 21) {
-                partie->niveau.i = 0;
-            }
-            if (partie->niveau.tempsRestant > 1 && partie->niveau.tempsRestant <= 21) {
-                gotoligcol(5, 67 + partie->niveau.i);
-                printf(" ");
-                partie->niveau.i += 1;
-            }
-        }
-*/
     } while (1);
 }

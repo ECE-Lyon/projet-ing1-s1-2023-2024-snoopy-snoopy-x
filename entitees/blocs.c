@@ -76,8 +76,8 @@ void afficherTousLesBlocs(BLOC bloc[], int nbBlocs) { // Affichage de tous les b
     for (int i = 0; i < nbBlocs; i++) {
         afficherBloc(&bloc[i]);
         // Pour afficher les blocs en haut pour débugger :
-        gotoligcol(i+15, 0);
-        printf("%d, %d, co : %hd %hd", bloc[i].existe, bloc[i].pv, bloc[i].co.X, bloc[i].co.Y);
+        //gotoligcol(i+15, 0);
+        //printf("%d, %d, co : %hd %hd", bloc[i].existe, bloc[i].pv, bloc[i].co.X, bloc[i].co.Y);
     }
 }
 
