@@ -48,7 +48,21 @@ void jouerNiveau(PARTIE *partie) {
         gotoligcol(blocstemps[i].co.X, blocstemps[i].co.Y);
         printf("%s%c%s", ANSI_GREEN, CHAR_BLOC_FIXE, ANSI_GREEN);
     }
-    int i = 0;
+
+    int i;
+    for (i = 0; i < 120 - partie->niveau.tempsRestant; ++i) {
+        if ((i < 23 || (i >= 44 && i < 93) ||
+             (i >= 114 && i < 137))) {
+            gotoligcol(blocstemps[i].co.X, blocstemps[i].co.Y);
+            printf(" ");
+        }
+        else if ((i >= 23 && i < 44) ||
+             (i >= 93 && i < 115)) {
+            gotoligcol(blocstemps[i].co.X, blocstemps[i].co.Y);
+            printf("   ");
+        }
+    }
+
 
     do {
         gettimeofday(&stop, NULL);
