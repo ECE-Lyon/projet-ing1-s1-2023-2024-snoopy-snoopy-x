@@ -32,5 +32,6 @@
 
 void quitter();
 void afficherMenu();
+void coupe();
 
 #endif

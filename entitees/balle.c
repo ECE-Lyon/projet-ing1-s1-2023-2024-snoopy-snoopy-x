@@ -24,7 +24,7 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
         }
     }else{
         gotoligcol(balle->co.X, balle->co.Y);
-        printf("%c", LINK);
+        printf("%c",LINK);
     }
     switch(balle->direction){
         case 0 : {
