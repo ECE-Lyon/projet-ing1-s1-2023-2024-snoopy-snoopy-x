@@ -32,7 +32,7 @@
 
 void quitter();
 void afficherMenu();
-void coupe();
+void coupe(int score);
 void menuEntreNiveaux();
 
 

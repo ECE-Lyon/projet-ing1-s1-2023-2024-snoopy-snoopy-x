@@ -14,7 +14,7 @@ void afficherMenu() {
     printf("%c", BALL);
 
     gotoligcol(0,0);
-    printf("%s%s", ANSI_RED
+    printf("%s", ANSI_RED
             "                       #                       \n"
            "                      ###                      \n"
            "                      # #                      \n"
@@ -99,7 +99,7 @@ void afficherMenu() {
     gotoligcol(MenuminX + 5, MenuminY + 11);
     printf("%s%s", ANSI_BLUE,"4.Mot de passe"ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 6, MenuminY + 13);
-    printf("%s%s", ANSI_RED,"5. Scores",ANSI_GREEN, ANSI_RESET);
+    printf("%s%s", ANSI_RED,"5. Scores (non disponible)",ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 7, MenuminY + 13);
     printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
@@ -131,13 +131,21 @@ void afficherMenu() {
                             PARTIE partie = niveau1();
                             PARTIE partie1 = niveau2(partie);
                             PARTIE partie2 = niveau3(partie1);
-                            //partie2;
-                            coupe();
+                            int score = 0;
+                            for(int i = 0; i < 3; i++) {
+                                score += partie2.score[i];
+                            }
+                            score *= 100 * partie2.niveau.perso.vies;
+                            coupe(score);
                             afficherMenu();
                             break;
                         }
                         case 2 :{
                             PARTIE partie = chargerNiveau(selectFichier());
+                            if(partie.niveauActuel == -1) {
+                                afficherMenu();
+                                break;
+                            }
                             jouerNiveau(&partie);
                         }
 
@@ -215,7 +223,7 @@ void afficherMenu() {
     }while (1);
 }
 
-void coupe() {
+void coupe(int score) {
     clearConsole();
     printf("                                                                                \n"
            "                                                                                 \n"
@@ -255,6 +263,7 @@ void coupe() {
            "                                ))<)))))))))))<<)                                \n"
            "                                      <<<<<                                      \n"
            "                                                                                 \n");
+    printf("\n\nScore : %d", score);
     clock_t start,end;
     start = clock();
     end = clock();
