@@ -54,9 +54,10 @@ FILE *selectFichier() {
 }
 
 PARTIE chargerNiveau(FILE *fichier) {
-    assert(fichier);
-    NIVEAU varNiveau;
     PARTIE partie;
+    partie.niveauActuel = -1;
+    if (fichier == NULL) return partie;
+    NIVEAU varNiveau;
 
     initOiseaux(varNiveau.oiseaux);
 

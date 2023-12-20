@@ -1,22 +1,23 @@
-niveau 1
-coActuelles 19 77
-pv 3
+niveau 2
+coActuelles 9 77
+pv 2
 oiseaux 0 0 0 0
 tpsBalle 5
-tpsRestant 114
+tpsRestant 117
 coDepart 9 77
-nbBalles 3 :
-co 10 91 dir 0
-co 18 75 dir 3
-co 24 83 dir 2
-0000000000
+nbBalles 1 :
+co 16 87 dir 2
+00000GH000
 00CC000000
-00BCEFG000
+0000000000
 00000AA000
 0000000000
-00AAAAAA00
 0000000000
-00BB0BB000
-00GH000000
+000CC00000
+00BB000000
+00000AAA00
+0000000000
+nbBlocs 13 :
+00000
 0AAAAAAAA0
 nbBlocs 29 :

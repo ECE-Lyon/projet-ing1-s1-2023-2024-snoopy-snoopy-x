@@ -6,6 +6,7 @@ PARTIE niveau1() {
     partie.niveau = initNiveau(1);
     partie.niveauActuel = 1;
     jouerNiveau(&partie);
+    partie.score[0] = partie.niveau.tempsRestant;
     clearConsole();
     printf("%s%s", ANSI_CYAN
                    "                       #                       \n"

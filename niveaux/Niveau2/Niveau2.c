@@ -4,6 +4,7 @@ PARTIE niveau2(PARTIE partie) {
     partie.niveau = initNiveau(2);
     partie.niveauActuel = 2;
     jouerNiveau(&partie);
+    partie.score[1] = partie.niveau.tempsRestant;
     clearConsole();
     printf("%s%s", ANSI_MAGENTA
                    "                       #                       \n"
