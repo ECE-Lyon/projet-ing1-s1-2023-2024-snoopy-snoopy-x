@@ -13,81 +13,6 @@ void afficherMenu() {
     gotoligcol(MenuminX + 2, MenuminY + 8);
     printf("%c", BALL);
 
-    gotoligcol(0,0);
-    printf("%s", ANSI_RED
-            "                       #                       \n"
-           "                      ###                      \n"
-           "                      # #                      \n"
-           "                     ## ##                     \n"
-           "                    ##   ##                    \n"
-           "                    ##    #                    \n"
-           "                   ##     ##                   \n"
-           "                   #       ##                  \n"
-           "                  #         #                  \n"
-           "  #################         ################# \n"
-           "    ##                                   ##   \n"
-           "      ###                             ###      \n"
-           "        ####                        ###        \n"
-           "           ###                   ###           \n"
-           "              ##               ###             \n"
-           "              ##                ##             \n"
-           "             ##                  #             \n"
-           "             #         ##        ##            \n"
-           "            ##      ### ###       ##           \n"
-           "            #     ###      ###    ##           \n"
-           "           ##  ###           ###   ##          \n"
-           "           # ###                ### #          \n"
-           "          ###                      ###         \n"
-           "          #                          #         ");
-    gotoligcol(0,70);
-    printf("                       #                       \n");
-    gotoligcol(1,70);
-    printf("                      ###                      \n");
-    gotoligcol(2,70);
-    printf("                      # #                      \n");
-    gotoligcol(3,70);
-    printf("                     ## ##                     \n");
-    gotoligcol(4,70);
-    printf("                    ##   ##                    \n");
-    gotoligcol(5,70);
-    printf("                    ##    #                    \n");
-    gotoligcol(6,70);
-    printf("                   ##     ##                   \n");
-    gotoligcol(7,70);
-    printf("                   #       ##                  \n");
-    gotoligcol(8,70);
-    printf("                  #         #                  \n");
-    gotoligcol(9,70);
-    printf("  #################         ################# \n");
-    gotoligcol(10,70);
-    printf("    ##                                   ##   \n");
-    gotoligcol(11,70);
-    printf("      ###                             ###      \n");
-    gotoligcol(12,70);
-    printf("        ####                        ###        \n");
-    gotoligcol(13,70);
-    printf("           ###                   ###           \n");
-    gotoligcol(14,70);
-    printf("              ##               ###             \n");
-    gotoligcol(15,70);
-    printf("              ##                ##             \n");
-    gotoligcol(16,70);
-    printf("             ##                  #             \n");
-    gotoligcol(17,70);
-    printf("             #         ##        ##            \n");
-    gotoligcol(18,70);
-    printf("            ##      ### ###       ##           \n");
-    gotoligcol(19,70);
-    printf("            #     ###      ###    ##           \n");
-    gotoligcol(20,70);
-    printf("           ##  ###           ###   ##          \n");
-    gotoligcol(21,70);
-    printf("           # ###                ### #          \n");
-    gotoligcol(22,70);
-    printf("          ###                      ###         \n");
-    gotoligcol(23,70);
-    printf("          #                          #         ");
-
     gotoligcol(MenuminX, MenuminY);
     printf("%s%s%s\n", ANSI_YELLOW, "Bienvenue dans la revanche de Snoopy.", ANSI_RESET);
     gotoligcol(MenuminX + 2, MenuminY + 10);
@@ -99,7 +24,7 @@ void afficherMenu() {
     gotoligcol(MenuminX + 5, MenuminY + 11);
     printf("%s%s", ANSI_BLUE,"4.Mot de passe"ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 6, MenuminY + 13);
-    printf("%s%s", ANSI_RED,"5. Scores (non disponible)",ANSI_GREEN, ANSI_RESET);
+    printf("%s%s", ANSI_RED,"5. Scores",ANSI_GREEN, ANSI_RESET);
     gotoligcol(MenuminX + 7, MenuminY + 13);
     printf("%s%s", ANSI_BLUE,"6. Quitter ");
 
