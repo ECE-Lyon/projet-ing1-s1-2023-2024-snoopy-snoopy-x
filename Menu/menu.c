@@ -129,6 +129,7 @@ void afficherMenu() {
                             break;
                         case 1 : {
                             PARTIE partie = niveau1();
+
                             PARTIE partie1 = niveau2(partie);
                             PARTIE partie2 = niveau3(partie1);
                             //partie2;
@@ -215,8 +216,9 @@ void afficherMenu() {
     }while (1);
 }
 
-void coupe(){
-        printf("                                                                                \n"
+void coupe() {
+    clearConsole();
+    printf("                                                                                \n"
            "                                                                                 \n"
            "                                                                                 \n"
            "                                 <)<<)))))))))))                                 \n"
@@ -254,5 +256,10 @@ void coupe(){
            "                                ))<)))))))))))<<)                                \n"
            "                                      <<<<<                                      \n"
            "                                                                                 \n");
-    while(!_kbhit());
+    while (!_kbhit());
+}
+
+
+void menuEntreNiveaux(){
+
 }

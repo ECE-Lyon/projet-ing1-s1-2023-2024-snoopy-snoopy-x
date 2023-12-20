@@ -33,5 +33,7 @@
 void quitter();
 void afficherMenu();
 void coupe();
+void menuEntreNiveaux();
+
 
 #endif
