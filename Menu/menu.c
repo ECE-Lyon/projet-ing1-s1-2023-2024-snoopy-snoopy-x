@@ -129,7 +129,6 @@ void afficherMenu() {
                             break;
                         case 1 : {
                             PARTIE partie = niveau1();
-
                             PARTIE partie1 = niveau2(partie);
                             PARTIE partie2 = niveau3(partie1);
                             //partie2;
