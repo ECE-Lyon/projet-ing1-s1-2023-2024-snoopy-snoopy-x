@@ -53,8 +53,6 @@ void jouerNiveau(PARTIE *partie) {
     do {
         gettimeofday(&stop, NULL);
 
-
-
         afficherTousLesBlocs(partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         afficherOiseaux(partie->niveau.oiseaux);
         if (oiseauxRecup(partie->niveau.oiseaux, partie->niveau.perso)) {
