@@ -3,6 +3,18 @@
 
 void gameOver(){
     clearConsole();
+    if(_kbhit()){
+        int key;
+        switch(key){
+            case 'm' :
+            case 'M' :
+                clearConsole();
+                afficherMenu();
+                break;
+            default :
+                break;
+        }
+    }
     gotoligcol( 2, 10);
     printf("%s", ANSI_RED);
     printf("                                                                                                  \n"
@@ -33,43 +45,15 @@ void gameOver(){
            "                     @@@@@@@@            @@         @@@@@@@@@@@   @@@        :@@                  \n"
            "                                                                                                  \n");
 
-    gotoligcol(35,30);
-    printf("APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU.\n\n\n");
+    gotoligcol(35,20);
+    printf("LE JEU VA MAINTENANT SE FERMER... A BIENTOT AVENTURIER !\n\n\n");
 
-          /* "                            ..@@@@@@@@#,          \n"
-           "                         ..@@@@@@@@@@@@@@@.       \n"
-           "             ...@@@@@@@@@@@@@@@@@@@@@@@@@@@*.     \n"
-           "           .%@@@@@@@@@@@@@@@@@@@@@@@@@@@@&@@..    \n"
-           "         ..@@@@@@@@@@@@@@..@@@@@@@@@@@,.....@.    \n"
-           "        ..@@@@@@@@@@@@@@@@@@@@@@@@@.@..%....@*.   \n"
-           "      .@.&@@@@@@@@@@@@@@@@@@@@@@@@.@..%.....@.,   \n"
-           "    .@ ..,@@@@@@@@@@@@@@@@@@@/%@@@.@.......@@.    \n"
-           "     ... ,.&@@@@@@@@@@@@@@@@.@@@@@.@......@,.     \n"
-           "             ,...,%@@@@@,,@@@@@@@. .@@@@@..       \n"
-           "                        ../@@@/,      .           \n"
-           "                          .,...                   \n"
-           "                          .@@@.%                  \n"
-           "                        .@@@@@%.                  \n"
-           "                       .@@@@@@@&.                 \n"
-           "                      .@@@@@%@@@@.                \n"
-           "                      .@@@@@,@@@(..               \n"
-           "                      .@@@@@.@@@ @.               \n"
-           "                        ...*@....*.#@@@&          \n"
-           "                   *.,,.,.,@@.@@.    .,.          \n"
-           "               .@@@&.&@@@@@@@@@@@@@@.*            \n"
-           "               .  ,.%.@@/@@@@@@@@@....            "*/
-    while(!_kbhit());
-    if(!_kbhit()){
-        int key;
-        switch(key){
-            case 'm' :
-            case 'M' :
-                clearConsole();
-                afficherMenu();
-                break;
-            default :
-                break;
-        }
+    clock_t start,end;
+    start = clock();
+    end = clock();
+    while((end-start) <= 5*CLOCKS_PER_SEC) {
+        end = clock();
     }
+    exit(0);
 }
 

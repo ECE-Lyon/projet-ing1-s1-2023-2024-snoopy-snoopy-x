@@ -62,8 +62,6 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
             break;
         }
         case 2 : {
-            gotoligcol(0, 0);
-            printf("%hd, %hd", blocs[0].co.X, blocs[0].co.Y);
             if(balle->co.X >= 25 || collisionBlocs(balle->co.X + 1, balle->co.Y + 2, blocs, nbBlocs)){
                 balle->direction = 1;
                 balle->co.X -= 1;

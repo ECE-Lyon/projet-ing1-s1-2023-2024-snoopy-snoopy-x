@@ -31,8 +31,6 @@ NIVEAU initNiveau(short int niveau){
     varNiveau.perso.co.Y = (short) convCoY(varNiveau.perso.co.Y);
     varNiveau.perso.initX = varNiveau.perso.co.X;
     varNiveau.perso.initY = varNiveau.perso.co.Y;
-    gotoligcol(1, 0);
-    printf("Co depart 1 : %d, %d", varNiveau.perso.co.X, varNiveau.perso.co.Y);
 
     fscanf(fichierNiveau, "\nnbBalles %hd :", &varNiveau.nbBalles);
     varNiveau.tabBalles = calloc(varNiveau.nbBalles, sizeof(BALLE)); // tableau de taille dynamique (ya ptetr le cours sur boostcamp)

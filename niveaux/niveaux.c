@@ -71,9 +71,6 @@ void jouerNiveau(PARTIE *partie) {
         printf("O");
 
         blocPiege(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-        gotoligcol(23, 21);
-        printf("PV : %d", partie->niveau.perso.vies);
-
         tapisRoulant(&partie->niveau.perso, partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         char key;
         char a;
@@ -92,9 +89,10 @@ void jouerNiveau(PARTIE *partie) {
                 case 'P' : {
                     time_t tempsDebutPause = time(NULL);
                     gotoligcol(5, 9);
-                    printf("Jeu en pause, taper P pour continuer %ld\n", pause.tv_sec);
-                    gotoligcol(5, 10);
+                    printf("Jeu en pause, appuyez sur une touche pour continuer.");
                     while (!_kbhit());
+                    gotoligcol(5, 9);
+                    printf("                                                    ");
                     time_t tempsFinPause = time(NULL);
                     time_t tempsDePause = difftime(tempsDebutPause, tempsFinPause);
                     startT.tv_sec -= (int) tempsDePause;
@@ -107,14 +105,9 @@ void jouerNiveau(PARTIE *partie) {
             }
         }
 
-        if (partie->niveau.perso.vies == 0 || partie->niveau.tempsRestant == -1) {
+        if (partie->niveau.perso.vies == 0 || partie->niveau.tempsRestant == 0) {
             gameOver();
         }
-        gotoligcol(0, 0);
-        printf("Pause ? : %d\n", partie->niveau.pause);
-        printf("temps restant : %d  \n", partie->niveau.tempsRestant);
-        printf("temps Pause : %d\n", partie->niveau.tempsPause);
-        printf("temps diftemps : %d\n", partie->niveau.difTemps);
 
         partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
         partie->niveau.tempsRestant = (TEMPS_MAX_MILLIS - partie->niveau.difMillis) / 1000;
