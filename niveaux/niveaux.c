@@ -92,6 +92,9 @@ void jouerNiveau(PARTIE *partie) {
 
         if (partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
             partie->niveau.difPrecMillis = partie->niveau.difMillis;
+            if (partie->niveau.tempsRestant == 119){
+                partie->niveau.i = 0;
+            }
             if (partie->niveau.tempsRestant > 99 && partie->niveau.tempsRestant <= 120) {
                 gotoligcol(5, 93 + partie->niveau.i);
                 printf(" ");
