@@ -164,7 +164,7 @@ void afficherMenu() {
                             break;
                         case 3 :
                             motDePasse();
-                            //TODO: password():
+                            afficherMenu();
                             break;
                         case 4 :
                             //TODO: highScores();
