@@ -5,10 +5,10 @@ void rObjectifs(){
     gotoligcol(5, 0);
     printf("LES OBJECTIFS :\n\n"
            "Pour remporter la partie, vous devez recuperer les 4 oiseaux disposes aux extremites du plateau.\n"
-           "Pour ce faire, aller voir la rubrique DEPLACEMENTS des regles du jeu.\n"
+           "Pour ce faire, aller voir la rubrique LES TOUCHES des regles du jeu.\n"
            "Cependant, prenez garde aux obstacles pouvant se presenter devant vous :\n"
-           "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau1 et si elles vous touche vous predez une vie.\n"
-           " \n"
+           "-La/Les balle(s) vous poursuivra(ont) tout au long du niveau et si elles vous touche vous perdrez une vie.\n"
+           " Si vous perdez vos 3 vies, c'est la defaite ! Bonne chance Aventurier  !\n\n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){
@@ -26,6 +26,8 @@ void rTouches(){
            "Pour vous deplacer vers la droite :\tD \n"
            "Pour vous deplacer vers le bas :\tS \n"
            "Pour faire une action :\t\t\tE \n"
+           "Pour mettre en pause votre partie :\tP\n"
+           "Pour Sauvegarder votre partie : \tN\n"
            "Pour fermer le jeu :\t\t\tX\n"
            "Pour revenir au menu :\t\t\tM \n\n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
@@ -42,13 +44,14 @@ void rBlocs(){
     gotoligcol(5, 0);
     printf("LES BLOCS :\n\n"
            "Il y a plusieurs blocs disponibles differents : \n");
-    printf(" -Les blocs que vous ne pourrez ni deplacer ni traverser :  %c\n",CHAR_BLOC_FIXE);
-    printf(" -Les blocs que vous pourrez casser pour vous frayez un chemin  qui seront d'abord comme cela :  %c \n"
-           "\t avant d'etre comme cela :  %c \n "
-           "\t puis se detruirons\n ",CHAR_BLOC_CASSABLE_NEUF, CHAR_BLOC_CASSABLE_ABIME);
-    printf(" -Les blocs que vous pourrez deplacer et qui seront immobiles :  %c \n",CHAR_BLOC_POUSSABLE);
-    printf(" -Les blocs pieges qui vous feront directement perdre la partie :  %c\n\n" ,CHAR_BLOC_PIEGE);
-           printf( "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
+    printf(" -Les blocs que vous ne pourrez ni deplacer ni traverser : \t\t\t\t\t%c\n",CHAR_BLOC_FIXE);
+    printf(" -Les blocs que vous pourrez casser pour vous frayez un chemin  qui seront d'abord comme cela :\t%c \n"
+           "\t avant d'etre comme cela : \t\t\t\t\t\t\t\t%c \n "
+           "\t puis se detruirons\n",CHAR_BLOC_CASSABLE_NEUF, CHAR_BLOC_CASSABLE_ABIME);
+    printf(" -Les blocs que vous pourrez deplacer une seule fois dans toutes les directions : \t\t%c \n",CHAR_BLOC_POUSSABLE);
+    printf(" -Les blocs pieges qui vous feront directement perdre une vie : \t\t\t\t%c\n" ,CHAR_BLOC_PIEGE);
+    printf(" -Les blocs blocs tapis roulants qui vous deplacent sur la case pointee : \t\t     %c %c %c %c\n\n" , CHAR_BLOC_TAPIS_DROIT, CHAR_BLOC_TAPIS_GAUCHE, CHAR_BLOC_TAPIS_HAUT, CHAR_BLOC_TAPIS_BAS);
+    printf( "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){
         clearConsole();
@@ -62,9 +65,9 @@ void rScore(){
     gotoligcol(5, 0);
     printf("LE SCORE :\n\n"
            "Le score sera calcule en fonction du temps mis pour realiser les niveaux.\n"
-           "Plus vous serez rapide, plus il sera eleve. \n"
-           "Le score sera cumule sur les differents niveaux.\n"
-           " \n"
+           "Plus vous serez rapide, plus votre score sera eleve. \n"
+           "Le score final sera le cumule des scores obtenus sur les differents niveaux.\n"
+           "Le calcul du score est :\t( T1 + T2 + T3 + T4 ) * Vies Restantes * 100\n\n"
            "APPUYER SUR UNE TOUCHE POUR REVENIR AU MENU DES REGLES.");
     while(!_kbhit());
     if(_kbhit()){

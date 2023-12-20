@@ -25,13 +25,6 @@ void afficherCase() {
     }
     printf("%c", DOUBLEANGLEBASDROITE);
 
-    for(int i = 0; i < 23; i++){
-        for (int j = 0; j < 49; ++j) {
-            gotoligcol(TableauminX - 1 + i, TableauminY - 3 + j);
-            printf("%s%c",ANSI_CYAN, CHAR_BLOC_FIXE);
-        }
-    }
-
     gotoligcol(TableauminX, TableauminY);
     printf("%s%c", ANSI_GREEN, DOUBLEANGLEHAUTGAUCHE);
     for (int m = 0; m < 41; ++m) {
