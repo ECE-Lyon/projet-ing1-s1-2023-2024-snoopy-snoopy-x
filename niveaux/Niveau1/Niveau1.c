@@ -41,7 +41,7 @@ PARTIE niveau1() {
     gotoligcol(menuMinX + 2, menuMinY + 4);
     printf("%s%s", ANSI_BLUE, "Le mot de passe est : chien");
     gotoligcol(menuMinX + 3, menuMinY - 3);
-    printf("%s%s", ANSI_BLUE, "Lancecement du niveau suivant dans 5 secondes !\n", ANSI_GREEN, ANSI_RESET);
+    printf("%s%s", ANSI_BLUE, "Lancement du niveau suivant dans 5 secondes !\n", ANSI_GREEN, ANSI_RESET);
 
 
     clock_t start, end;

@@ -95,6 +95,7 @@ void checkDeplacementBalle(BALLE *balle, PERSONNAGE *perso, BLOC blocs[], int nb
             balle->co.Y -= 2;
             break;
         }
+        default : exit(100000);
     }
     gotoligcol(balle->co.X, balle->co.Y);
     printf("%s%c",ANSI_CYAN, 207);

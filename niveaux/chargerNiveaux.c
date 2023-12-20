@@ -1,7 +1,8 @@
 #include "chargerNiveaux.h"
 
 
-NIVEAU initNiveau(short int niveau){
+NIVEAU
+initNiveau(short int niveau){
     NIVEAU varNiveau;
 
     // Initialisations ne dépendant pas du niveau

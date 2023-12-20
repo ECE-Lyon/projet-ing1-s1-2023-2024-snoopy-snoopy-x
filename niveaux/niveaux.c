@@ -11,7 +11,7 @@ void jouerNiveau(PARTIE *partie) {
     BLOCSTEMPS blocstemps[137];
     partie->niveau.difPrecMillis = 0;
     int difPrecMillisBalle = 0;
-    struct timeval stop, startT, pause;
+    struct timeval stop, startT;
     gettimeofday(&startT, NULL);
     gettimeofday(&stop, NULL);
 
@@ -53,11 +53,7 @@ void jouerNiveau(PARTIE *partie) {
     do {
         gettimeofday(&stop, NULL);
 
-        if (partie->niveau.difMillis >= difPrecMillisBalle + 1000 / partie->niveau.tpsBalle) {
-            difPrecMillisBalle = partie->niveau.difMillis;
-            checkDeplacementToutesBalles(partie->niveau.nbBalles, partie->niveau.tabBalles, &partie->niveau.perso,
-                                         partie->niveau.tabBlocs, partie->niveau.nbBlocs);
-        }
+
 
         afficherTousLesBlocs(partie->niveau.tabBlocs, partie->niveau.nbBlocs);
         afficherOiseaux(partie->niveau.oiseaux);
@@ -109,6 +105,11 @@ void jouerNiveau(PARTIE *partie) {
         partie->niveau.difMillis = ((stop.tv_sec - startT.tv_sec) * 1000000 + stop.tv_usec - startT.tv_usec) / 1000;
         partie->niveau.tempsRestant = (tempsRestantDebut*1000 - partie->niveau.difMillis) / 1000;
 
+        if (partie->niveau.difMillis >= difPrecMillisBalle + 1000 / partie->niveau.tpsBalle) {
+            difPrecMillisBalle = partie->niveau.difMillis;
+            checkDeplacementToutesBalles(partie->niveau.nbBalles, partie->niveau.tabBalles, &partie->niveau.perso,
+                                         partie->niveau.tabBlocs, partie->niveau.nbBlocs);
+        }
 
         if ((i < 23 || (i >= 44 && i < 93) ||
              (i >= 114 && i < 137)) && partie->niveau.difMillis >= partie->niveau.difPrecMillis + 857) {
