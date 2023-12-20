@@ -18,8 +18,6 @@ initNiveau(short int niveau){
             fichierNiveau = fopen("..\\niveaux\\Niveau2\\niveau2.txt", "r"); break;
         case 3 :
             fichierNiveau = fopen("..\\niveaux\\Niveau3\\niveau3.txt", "r"); break;
-        case 4 :
-            //fichierNiveau = fopen("../niveaux/Niveau4.txt", "r"); break;
         default :
             assert(!"Niveau non existant");
     }

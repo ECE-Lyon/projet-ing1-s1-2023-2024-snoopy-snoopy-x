@@ -4,10 +4,6 @@
 void motDePasse() {
     clearConsole();
     gotoligcol(5, 0);
-    char chien[] = {"chien"};
-    char chat[] = {"chat"};
-    char cheval[] = {"cheval"};
-    char cochon[] = {"cochon"};
     char mdp[10];
     gotoligcol(25, 83);
     printf("SAISISSEZ 'E' COMME MOT DE PASSE POUR RETOURNER AU MENU");

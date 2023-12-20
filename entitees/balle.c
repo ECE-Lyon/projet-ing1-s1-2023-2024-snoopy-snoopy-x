@@ -1,11 +1,5 @@
 #include "balle.h"
 
-void initBalle(BALLE *balle, int X, int Y){                 //initialistation de la structure de la balle
-    balle->co.X = X;                                        //Coordonnées X
-    balle->co.Y = Y;                                        //Coordonnées Y
-    balle->direction = 2;                                   //Variable de direction de la balle
-}
-
 void afficherBalles(short nbBalles, BALLE* balle) {
     for(int i = 0; i < nbBalles; i++) {
         gotoligcol(balle[i].co.X, balle[i].co.Y);

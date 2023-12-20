@@ -220,8 +220,3 @@ void coupe(int score) {
     }
     while (!_kbhit());
 }
-
-
-void menuEntreNiveaux(){
-
-}

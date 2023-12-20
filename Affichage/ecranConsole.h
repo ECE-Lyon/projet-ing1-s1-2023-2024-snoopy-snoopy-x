@@ -9,4 +9,4 @@ void gotoligcol(int lig, int col);
 
 void clearConsole();
 
-#endif //PROJET_ECRANCONSOLE_H
+#endif

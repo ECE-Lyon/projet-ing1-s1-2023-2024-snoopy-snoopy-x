@@ -5,7 +5,6 @@
 #include "../sauvegardes/sauvegardes.h"
 #include "Scores.h"
 
-//#include "../Menu/menu.h"
 typedef struct BLOCSTEMPS {
     short etatBloc;
     COORD co;

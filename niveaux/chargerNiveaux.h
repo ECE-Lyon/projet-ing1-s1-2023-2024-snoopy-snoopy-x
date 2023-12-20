@@ -6,10 +6,6 @@
 
 
 
-#define TEMPS_MAX_MILLIS 120000
-#define TEMPS_MAX 180
-
-
 typedef struct Niveau {
     PERSONNAGE perso;
     short nbBalles;

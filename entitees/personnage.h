@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include "../Affichage/ecranConsole.h"
 #include "blocs.h"
-//#include "consoleDebug/consoleDebug.h"
 
 
 typedef struct Personnage{
