@@ -132,7 +132,8 @@ void afficherMenu() {
                             PARTIE partie1 = niveau2(partie);
                             PARTIE partie2 = niveau3(partie1);
                             //partie2;
-                            return;
+                            afficherMenu();
+                            break;
                         }
                         case 2 :{
                             PARTIE partie = chargerNiveau(selectFichier());

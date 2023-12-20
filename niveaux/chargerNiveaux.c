@@ -6,7 +6,6 @@ NIVEAU initNiveau(short int niveau){
 
     // Initialisations ne dépendant pas du niveau
     varNiveau.perso.vies = 3;
-    varNiveau.tempsRestant = 0;
     initOiseaux(varNiveau.oiseaux);
     varNiveau.tempsRestant = 120;
 
